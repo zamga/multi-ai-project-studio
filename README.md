@@ -4,10 +4,10 @@ A powerful Streamlit application that orchestrates multiple AI providers (OpenAI
 
 ## Features
 
-- **GPT-4o (OpenAI)**: Advanced ideation and creative planning
-- **Claude 3.5 Sonnet (Anthropic)**: Expert code generation and refactoring
-- **Grok (xAI)**: Real-time research and information gathering
-- **Gemini 1.5 Pro (Google)**: Long-context document analysis and summarization
+- **GPT-5 (OpenAI)**: Latest and most advanced OpenAI model for ideation and creative planning
+- **Claude Sonnet 4.5 (Anthropic)**: Expert code generation and refactoring
+- **Grok 4 (xAI)**: Latest xAI model for real-time research and information gathering
+- **Gemini 2.0 Flash (Google)**: Fastest and latest Google model for document analysis
 - **File Upload Support**: Upload PDFs and text documents for AI analysis
 - **Real-time File Monitoring**: Automatic detection of file system changes
 
@@ -53,10 +53,10 @@ GEMINI_API_KEY=your_gemini_api_key_here
 You can override the default models by setting these environment variables:
 
 ```bash
-IDEATION_MODEL=gpt-4o                      # Default: gpt-4o
+IDEATION_MODEL=gpt-5                       # Default: gpt-5
 CODE_MODEL=claude-sonnet-4-5-20250929      # Default: claude-sonnet-4-5-20250929
-RESEARCH_MODEL=grok-beta                   # Default: grok-beta
-DOCS_MODEL=gemini-1.5-pro                  # Default: gemini-1.5-pro
+RESEARCH_MODEL=grok-4                      # Default: grok-4
+DOCS_MODEL=gemini-2.0-flash-exp            # Default: gemini-2.0-flash-exp
 ```
 
 ## Usage
@@ -82,10 +82,10 @@ python test_api.py
 1. Enter a project goal (e.g., "Build IPO predictor")
 2. Optionally upload supporting documents (PDFs, text files)
 3. The application simultaneously queries all four AI providers:
-   - **GPT-4o** generates creative ideas and analysis
-   - **Claude 3.5 Sonnet** produces Python code implementations
-   - **Grok** conducts background research
-   - **Gemini 1.5 Pro** analyzes documents with long-context understanding
+   - **GPT-5** generates creative ideas and analysis
+   - **Claude Sonnet 4.5** produces Python code implementations
+   - **Grok 4** conducts background research
+   - **Gemini 2.0 Flash** analyzes documents with fast processing
 4. Results are displayed in separate sections for each AI provider
 5. Uploaded files are saved to the `uploads/` directory
 
@@ -98,7 +98,7 @@ python test_api.py
 
 ## Models Used
 
-- **OpenAI GPT-4o**: Latest and most powerful OpenAI model for ideation
+- **OpenAI GPT-5**: Latest and most powerful OpenAI model for ideation
 - **Anthropic Claude Sonnet 4.5**: State-of-the-art code generation (September 2025 version)
-- **xAI Grok Beta**: Latest Grok model for research and current information
-- **Google Gemini 1.5 Pro**: Advanced long-context model for document analysis
+- **xAI Grok 4**: Latest Grok model for research and current information
+- **Google Gemini 2.0 Flash**: Fastest and latest Google model for document analysis

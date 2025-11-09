@@ -55,7 +55,7 @@ if prompt or uploaded_file:
         if not openai_key:
             st.error("OpenAI API key missing in environment")
         else:
-            openai_model = os.getenv("IDEATION_MODEL", "gpt-4o")
+            openai_model = os.getenv("IDEATION_MODEL", "gpt-5")
             st.write(f"**[OpenAI {openai_model}]** Generating ideas...")
             try:
                 gpt = ChatOpenAI(api_key=openai_key, model=openai_model)
@@ -95,7 +95,7 @@ if prompt or uploaded_file:
         else:
             st.write("**[Grok]** Researching...")
             try:
-                grok_model = os.getenv("RESEARCH_MODEL", "grok-beta")
+                grok_model = os.getenv("RESEARCH_MODEL", "grok-4")
                 grok_response = requests.post(
                     "https://api.x.ai/v1/chat/completions",
                     headers={
@@ -126,9 +126,9 @@ if prompt or uploaded_file:
         if not gemini_key:
             st.error("Gemini API key missing in environment")
         else:
-            st.write("**[Gemini 1.5 Pro]** Analyzing documents...")
+            st.write("**[Gemini 2.0 Flash]** Analyzing documents...")
             try:
-                gemini_model_name = os.getenv("DOCS_MODEL", "gemini-1.5-pro")
+                gemini_model_name = os.getenv("DOCS_MODEL", "gemini-2.0-flash-exp")
                 genai.configure(api_key=gemini_key)
                 gemini_model = genai.GenerativeModel(gemini_model_name)
                 
