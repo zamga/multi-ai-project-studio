@@ -3,28 +3,56 @@ import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export function Home() {
+  const principles = [
+    {
+      title: 'Discretion first',
+      description: 'Every engagement is conducted with complete confidentiality and professional discretion.',
+    },
+    {
+      title: 'Senior attention',
+      description: 'Partners lead every mandate from initial assessment through execution and close.',
+    },
+    {
+      title: 'Independent advice',
+      description: 'No conflicts, no product sales. Our only incentive is your successful outcome.',
+    },
+    {
+      title: 'Execution certainty',
+      description: 'We structure transactions and processes to maximize probability of completion.',
+    },
+  ]
+
   const transactions = [
-    { company: 'TechCorp Industries', type: 'M&A Advisory', value: '$2.4B', year: '2024' },
-    { company: 'Global Manufacturing Ltd', type: 'Restructuring', value: '$850M', year: '2024' },
-    { company: 'FinServ Group', type: 'IPO Advisory', value: '$1.2B', year: '2023' },
-    { company: 'RetailCo International', type: 'Buy-Side Advisory', value: '$650M', year: '2023' },
+    { 
+      description: 'Sell-side advisory for mid-market technology company',
+      type: 'Cross-border strategic acquisition',
+    },
+    { 
+      description: 'Operational restructuring for global manufacturing business',
+      type: 'Balance sheet optimization and stakeholder alignment',
+    },
+    { 
+      description: 'IPO advisory for financial services platform',
+      type: 'Public listing and capital raise',
+    },
+    { 
+      description: 'Buy-side advisory for international retail group',
+      type: 'Strategic acquisition and integration planning',
+    },
   ]
 
   const insights = [
     {
       title: 'Navigating Market Volatility in M&A',
       category: 'M&A Advisory',
-      date: 'October 2024',
     },
     {
       title: 'Capital Structure Optimization for Growth',
       category: 'Public Markets',
-      date: 'September 2024',
     },
     {
       title: 'Operational Restructuring Best Practices',
       category: 'Restructuring',
-      date: 'August 2024',
     },
   ]
 
@@ -32,17 +60,17 @@ export function Home() {
     {
       name: 'Michael Chen',
       title: 'Managing Partner, M&A',
-      background: 'Former Goldman Sachs MD, 20+ years in M&A advisory',
+      background: 'Former Goldman Sachs Managing Director specializing in M&A advisory',
     },
     {
       name: 'Sarah Williams',
       title: 'Partner, Restructuring',
-      background: 'Ex-McKinsey Principal, specialized in operational turnarounds',
+      background: 'Ex-McKinsey Principal specialized in operational turnarounds',
     },
     {
       name: 'David Rodriguez',
       title: 'Partner, Capital Markets',
-      background: 'Former Morgan Stanley VP, 15+ years in public offerings',
+      background: 'Former Morgan Stanley Vice President in public offerings',
     },
   ]
 
@@ -89,23 +117,29 @@ export function Home() {
 
       <section className="py-20 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-            <div>
-              <div className="text-display-lg font-display text-neutral-950 mb-2">$12B+</div>
-              <div className="text-body-sm text-neutral-600">Transaction value</div>
-            </div>
-            <div>
-              <div className="text-display-lg font-display text-neutral-950 mb-2">150+</div>
-              <div className="text-body-sm text-neutral-600">Engagements completed</div>
-            </div>
-            <div>
-              <div className="text-display-lg font-display text-neutral-950 mb-2">28</div>
-              <div className="text-body-sm text-neutral-600">Years in practice</div>
-            </div>
-            <div>
-              <div className="text-display-lg font-display text-neutral-950 mb-2">100%</div>
-              <div className="text-body-sm text-neutral-600">Client confidentiality</div>
-            </div>
+          <div className="mb-12">
+            <h2 className="font-display text-display-md text-neutral-950 mb-3">Why clients choose us</h2>
+            <p className="text-body-sm text-neutral-600">
+              Detailed case studies and references available under NDA.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {principles.map((principle, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-2">
+                  {principle.title}
+                </h3>
+                <p className="text-body-sm text-neutral-600 leading-relaxed">
+                  {principle.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -214,26 +248,16 @@ export function Home() {
             {transactions.map((transaction, index) => (
               <motion.div
                 key={index}
-                className="flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-neutral-200 last:border-0"
+                className="py-6 border-b border-neutral-200 last:border-0"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                <div className="flex-1">
-                  <h3 className="font-sans font-medium text-body-lg text-neutral-950 mb-1">
-                    {transaction.company}
-                  </h3>
-                  <p className="text-body-sm text-neutral-600">{transaction.type}</p>
-                </div>
-                <div className="flex items-center gap-8 mt-4 md:mt-0">
-                  <div className="text-right">
-                    <div className="font-sans font-semibold text-body-lg text-neutral-950">
-                      {transaction.value}
-                    </div>
-                    <div className="text-body-sm text-neutral-600">{transaction.year}</div>
-                  </div>
-                </div>
+                <h3 className="font-sans font-medium text-body-lg text-neutral-950 mb-2">
+                  {transaction.description}
+                </h3>
+                <p className="text-body-sm text-neutral-600">{transaction.type}</p>
               </motion.div>
             ))}
           </div>
@@ -261,8 +285,6 @@ export function Home() {
               >
                 <div className="mb-4">
                   <span className="text-body-sm text-accent-600 font-medium">{insight.category}</span>
-                  <span className="text-body-sm text-neutral-400 mx-2">•</span>
-                  <span className="text-body-sm text-neutral-600">{insight.date}</span>
                 </div>
                 <h3 className="font-display text-display-md text-neutral-950 mb-3 group-hover:text-accent-600 transition-colors duration-150">
                   {insight.title}

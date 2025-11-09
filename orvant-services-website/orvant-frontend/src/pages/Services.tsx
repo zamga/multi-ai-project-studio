@@ -13,9 +13,9 @@ export function Services() {
       description: 'Strategic guidance through acquisitions, divestitures, and mergers. We structure deals, negotiate terms, and manage execution from LOI through close.',
       approach: 'We begin with a comprehensive assessment of strategic objectives and market positioning. Our team conducts rigorous valuation analysis, identifies optimal counterparties, and structures transactions to maximize value while managing risk. Throughout the process, we coordinate due diligence, negotiate terms, and oversee execution to ensure successful outcomes.',
       outcomes: [
-        'Average 18% premium to initial valuation targets',
-        'Median transaction timeline of 4.5 months',
-        '95% close rate on signed LOIs',
+        'Stronger negotiating position through rigorous preparation',
+        'Board alignment on strategic rationale and execution plan',
+        'Clean diligence files that accelerate closing timelines',
       ],
       capabilities: [
         'Buy-side and sell-side representation',
@@ -30,9 +30,9 @@ export function Services() {
       description: 'Operational and financial restructuring for companies in transition. We stabilize operations, optimize capital structure, and position for growth.',
       approach: 'Our restructuring engagements begin with rapid assessment of operational and financial challenges. We develop actionable turnaround plans, negotiate with stakeholders, and implement operational improvements. Our focus is on preserving value while creating a sustainable path forward.',
       outcomes: [
-        'Average 40% improvement in operating margins',
-        'Median debt reduction of 35%',
-        '85% of engagements achieve profitability within 12 months',
+        'Stabilized operations with sustainable cost structure',
+        'Stakeholder alignment and creditor confidence restored',
+        'Clear path to profitability and growth',
       ],
       capabilities: [
         'Operational turnaround planning',
@@ -47,9 +47,9 @@ export function Services() {
       description: 'Capital raising and IPO advisory for companies accessing public markets. We prepare companies for listing and manage the offering process.',
       approach: 'We assess IPO readiness across financial reporting, governance, and operational metrics. Our team prepares offering materials, coordinates with underwriters, and manages the roadshow process. Post-IPO, we provide ongoing support for investor relations and regulatory compliance.',
       outcomes: [
-        'Average first-day pop of 22%',
-        'Median offering size of $450M',
-        '100% successful completion rate',
+        'Market-ready narrative that resonates with institutional investors',
+        'Smooth execution from roadshow through pricing',
+        'Post-IPO stability and investor confidence',
       ],
       capabilities: [
         'IPO readiness assessment',
@@ -64,9 +64,9 @@ export function Services() {
       description: 'Financial reporting, audit preparation, and regulatory compliance. We ensure accuracy and transparency in financial operations.',
       approach: 'We establish robust financial reporting processes aligned with GAAP and IFRS standards. Our team coordinates audit preparation, implements internal controls, and ensures regulatory compliance. We provide ongoing support for complex accounting issues and technical guidance.',
       outcomes: [
-        'Zero material weaknesses in client audits',
-        'Average 30% reduction in close cycle time',
-        '100% on-time regulatory filing rate',
+        'Clean audit opinions with no material weaknesses',
+        'Efficient close processes and timely reporting',
+        'Regulatory compliance and stakeholder confidence',
       ],
       capabilities: [
         'GAAP and IFRS reporting',
@@ -81,9 +81,9 @@ export function Services() {
       description: 'End-to-end support for business acquisitions and divestitures with optimal terms and outcomes.',
       approach: 'We manage the complete transaction lifecycle from valuation through closing. Our team identifies qualified buyers or targets, prepares marketing materials, conducts negotiations, and coordinates legal and financial due diligence. We ensure smooth transitions and optimal value realization.',
       outcomes: [
-        'Average 25% above initial asking price',
-        'Median time to close of 5 months',
-        '90% seller satisfaction rate',
+        'Optimal valuation through competitive process',
+        'Qualified buyers with strategic fit and financing certainty',
+        'Smooth transition and value preservation',
       ],
       capabilities: [
         'Business valuation and pricing',
