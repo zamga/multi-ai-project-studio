@@ -1,0 +1,7 @@
+streamlit
+langchain-openai
+langchain-anthropic
+requests
+python-dotenv
+watchdog
+google-generativeai

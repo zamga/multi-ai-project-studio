@@ -1,5 +1,5 @@
 import streamlit as st
-from langchain_openai import OpenAI
+from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
 import requests
 from dotenv import load_dotenv
@@ -7,9 +7,22 @@ import os
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import atexit
+import google.generativeai as genai
 
 # Load environment variables
 load_dotenv()
+
+
+def get_env_key(primary_name, *fallback_names):
+    """Get environment variable with fallback names for flexibility."""
+    value = os.getenv(primary_name)
+    if value:
+        return value
+    for fallback in fallback_names:
+        value = os.getenv(fallback)
+        if value:
+            return value
+    return None
 
 
 # --- Watchdog handler for file changes ---
@@ -37,34 +50,37 @@ uploaded_file = st.file_uploader("Upload a file (e.g., S-1 PDF):", type=["pdf", 
 
 if prompt or uploaded_file:
     with st.spinner("Processing..."):
-        # --- GPT-5 (OpenAI) for ideation ---
-        openai_key = os.getenv("OPENAI_API_KEY")
+        # --- GPT-4o (OpenAI) for ideation ---
+        openai_key = get_env_key("OPENAI_API_KEY", "OPEN_AI")
         if not openai_key:
-            st.error("OpenAI API key missing in .env")
+            st.error("OpenAI API key missing in environment")
         else:
-            st.write("**[GPT-5]** Generating ideas...")
+            st.write("**[GPT-4o]** Generating ideas...")
             try:
-                gpt5 = OpenAI(api_key=openai_key)
-                gpt5_response = gpt5.invoke(prompt or "Analyze uploaded file")
-                st.write(gpt5_response)
+                openai_model = os.getenv("IDEATION_MODEL", "gpt-4o")
+                gpt4o = ChatOpenAI(api_key=openai_key, model=openai_model)
+                messages = [{"role": "user", "content": prompt or "Analyze uploaded file"}]
+                gpt4o_response = gpt4o.invoke(messages)
+                response_text = getattr(gpt4o_response, "content", None) or str(gpt4o_response)
+                st.write(response_text)
             except Exception as e:
                 st.error(f"OpenAI error: {str(e)}")
 
-        # --- Claude 4.5 Sonnet (Anthropic) for coding ---
-        anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+        # --- Claude 3.5 Sonnet (Anthropic) for coding ---
+        anthropic_key = get_env_key("ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY_")
         if not anthropic_key:
-            st.error("Anthropic API key missing in .env")
+            st.error("Anthropic API key missing in environment")
         else:
-            st.write("**[Claude Sonnet 4.5]** Generating code...")
+            st.write("**[Claude 3.5 Sonnet]** Generating code...")
             try:
+                claude_model = os.getenv("CODE_MODEL", "claude-3-5-sonnet-20241022")
                 claude = ChatAnthropic(
                     api_key=anthropic_key,
-                    model="claude-sonnet-4-5-20250929"
+                    model=claude_model
                 )
                 claude_response = claude.invoke(
                     f"Write Python code for: {prompt or 'Analyze uploaded file'}"
                 )
-                # Some APIs return .text or .content
                 code_str = getattr(claude_response, "content", None) or getattr(claude_response, "text", None)
                 if code_str is None:
                     st.error("No code content returned from Claude.")
@@ -74,20 +90,57 @@ if prompt or uploaded_file:
                 st.error(f"Anthropic error: {str(e)}")
 
         # --- Grok (xAI) for research ---
-        grok_key = os.getenv("GROK_API_KEY")
+        grok_key = get_env_key("GROK_API_KEY", "xai_api_key")
         if not grok_key:
-            st.error("Grok API key missing in .env")
+            st.error("Grok API key missing in environment")
         else:
             st.write("**[Grok]** Researching...")
             try:
+                grok_model = os.getenv("RESEARCH_MODEL", "grok-beta")
                 grok_response = requests.post(
-                    "https://api.x.ai/v1/grok",  # adjust if endpoint differs
-                    headers={"Authorization": f"Bearer {grok_key}"},
-                    json={"prompt": prompt or "Research uploaded file"}
-                ).json()
-                st.write(grok_response.get("response", "No response"))
+                    "https://api.x.ai/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {grok_key}",
+                        "Content-Type": "application/json"
+                    },
+                    json={
+                        "messages": [
+                            {"role": "system", "content": "You are a helpful research assistant."},
+                            {"role": "user", "content": prompt or "Research uploaded file"}
+                        ],
+                        "model": grok_model,
+                        "stream": False,
+                        "temperature": 0
+                    },
+                    timeout=30
+                )
+                if grok_response.status_code == 200:
+                    result = grok_response.json()
+                    content = result.get("choices", [{}])[0].get("message", {}).get("content", "No response")
+                    st.write(content)
+                else:
+                    st.error(f"Grok API error: {grok_response.status_code} - {grok_response.text}")
             except Exception as e:
                 st.error(f"Grok error: {str(e)}")
+
+        gemini_key = get_env_key("GEMINI_API_KEY", "GEMINI_FLASH_2_0_")
+        if not gemini_key:
+            st.error("Gemini API key missing in environment")
+        else:
+            st.write("**[Gemini 1.5 Pro]** Analyzing documents...")
+            try:
+                gemini_model_name = os.getenv("DOCS_MODEL", "gemini-1.5-pro")
+                genai.configure(api_key=gemini_key)
+                gemini_model = genai.GenerativeModel(gemini_model_name)
+                
+                gemini_prompt = prompt or "Analyze uploaded file"
+                if uploaded_file:
+                    gemini_prompt = f"Analyze this document and provide insights: {gemini_prompt}"
+                
+                gemini_response = gemini_model.generate_content(gemini_prompt)
+                st.write(gemini_response.text)
+            except Exception as e:
+                st.error(f"Gemini error: {str(e)}")
 
         # --- Handle uploaded file ---
         if uploaded_file:
