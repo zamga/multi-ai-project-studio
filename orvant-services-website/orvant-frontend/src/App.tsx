@@ -131,7 +131,7 @@ function Footer() {
             <ul className="space-y-3 text-body-sm">
               <li><Link to="/services" className="hover:text-white transition-colors duration-150">Accounting</Link></li>
               <li><Link to="/services" className="hover:text-white transition-colors duration-150">M&A Advisory</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors duration-150">Reconstruction</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors duration-150">Restructuring</Link></li>
               <li><Link to="/services" className="hover:text-white transition-colors duration-150">Buy/Sell Company</Link></li>
               <li><Link to="/services" className="hover:text-white transition-colors duration-150">Public Company Services</Link></li>
             </ul>
