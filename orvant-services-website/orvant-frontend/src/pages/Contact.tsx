@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Mail, ArrowRight, CheckCircle2, AlertCircle, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useDropzone } from 'react-dropzone'
+import { useSearchParams } from 'react-router-dom'
 import * as z from 'zod'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
@@ -23,6 +24,7 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>
 
 export function Contact() {
+  const [searchParams] = useSearchParams()
   const [files, setFiles] = useState<File[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -33,12 +35,23 @@ export function Contact() {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
       consent: false,
     },
   })
+
+  useEffect(() => {
+    const subject = searchParams.get('subject')
+    if (subject) {
+      const messagePrefix = subject === 'NDA case studies' 
+        ? 'I would like to request case studies under NDA. '
+        : `Re: ${subject}\n\n`
+      setValue('message', messagePrefix)
+    }
+  }, [searchParams, setValue])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: (acceptedFiles) => {
@@ -146,8 +159,8 @@ export function Contact() {
             <h1 className="font-display text-display-xl text-neutral-950 mb-6">
               Contact us
             </h1>
-            <p className="text-body-lg text-neutral-600">
-              Discuss your situation with our team. We approach each engagement with discretion and focus on measurable outcomes.
+            <p className="text-body-lg text-neutral-600 max-w-prose">
+              Discuss your situation with our team. We approach each engagement with discretion and focus on decisive outcomes.
             </p>
           </motion.div>
         </div>

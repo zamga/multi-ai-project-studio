@@ -107,7 +107,7 @@ export function Home() {
             className="max-w-4xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1 className="font-display text-display-xl text-neutral-950 mb-6">
               Advisory and capital for complex transitions
@@ -120,7 +120,7 @@ export function Home() {
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation"
               >
-                Discuss your situation
+                Start a confidential conversation
                 <ArrowRight className="ml-2" size={18} />
               </Link>
               <Link
@@ -163,30 +163,32 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-28 bg-white">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="mb-12">
+          <div className="mb-16">
             <h2 className="font-display text-display-lg text-neutral-950 mb-8">What we do</h2>
             
-            <div className="space-y-8">
+            <div className="space-y-10">
               <div>
-                <h3 className="font-sans font-medium text-body-md text-neutral-950 mb-4">Situations we specialize in</h3>
-                <div className="flex flex-wrap gap-2">
+                <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Situations we specialize in</p>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                   {situations.map((situation, index) => (
-                    <Badge key={index} variant="secondary" className="text-body-sm px-4 py-2 bg-neutral-100 text-neutral-700 border-0 hover:bg-neutral-200">
+                    <span key={index} className="text-body-sm text-neutral-700">
                       {situation}
-                    </Badge>
+                      {index < situations.length - 1 && <span className="ml-4 text-neutral-300">|</span>}
+                    </span>
                   ))}
                 </div>
               </div>
 
               <div>
-                <h3 className="font-sans font-medium text-body-md text-neutral-950 mb-4">Sectors served</h3>
-                <div className="flex flex-wrap gap-2">
+                <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Sectors served</p>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                   {sectors.map((sector, index) => (
-                    <Badge key={index} variant="secondary" className="text-body-sm px-4 py-2 bg-neutral-100 text-neutral-700 border-0 hover:bg-neutral-200">
+                    <span key={index} className="text-body-sm text-neutral-700">
                       {sector}
-                    </Badge>
+                      {index < sectors.length - 1 && <span className="ml-4 text-neutral-300">|</span>}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -218,31 +220,67 @@ export function Home() {
         </div>
       </section>
 
+      <section className="py-8 bg-white border-b border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-2">Operating standards</p>
+              <div className="flex flex-wrap items-center gap-x-3 text-body-sm text-neutral-700">
+                <span>Independence</span>
+                <span className="text-neutral-300">·</span>
+                <span>Senior-led execution</span>
+                <span className="text-neutral-300">·</span>
+                <span>Confidentiality</span>
+                <span className="text-neutral-300">·</span>
+                <span>Alignment</span>
+              </div>
+            </div>
+            <div>
+              <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-2">Where we operate</p>
+              <div className="flex flex-wrap items-center gap-x-3 text-body-sm text-neutral-700">
+                <span>Americas</span>
+                <span className="text-neutral-300">·</span>
+                <span>EMEA</span>
+                <span className="text-neutral-300">·</span>
+                <span>APAC</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 bg-white">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="mb-12">
             <h2 className="font-display text-display-lg text-neutral-950 mb-4">Selected mandates</h2>
-            <p className="text-body-md text-neutral-600">
+            <p className="text-body-md text-neutral-600 max-w-2xl">
               Representative engagements across sectors and deal types.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
             {mandates.map((mandate, index) => (
               <motion.div
                 key={index}
-                className="p-6 border border-neutral-200 rounded-sm"
+                className="group border-l-2 border-accent-600 pl-6 py-4 hover:bg-neutral-50 transition-all duration-200 cursor-pointer"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
+                whileHover={{ x: 4 }}
               >
-                <h3 className="font-sans font-medium text-body-lg text-neutral-950 mb-2">
+                <p className="font-sans text-body-xs uppercase tracking-widest text-accent-600 mb-2">
+                  {mandate.type}
+                </p>
+                <h3 className="font-sans font-medium text-body-lg text-neutral-950 mb-1 group-hover:text-accent-600 transition-colors duration-200">
                   {mandate.title}
                 </h3>
-                <p className="text-body-sm text-neutral-600">{mandate.type}</p>
               </motion.div>
             ))}
+          </div>
+          
+          <div className="mt-8">
+            <p className="text-body-sm text-neutral-500 italic">All mandates under NDA</p>
           </div>
         </div>
       </section>
@@ -319,11 +357,11 @@ export function Home() {
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation"
               >
-                Get in touch
+                Start a confidential conversation
                 <ArrowRight className="ml-2" size={18} />
               </Link>
               <Link
-                to="/contact"
+                to="/contact?subject=NDA case studies"
                 className="inline-flex items-center justify-center px-8 py-4 border border-neutral-700 text-white text-body-md font-sans font-medium rounded-sm hover:bg-neutral-900 transition-all duration-150"
               >
                 Request case studies (NDA)

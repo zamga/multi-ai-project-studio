@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
-import { Home } from './pages/Home'
-import { Services } from './pages/Services'
-import { Contact } from './pages/Contact'
 import { Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import './App.css'
+
+const Home = lazy(() => import('./pages/Home').then(module => ({ default: module.Home })))
+const Services = lazy(() => import('./pages/Services').then(module => ({ default: module.Services })))
+const Contact = lazy(() => import('./pages/Contact').then(module => ({ default: module.Contact })))
 
 function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -164,11 +165,17 @@ function App() {
       <div className="min-h-screen flex flex-col bg-white">
         <Navigation />
         <main className="flex-grow pt-20">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
+          <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center">
+              <div className="animate-pulse text-neutral-600">Loading...</div>
+            </div>
+          }>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>

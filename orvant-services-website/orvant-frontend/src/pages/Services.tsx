@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Badge } from '@/components/ui/badge'
 import {
   Accordion,
@@ -11,7 +11,17 @@ import {
 } from '@/components/ui/accordion'
 
 export function Services() {
+  const location = useLocation()
+  const navigate = useNavigate()
   const [activeService, setActiveService] = useState('ma-advisory')
+  const serviceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  
+  useEffect(() => {
+    const hash = location.hash.replace('#', '')
+    if (hash && services.some(s => s.id === hash)) {
+      setActiveService(hash)
+    }
+  }, [location.hash])
 
   const services = [
     {
@@ -133,6 +143,11 @@ export function Services() {
 
   const currentService = services.find(s => s.id === activeService) || services[0]
 
+  const handleServiceClick = (serviceId: string) => {
+    setActiveService(serviceId)
+    navigate(`/services#${serviceId}`, { replace: true })
+  }
+
   return (
     <div className="bg-white">
       <section className="py-24 md:py-32 bg-neutral-50 border-b border-neutral-200">
@@ -161,8 +176,8 @@ export function Services() {
                 {services.map((service) => (
                   <button
                     key={service.id}
-                    onClick={() => setActiveService(service.id)}
-                    className={`w-full text-left px-4 py-3 rounded-sm text-body-md font-sans transition-all duration-150 ${
+                    onClick={() => handleServiceClick(service.id)}
+                    className={`w-full text-left px-4 py-3 rounded-sm text-body-md font-sans transition-all duration-200 ${
                       activeService === service.id
                         ? 'bg-neutral-100 text-neutral-950 font-medium'
                         : 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-950'
@@ -202,23 +217,25 @@ export function Services() {
                   </div>
 
                   <div>
-                    <h3 className="font-sans font-medium text-body-md text-neutral-950 mb-4">Situations we handle</h3>
-                    <div className="flex flex-wrap gap-2">
+                    <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Situations we handle</p>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                       {currentService.situations.map((situation, index) => (
-                        <Badge key={index} variant="secondary" className="text-body-sm px-4 py-2 bg-neutral-100 text-neutral-700 border-0">
+                        <span key={index} className="text-body-sm text-neutral-700">
                           {situation}
-                        </Badge>
+                          {index < currentService.situations.length - 1 && <span className="ml-4 text-neutral-300">|</span>}
+                        </span>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="font-sans font-medium text-body-md text-neutral-950 mb-4">Capabilities</h3>
-                    <div className="flex flex-wrap gap-2">
+                    <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Capabilities</p>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                       {currentService.capabilities.map((capability, index) => (
-                        <Badge key={index} variant="outline" className="text-body-sm px-4 py-2 border-neutral-300 text-neutral-700">
+                        <span key={index} className="text-body-sm text-neutral-700">
                           {capability}
-                        </Badge>
+                          {index < currentService.capabilities.length - 1 && <span className="ml-4 text-neutral-300">|</span>}
+                        </span>
                       ))}
                     </div>
                   </div>
