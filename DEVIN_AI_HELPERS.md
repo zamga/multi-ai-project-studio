@@ -2,6 +2,42 @@
 
 This document explains how to use the AI helper module that has been set up for collaborative development in Devin sessions.
 
+## 🚀 ALLAGENTS Keyword - Quick Trigger
+
+**Use the `ALLAGENTS` keyword at the start of your message to trigger all four AI agents at once!**
+
+### Simple Usage
+
+Just type `ALLAGENTS` followed by your goal:
+
+```
+ALLAGENTS Build a REST API for user management
+```
+
+Devin will automatically:
+1. Use GPT-5 to design the architecture
+2. Use Grok to research best practices
+3. Use Claude to implement code
+4. Use Gemini to create test strategy
+
+### Advanced Options
+
+- **Parallel mode**: `ALLAGENTS:PARALLEL <goal>` - All agents run simultaneously
+- **Sequential mode**: `ALLAGENTS:SEQUENTIAL <goal>` - Agents run one after another
+- **Subset mode**: `ALLAGENTS:ARCH,CODE <goal>` - Only use specific agents
+
+### Examples
+
+```
+ALLAGENTS Build a task management API with authentication
+ALLAGENTS:PARALLEL Design a caching system
+ALLAGENTS:ARCH,RESEARCH Compare database options
+```
+
+**Note:** Using ALLAGENTS triggers multiple AI models and can be expensive. Use for complex tasks that benefit from multiple perspectives.
+
+---
+
 ## Overview
 
 A reusable AI helper module has been installed at `~/.devin/ai_agents/` that provides access to four specialized AI models:
