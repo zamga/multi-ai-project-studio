@@ -1,15 +1,55 @@
 # Multi-AI Project Studio
 
-A powerful Streamlit application that orchestrates multiple AI providers (OpenAI, Anthropic, xAI Grok, and Google Gemini) to support comprehensive project development workflows.
+A powerful Streamlit application that orchestrates four specialized AI agents, each with distinct roles for comprehensive project development. Each AI agent is configured with the latest models and specific responsibilities to handle different aspects of software development.
 
-## Features
+## AI Agent Roles
 
-- **GPT-5 (OpenAI)**: Latest and most advanced OpenAI model for ideation and creative planning
-- **Claude Sonnet 4.5 (Anthropic)**: Expert code generation and refactoring
-- **Grok 4 (xAI)**: Latest xAI model for real-time research and information gathering
-- **Gemini 2.0 Flash (Google)**: Fastest and latest Google model for document analysis
+### 🏗️ GPT-5: Project Architect
+**Role:** Project Planning & Architecture Design
+- Designs high-level system architecture and technical specifications
+- Creates project roadmaps and development phases
+- Identifies key technologies, frameworks, and tools
+- Defines system components, modules, and interactions
+- Establishes best practices and coding standards
+- Plans scalability, security, and performance considerations
+
+### 💻 Claude Sonnet 4.5: Senior Developer
+**Role:** Code Implementation & Debugging
+- Writes clean, efficient, production-ready code
+- Implements features following best practices and design patterns
+- Debugs and fixes issues in existing code
+- Optimizes code for performance and maintainability
+- Adds comprehensive error handling and logging
+- Writes unit tests and integration tests
+- Refactors code to improve quality and readability
+
+### 📚 Grok 4: Research Lead
+**Role:** Research & Documentation
+- Researches best practices, libraries, and frameworks
+- Analyzes similar projects and competitive solutions
+- Gathers technical requirements and specifications
+- Creates comprehensive technical documentation
+- Writes API documentation and user guides
+- Researches security vulnerabilities and compliance requirements
+- Documents system architecture and data flows
+- Provides references to relevant resources
+
+### 🧪 Gemini 2.0 Flash: QA Engineer
+**Role:** Testing & Quality Assurance
+- Designs comprehensive test strategies and test plans
+- Writes unit tests, integration tests, and end-to-end tests
+- Performs code reviews and quality assessments
+- Identifies edge cases and potential bugs
+- Creates test automation frameworks
+- Validates performance, security, and usability
+- Generates test data and test scenarios
+- Documents testing procedures and results
+
+## Additional Features
+
 - **File Upload Support**: Upload PDFs and text documents for AI analysis
 - **Real-time File Monitoring**: Automatic detection of file system changes
+- **Concurrent Processing**: All AI agents work simultaneously for faster results
 
 ## Setup
 
@@ -79,15 +119,17 @@ python test_api.py
 
 ## How It Works
 
-1. Enter a project goal (e.g., "Build IPO predictor")
-2. Optionally upload supporting documents (PDFs, text files)
-3. The application simultaneously queries all four AI providers:
-   - **GPT-5** generates creative ideas and analysis
-   - **Claude Sonnet 4.5** produces Python code implementations
-   - **Grok 4** conducts background research
-   - **Gemini 2.0 Flash** analyzes documents with fast processing
-4. Results are displayed in separate sections for each AI provider
-5. Uploaded files are saved to the `uploads/` directory
+1. **Enter Your Project Goal**: Describe what you want to build (e.g., "Build IPO predictor")
+2. **Optional File Upload**: Upload supporting documents (PDFs, text files) for analysis
+3. **AI Agents Collaborate**: All four specialized AI agents work simultaneously on your project:
+   - **GPT-5 (Project Architect)** designs the system architecture and project plan
+   - **Claude Sonnet 4.5 (Senior Developer)** implements production-ready code
+   - **Grok 4 (Research Lead)** researches best practices and creates documentation
+   - **Gemini 2.0 Flash (QA Engineer)** develops testing strategies and quality assurance plans
+4. **Review Results**: Each AI agent provides specialized output in separate sections
+5. **Iterate**: Use the insights from all agents to refine and develop your project
+
+Each AI agent is given a specific role with detailed instructions to ensure comprehensive coverage of all project development aspects.
 
 ## Architecture
 
