@@ -1,8 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { useState, useEffect, useRef } from 'react'
-import { Badge } from '@/components/ui/badge'
+import { useState, useEffect } from 'react'
 import {
   Accordion,
   AccordionContent,
@@ -14,7 +13,6 @@ export function Services() {
   const location = useLocation()
   const navigate = useNavigate()
   const [activeService, setActiveService] = useState('ma-advisory')
-  const serviceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   
   useEffect(() => {
     const hash = location.hash.replace('#', '')

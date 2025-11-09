@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { Badge } from '@/components/ui/badge'
 
 export function Home() {
   const principles = [
