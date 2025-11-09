@@ -1,96 +1,71 @@
-import { useState, useRef, DragEvent } from 'react'
-import { Mail, Phone, MapPin, Upload, X, CheckCircle2, AlertCircle } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Card, CardContent } from '@/components/ui/card'
-import { Alert, AlertDescription } from '@/components/ui/alert'
+import { useState } from 'react'
+import { Mail, ArrowRight, CheckCircle2, AlertCircle, X } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useDropzone } from 'react-dropzone'
+import * as z from 'zod'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
+const contactSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Please enter a valid email address'),
+  company: z.string().optional(),
+  phone: z.string().optional(),
+  service: z.string().optional(),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
+  consent: z.boolean().refine((val) => val === true, {
+    message: 'You must agree to the privacy policy',
+  }),
+})
+
+type ContactFormData = z.infer<typeof contactSchema>
+
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    service: '',
-    message: '',
-  })
   const [files, setFiles] = useState<File[]>([])
-  const [isDragging, setIsDragging] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
-  const fileInputRef = useRef<HTMLInputElement>(null)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    setValue,
+    watch,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      consent: false,
+    },
+  })
 
-  const handleServiceChange = (value: string) => {
-    setFormData({
-      ...formData,
-      service: value,
-    })
-  }
-
-  const handleDragEnter = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsDragging(true)
-  }
-
-  const handleDragLeave = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsDragging(false)
-  }
-
-  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
-    e.stopPropagation()
-  }
-
-  const handleDrop = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsDragging(false)
-
-    const droppedFiles = Array.from(e.dataTransfer.files)
-    setFiles([...files, ...droppedFiles])
-  }
-
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const selectedFiles = Array.from(e.target.files)
-      setFiles([...files, ...selectedFiles])
-    }
-  }
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: (acceptedFiles) => {
+      setFiles([...files, ...acceptedFiles])
+    },
+    multiple: true,
+  })
 
   const removeFile = (index: number) => {
     setFiles(files.filter((_, i) => i !== index))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
     setSubmitStatus('idle')
     setErrorMessage('')
 
     try {
       const formDataToSend = new FormData()
-      formDataToSend.append('name', formData.name)
-      formDataToSend.append('email', formData.email)
-      formDataToSend.append('company', formData.company)
-      formDataToSend.append('phone', formData.phone)
-      formDataToSend.append('service', formData.service)
-      formDataToSend.append('message', formData.message)
+      formDataToSend.append('name', data.name)
+      formDataToSend.append('email', data.email)
+      formDataToSend.append('company', data.company || '')
+      formDataToSend.append('phone', data.phone || '')
+      formDataToSend.append('service', data.service || '')
+      formDataToSend.append('message', data.message)
 
       files.forEach((file) => {
         formDataToSend.append('files', file)
@@ -105,14 +80,7 @@ export function Contact() {
 
       if (response.ok && result.success) {
         setSubmitStatus('success')
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          phone: '',
-          service: '',
-          message: '',
-        })
+        reset()
         setFiles([])
       } else {
         setSubmitStatus('error')
@@ -132,270 +100,258 @@ export function Contact() {
     const k = 1024
     const sizes = ['Bytes', 'KB', 'MB', 'GB']
     const i = Math.floor(Math.log(bytes) / Math.log(k))
-    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i]
+    return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i]
+  }
+
+  if (submitStatus === 'success') {
+    return (
+      <div className="bg-white min-h-screen flex items-center justify-center py-24">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <motion.div
+            className="text-center max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 className="text-green-600" size={32} />
+            </div>
+            <h1 className="font-display text-display-lg text-neutral-950 mb-4">
+              Message received
+            </h1>
+            <p className="text-body-lg text-neutral-600 mb-8">
+              Thank you for reaching out. We'll review your inquiry and respond within one business day.
+            </p>
+            <button
+              onClick={() => setSubmitStatus('idle')}
+              className="inline-flex items-center px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150"
+            >
+              Send another message
+              <ArrowRight className="ml-2" size={18} />
+            </button>
+          </motion.div>
+        </div>
+      </div>
+    )
   }
 
   return (
     <div className="bg-white">
-      <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-white py-20 md:py-28">
-        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Get in
-              <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Touch
-              </span>
+      <section className="py-24 md:py-32 bg-neutral-50 border-b border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <motion.div
+            className="max-w-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="font-display text-display-xl text-neutral-950 mb-6">
+              Contact us
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
-              Ready to transform your business? Let's start a conversation about your goals and how we can help.
+            <p className="text-body-lg text-neutral-600">
+              Discuss your situation with our team. We approach each engagement with discretion and focus on measurable outcomes.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="py-24 bg-white">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-1">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Our team is here to answer your questions and discuss how we can support your business objectives.
+              <h2 className="font-display text-display-md text-neutral-950 mb-6">Get in touch</h2>
+              <p className="text-body-md text-neutral-600 mb-8">
+                Our team will respond to your inquiry within one business day.
               </p>
 
               <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-blue-600" size={20} />
+                <div>
+                  <div className="flex items-center mb-2">
+                    <Mail className="text-neutral-600 mr-3" size={20} />
+                    <h3 className="font-sans font-medium text-body-md text-neutral-950">Email</h3>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                    <a href="mailto:filipberg@orvanttservices.com" className="text-blue-600 hover:text-blue-700">
-                      filipberg@orvanttservices.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="text-blue-600" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <p className="text-gray-600">Available upon request</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="text-blue-600" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Office</h3>
-                    <p className="text-gray-600">Serving clients globally</p>
-                  </div>
+                  <a
+                    href="mailto:filipberg@orvanttservices.com"
+                    className="text-body-md text-accent-600 hover:text-accent-500 transition-colors duration-150"
+                  >
+                    filipberg@orvanttservices.com
+                  </a>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-2">
-              <Card className="border-2 shadow-lg">
-                <CardContent className="p-8">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="name" className="text-sm font-semibold text-gray-900 mb-2 block">
-                          Name *
-                        </Label>
-                        <Input
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                          className="h-12"
-                          placeholder="John Doe"
-                        />
-                      </div>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-body-sm font-sans font-medium text-neutral-950 mb-2">
+                      Name *
+                    </label>
+                    <input
+                      id="name"
+                      {...register('name')}
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150"
+                      placeholder="John Doe"
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-body-sm text-red-600">{errors.name.message}</p>
+                    )}
+                  </div>
 
-                      <div>
-                        <Label htmlFor="email" className="text-sm font-semibold text-gray-900 mb-2 block">
-                          Email *
-                        </Label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                          className="h-12"
-                          placeholder="john@company.com"
-                        />
-                      </div>
-                    </div>
+                  <div>
+                    <label htmlFor="email" className="block text-body-sm font-sans font-medium text-neutral-950 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      {...register('email')}
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150"
+                      placeholder="john@company.com"
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-body-sm text-red-600">{errors.email.message}</p>
+                    )}
+                  </div>
+                </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="company" className="text-sm font-semibold text-gray-900 mb-2 block">
-                          Company
-                        </Label>
-                        <Input
-                          id="company"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleInputChange}
-                          className="h-12"
-                          placeholder="Company Name"
-                        />
-                      </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="company" className="block text-body-sm font-sans font-medium text-neutral-950 mb-2">
+                      Company
+                    </label>
+                    <input
+                      id="company"
+                      {...register('company')}
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150"
+                      placeholder="Company Name"
+                    />
+                  </div>
 
-                      <div>
-                        <Label htmlFor="phone" className="text-sm font-semibold text-gray-900 mb-2 block">
-                          Phone
-                        </Label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          className="h-12"
-                          placeholder="+1 (555) 123-4567"
-                        />
-                      </div>
-                    </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-body-sm font-sans font-medium text-neutral-950 mb-2">
+                      Phone
+                    </label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      {...register('phone')}
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150"
+                      placeholder="+1 (555) 123-4567"
+                    />
+                  </div>
+                </div>
 
-                    <div>
-                      <Label htmlFor="service" className="text-sm font-semibold text-gray-900 mb-2 block">
-                        Service Interest
-                      </Label>
-                      <Select value={formData.service} onValueChange={handleServiceChange}>
-                        <SelectTrigger className="h-12">
-                          <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="accounting">Accounting</SelectItem>
-                          <SelectItem value="ma-advisory">M&A Advisory</SelectItem>
-                          <SelectItem value="reconstruction">Reconstruction</SelectItem>
-                          <SelectItem value="buy-sell">Buy/Sell Company</SelectItem>
-                          <SelectItem value="public-company">Public Company - Raise Capital</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
+                <div>
+                  <label htmlFor="service" className="block text-body-sm font-sans font-medium text-neutral-950 mb-2">
+                    Service Interest
+                  </label>
+                  <select
+                    id="service"
+                    {...register('service')}
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="ma-advisory">M&A Advisory</option>
+                    <option value="restructuring">Restructuring</option>
+                    <option value="public-markets">Public Markets</option>
+                    <option value="accounting">Accounting & Compliance</option>
+                    <option value="buy-sell">Buy/Sell Company</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
 
-                    <div>
-                      <Label htmlFor="message" className="text-sm font-semibold text-gray-900 mb-2 block">
-                        Message *
-                      </Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows={6}
-                        placeholder="Tell us about your needs and how we can help..."
-                      />
-                    </div>
+                <div>
+                  <label htmlFor="message" className="block text-body-sm font-sans font-medium text-neutral-950 mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    {...register('message')}
+                    rows={6}
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150 resize-none"
+                    placeholder="Describe your situation and objectives..."
+                  />
+                  {errors.message && (
+                    <p className="mt-1 text-body-sm text-red-600">{errors.message.message}</p>
+                  )}
+                </div>
 
-                    <div>
-                      <Label className="text-sm font-semibold text-gray-900 mb-2 block">
-                        Attachments
-                      </Label>
-                      <div
-                        className={`border-2 border-dashed rounded-xl p-8 text-center transition-all ${
-                          isDragging
-                            ? 'border-blue-500 bg-blue-50'
-                            : 'border-gray-300 hover:border-blue-400 hover:bg-gray-50'
-                        }`}
-                        onDragEnter={handleDragEnter}
-                        onDragOver={handleDragOver}
-                        onDragLeave={handleDragLeave}
-                        onDrop={handleDrop}
-                      >
-                        <Upload className="mx-auto mb-4 text-gray-400" size={40} />
-                        <p className="text-gray-700 font-medium mb-2">
-                          Drag and drop files here, or click to select
-                        </p>
-                        <p className="text-sm text-gray-500 mb-4">
-                          Support for PDF, DOC, DOCX, XLS, XLSX, and more
-                        </p>
-                        <input
-                          ref={fileInputRef}
-                          type="file"
-                          multiple
-                          onChange={handleFileSelect}
-                          className="hidden"
-                        />
-                        <Button
-                          type="button"
-                          variant="outline"
-                          onClick={() => fileInputRef.current?.click()}
-                          className="border-2"
+                <div>
+                  <label className="block text-body-sm font-sans font-medium text-neutral-950 mb-2">
+                    Attachments
+                  </label>
+                  <div
+                    {...getRootProps()}
+                    className={`border-2 border-dashed rounded-sm p-8 text-center transition-all duration-150 cursor-pointer ${
+                      isDragActive
+                        ? 'border-accent-600 bg-accent-50'
+                        : 'border-neutral-300 hover:border-accent-400 hover:bg-neutral-50'
+                    }`}
+                  >
+                    <input {...getInputProps()} />
+                    <p className="text-body-md text-neutral-600 mb-2">
+                      {isDragActive ? 'Drop files here' : 'Drag and drop files, or click to select'}
+                    </p>
+                    <p className="text-body-sm text-neutral-500">
+                      PDF, DOC, DOCX, XLS, XLSX supported
+                    </p>
+                  </div>
+
+                  {files.length > 0 && (
+                    <div className="mt-4 space-y-2">
+                      {files.map((file, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center justify-between px-4 py-3 bg-neutral-50 rounded-sm border border-neutral-200"
                         >
-                          Select Files
-                        </Button>
-                      </div>
-
-                      {files.length > 0 && (
-                        <div className="mt-4 space-y-2">
-                          {files.map((file, index) => (
-                            <div
-                              key={index}
-                              className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200"
-                            >
-                              <div className="flex items-center space-x-3 flex-1 min-w-0">
-                                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                  <Upload className="text-blue-600" size={16} />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <p className="text-sm font-medium text-gray-900 truncate">{file.name}</p>
-                                  <p className="text-xs text-gray-500">{formatFileSize(file.size)}</p>
-                                </div>
-                              </div>
-                              <button
-                                type="button"
-                                onClick={() => removeFile(index)}
-                                className="ml-4 p-1 hover:bg-gray-200 rounded transition-colors flex-shrink-0"
-                              >
-                                <X size={16} className="text-gray-500" />
-                              </button>
-                            </div>
-                          ))}
+                          <div className="flex-1 min-w-0">
+                            <p className="text-body-sm font-medium text-neutral-950 truncate">{file.name}</p>
+                            <p className="text-body-sm text-neutral-600">{formatFileSize(file.size)}</p>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => removeFile(index)}
+                            className="ml-4 p-1 hover:bg-neutral-200 rounded transition-colors flex-shrink-0"
+                          >
+                            <X size={16} className="text-neutral-600" />
+                          </button>
                         </div>
-                      )}
+                      ))}
                     </div>
+                  )}
+                </div>
 
-                    {submitStatus === 'success' && (
-                      <Alert className="bg-green-50 border-green-200">
-                        <CheckCircle2 className="text-green-600" size={20} />
-                        <AlertDescription className="text-green-800">
-                          Thank you for contacting us! We'll get back to you shortly.
-                        </AlertDescription>
-                      </Alert>
-                    )}
+                <div className="flex items-start">
+                  <input
+                    id="consent"
+                    type="checkbox"
+                    {...register('consent')}
+                    className="mt-1 h-4 w-4 text-accent-600 border-neutral-300 rounded focus:ring-accent-600"
+                  />
+                  <label htmlFor="consent" className="ml-3 text-body-sm text-neutral-600">
+                    I agree to the privacy policy and consent to being contacted regarding my inquiry. *
+                  </label>
+                </div>
+                {errors.consent && (
+                  <p className="text-body-sm text-red-600">{errors.consent.message}</p>
+                )}
 
-                    {submitStatus === 'error' && (
-                      <Alert className="bg-red-50 border-red-200">
-                        <AlertCircle className="text-red-600" size={20} />
-                        <AlertDescription className="text-red-800">
-                          {errorMessage}
-                        </AlertDescription>
-                      </Alert>
-                    )}
+                {submitStatus === 'error' && (
+                  <div className="flex items-start p-4 bg-red-50 border border-red-200 rounded-sm">
+                    <AlertCircle className="text-red-600 flex-shrink-0 mt-0.5" size={20} />
+                    <p className="ml-3 text-body-sm text-red-800">{errorMessage}</p>
+                  </div>
+                )}
 
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full h-12 text-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:shadow-xl transition-all"
-                    >
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send message'}
+                </button>
+              </form>
             </div>
           </div>
         </div>

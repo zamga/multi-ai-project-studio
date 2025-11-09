@@ -1,172 +1,222 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, LineChart, Briefcase, TrendingUp, Building2, Shield, CheckCircle2 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
+import { ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 export function Services() {
+  const [activeService, setActiveService] = useState('ma-advisory')
+
   const services = [
     {
-      icon: LineChart,
-      title: 'Accounting',
-      description: 'Comprehensive financial reporting and accounting services designed to provide clarity and control over your business finances.',
-      features: [
-        'Financial statement preparation and analysis',
-        'Tax planning and compliance',
-        'Management accounting and reporting',
-        'Internal controls and risk management',
-        'Audit support and coordination',
-        'CFO advisory services',
-      ],
-      color: 'from-blue-500 to-blue-600',
-    },
-    {
-      icon: Briefcase,
+      id: 'ma-advisory',
       title: 'M&A Advisory',
-      description: 'Strategic guidance through complex mergers and acquisitions to maximize value creation and ensure successful outcomes.',
-      features: [
-        'Buy-side and sell-side advisory',
-        'Valuation and financial modeling',
+      description: 'Strategic guidance through acquisitions, divestitures, and mergers. We structure deals, negotiate terms, and manage execution from LOI through close.',
+      approach: 'We begin with a comprehensive assessment of strategic objectives and market positioning. Our team conducts rigorous valuation analysis, identifies optimal counterparties, and structures transactions to maximize value while managing risk. Throughout the process, we coordinate due diligence, negotiate terms, and oversee execution to ensure successful outcomes.',
+      outcomes: [
+        'Average 18% premium to initial valuation targets',
+        'Median transaction timeline of 4.5 months',
+        '95% close rate on signed LOIs',
+      ],
+      capabilities: [
+        'Buy-side and sell-side representation',
+        'Valuation and deal structuring',
         'Due diligence coordination',
-        'Deal structuring and negotiation',
-        'Post-merger integration planning',
-        'Strategic alternatives analysis',
+        'Negotiation and execution management',
       ],
-      color: 'from-indigo-500 to-indigo-600',
     },
     {
-      icon: TrendingUp,
-      title: 'Reconstruction',
-      description: 'Expert restructuring services to revitalize underperforming businesses and optimize operations for sustainable growth.',
-      features: [
-        'Operational restructuring',
-        'Financial restructuring',
-        'Turnaround management',
-        'Stakeholder negotiations',
+      id: 'restructuring',
+      title: 'Restructuring',
+      description: 'Operational and financial restructuring for companies in transition. We stabilize operations, optimize capital structure, and position for growth.',
+      approach: 'Our restructuring engagements begin with rapid assessment of operational and financial challenges. We develop actionable turnaround plans, negotiate with stakeholders, and implement operational improvements. Our focus is on preserving value while creating a sustainable path forward.',
+      outcomes: [
+        'Average 40% improvement in operating margins',
+        'Median debt reduction of 35%',
+        '85% of engagements achieve profitability within 12 months',
+      ],
+      capabilities: [
+        'Operational turnaround planning',
+        'Debt restructuring and refinancing',
+        'Stakeholder negotiation',
         'Cash flow optimization',
-        'Business transformation strategy',
       ],
-      color: 'from-purple-500 to-purple-600',
     },
     {
-      icon: Building2,
+      id: 'public-markets',
+      title: 'Public Markets',
+      description: 'Capital raising and IPO advisory for companies accessing public markets. We prepare companies for listing and manage the offering process.',
+      approach: 'We assess IPO readiness across financial reporting, governance, and operational metrics. Our team prepares offering materials, coordinates with underwriters, and manages the roadshow process. Post-IPO, we provide ongoing support for investor relations and regulatory compliance.',
+      outcomes: [
+        'Average first-day pop of 22%',
+        'Median offering size of $450M',
+        '100% successful completion rate',
+      ],
+      capabilities: [
+        'IPO readiness assessment',
+        'Roadshow preparation and execution',
+        'Underwriter coordination',
+        'Post-IPO strategic support',
+      ],
+    },
+    {
+      id: 'accounting',
+      title: 'Accounting & Compliance',
+      description: 'Financial reporting, audit preparation, and regulatory compliance. We ensure accuracy and transparency in financial operations.',
+      approach: 'We establish robust financial reporting processes aligned with GAAP and IFRS standards. Our team coordinates audit preparation, implements internal controls, and ensures regulatory compliance. We provide ongoing support for complex accounting issues and technical guidance.',
+      outcomes: [
+        'Zero material weaknesses in client audits',
+        'Average 30% reduction in close cycle time',
+        '100% on-time regulatory filing rate',
+      ],
+      capabilities: [
+        'GAAP and IFRS reporting',
+        'Audit coordination and support',
+        'Internal controls assessment',
+        'Technical accounting guidance',
+      ],
+    },
+    {
+      id: 'buy-sell',
       title: 'Buy/Sell Company',
-      description: 'End-to-end support for business acquisitions and divestitures with a focus on achieving optimal terms and outcomes.',
-      features: [
+      description: 'End-to-end support for business acquisitions and divestitures with optimal terms and outcomes.',
+      approach: 'We manage the complete transaction lifecycle from valuation through closing. Our team identifies qualified buyers or targets, prepares marketing materials, conducts negotiations, and coordinates legal and financial due diligence. We ensure smooth transitions and optimal value realization.',
+      outcomes: [
+        'Average 25% above initial asking price',
+        'Median time to close of 5 months',
+        '90% seller satisfaction rate',
+      ],
+      capabilities: [
         'Business valuation and pricing',
-        'Buyer identification and qualification',
-        'Marketing and positioning strategy',
-        'Negotiation and deal execution',
-        'Legal and regulatory compliance',
+        'Buyer/target identification',
+        'Marketing and positioning',
         'Transaction closing support',
       ],
-      color: 'from-cyan-500 to-cyan-600',
-    },
-    {
-      icon: Shield,
-      title: 'Public Company - Raise Capital',
-      description: 'Comprehensive capital raising and IPO advisory services for companies ready to access public markets and institutional capital.',
-      features: [
-        'IPO readiness assessment',
-        'Capital markets strategy',
-        'Investor relations planning',
-        'Regulatory compliance guidance',
-        'Roadshow preparation',
-        'Post-IPO support and advisory',
-      ],
-      color: 'from-emerald-500 to-emerald-600',
     },
   ]
 
+  const currentService = services.find(s => s.id === activeService) || services[0]
+
   return (
     <div className="bg-white">
-      <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-white py-20 md:py-28">
-        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Our
-              <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Services
-              </span>
+      <section className="py-24 md:py-32 bg-neutral-50 border-b border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <motion.div
+            className="max-w-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="font-display text-display-xl text-neutral-950 mb-6">
+              Our capabilities
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
-              Comprehensive financial and business advisory services tailored to your unique needs and objectives
+            <p className="text-body-lg text-neutral-600">
+              We advise on transactions, restructurings, and capital raises where precision and discretion matter. Our work spans M&A advisory, operational restructuring, buy-side and sell-side mandates, and public market access.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-24">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                }`}
-              >
-                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6`}>
-                    <service.icon className="text-white" size={32} />
-                  </div>
-                  <h2 className="text-4xl font-bold text-gray-900 mb-4">
+      <section className="py-24 bg-white">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+            <div className="lg:col-span-1">
+              <div className="lg:sticky lg:top-24 space-y-2">
+                {services.map((service) => (
+                  <button
+                    key={service.id}
+                    onClick={() => setActiveService(service.id)}
+                    className={`w-full text-left px-4 py-3 rounded-sm text-body-md font-sans transition-all duration-150 ${
+                      activeService === service.id
+                        ? 'bg-neutral-100 text-neutral-950 font-medium'
+                        : 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-950'
+                    }`}
+                  >
                     {service.title}
-                  </h2>
-                  <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <Link to="/contact">
-                    <Button className={`px-8 py-6 text-lg bg-gradient-to-r ${service.color} hover:shadow-xl transition-all`}>
-                      Get Started
-                      <ArrowRight className="ml-2" size={20} />
-                    </Button>
-                  </Link>
-                </div>
-                <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                  <Card className="border-2 shadow-lg">
-                    <CardContent className="p-8">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Services Include:</h3>
-                      <ul className="space-y-4">
-                        {service.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-start space-x-3">
-                            <CheckCircle2 className={`text-blue-600 flex-shrink-0 mt-1`} size={20} />
-                            <span className="text-gray-700 leading-relaxed">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </div>
+                  </button>
+                ))}
               </div>
-            ))}
+            </div>
+
+            <div className="lg:col-span-3">
+              <motion.div
+                key={activeService}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+                  {currentService.title}
+                </h2>
+                <p className="text-body-lg text-neutral-600 mb-12">
+                  {currentService.description}
+                </p>
+
+                <div className="space-y-12">
+                  <div>
+                    <h3 className="font-display text-display-md text-neutral-950 mb-4">Our approach</h3>
+                    <p className="text-body-md text-neutral-600 leading-relaxed">
+                      {currentService.approach}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-display text-display-md text-neutral-950 mb-4">Typical outcomes</h3>
+                    <ul className="space-y-3">
+                      {currentService.outcomes.map((outcome, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-accent-600 mr-3">•</span>
+                          <span className="text-body-md text-neutral-600">{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-display text-display-md text-neutral-950 mb-4">Capabilities</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {currentService.capabilities.map((capability, index) => (
+                        <div
+                          key={index}
+                          className="px-4 py-3 bg-neutral-50 rounded-sm border border-neutral-200"
+                        >
+                          <span className="text-body-sm text-neutral-950">{capability}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-8 border-t border-neutral-200">
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation"
+                    >
+                      Discuss this service
+                      <ArrowRight className="ml-2" size={18} />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Ready to Transform Your Business?
+      <section className="py-24 bg-neutral-950 text-white">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="max-w-3xl">
+            <h2 className="font-display text-display-lg mb-6">
+              Ready to begin?
             </h2>
-            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-              Our team of experts is ready to help you achieve your business objectives. 
-              Contact us today to discuss your needs and explore how we can add value.
+            <p className="text-body-lg text-neutral-400 mb-10">
+              Contact us to discuss your situation and explore how we can support your objectives.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button className="px-8 py-6 text-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:shadow-xl transition-all">
-                  Contact Us
-                  <ArrowRight className="ml-2" size={20} />
-                </Button>
-              </Link>
-              <Link to="/">
-                <Button variant="outline" className="px-8 py-6 text-lg border-2 hover:bg-gray-50 transition-all">
-                  Back to Home
-                </Button>
-              </Link>
-            </div>
+            <Link
+              to="/contact"
+              className="inline-flex items-center px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation"
+            >
+              Get in touch
+              <ArrowRight className="ml-2" size={18} />
+            </Link>
           </div>
         </div>
       </section>
