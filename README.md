@@ -54,7 +54,7 @@ You can override the default models by setting these environment variables:
 
 ```bash
 IDEATION_MODEL=gpt-4o                      # Default: gpt-4o
-CODE_MODEL=claude-3-5-sonnet-20241022      # Default: claude-3-5-sonnet-20241022
+CODE_MODEL=claude-sonnet-4-5-20250929      # Default: claude-sonnet-4-5-20250929
 RESEARCH_MODEL=grok-beta                   # Default: grok-beta
 DOCS_MODEL=gemini-1.5-pro                  # Default: gemini-1.5-pro
 ```
@@ -99,6 +99,6 @@ python test_api.py
 ## Models Used
 
 - **OpenAI GPT-4o**: Latest and most powerful OpenAI model for ideation
-- **Anthropic Claude 3.5 Sonnet**: State-of-the-art code generation (October 2024 version)
+- **Anthropic Claude Sonnet 4.5**: State-of-the-art code generation (September 2025 version)
 - **xAI Grok Beta**: Latest Grok model for research and current information
 - **Google Gemini 1.5 Pro**: Advanced long-context model for document analysis

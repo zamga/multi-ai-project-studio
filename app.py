@@ -50,30 +50,29 @@ uploaded_file = st.file_uploader("Upload a file (e.g., S-1 PDF):", type=["pdf", 
 
 if prompt or uploaded_file:
     with st.spinner("Processing..."):
-        # --- GPT-4o (OpenAI) for ideation ---
+        # --- OpenAI for ideation ---
         openai_key = get_env_key("OPENAI_API_KEY", "OPEN_AI")
         if not openai_key:
             st.error("OpenAI API key missing in environment")
         else:
-            st.write("**[GPT-4o]** Generating ideas...")
+            openai_model = os.getenv("IDEATION_MODEL", "gpt-4o")
+            st.write(f"**[OpenAI {openai_model}]** Generating ideas...")
             try:
-                openai_model = os.getenv("IDEATION_MODEL", "gpt-4o")
-                gpt4o = ChatOpenAI(api_key=openai_key, model=openai_model)
-                messages = [{"role": "user", "content": prompt or "Analyze uploaded file"}]
-                gpt4o_response = gpt4o.invoke(messages)
-                response_text = getattr(gpt4o_response, "content", None) or str(gpt4o_response)
+                gpt = ChatOpenAI(api_key=openai_key, model=openai_model)
+                gpt_response = gpt.invoke(prompt or "Analyze uploaded file")
+                response_text = getattr(gpt_response, "content", None) or str(gpt_response)
                 st.write(response_text)
             except Exception as e:
                 st.error(f"OpenAI error: {str(e)}")
 
-        # --- Claude 3.5 Sonnet (Anthropic) for coding ---
+        # --- Claude Sonnet (Anthropic) for coding ---
         anthropic_key = get_env_key("ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY_")
         if not anthropic_key:
             st.error("Anthropic API key missing in environment")
         else:
-            st.write("**[Claude 3.5 Sonnet]** Generating code...")
+            claude_model = os.getenv("CODE_MODEL", "claude-sonnet-4-5-20250929")
+            st.write(f"**[Claude Sonnet 4]** Generating code...")
             try:
-                claude_model = os.getenv("CODE_MODEL", "claude-3-5-sonnet-20241022")
                 claude = ChatAnthropic(
                     api_key=anthropic_key,
                     model=claude_model
