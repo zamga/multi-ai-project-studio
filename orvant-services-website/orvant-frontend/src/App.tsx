@@ -7,6 +7,10 @@ import './App.css'
 const Home = lazy(() => import('./pages/Home').then(module => ({ default: module.Home })))
 const Services = lazy(() => import('./pages/Services').then(module => ({ default: module.Services })))
 const Contact = lazy(() => import('./pages/Contact').then(module => ({ default: module.Contact })))
+const About = lazy(() => import('./pages/About').then(module => ({ default: module.About })))
+const Resources = lazy(() => import('./pages/Resources').then(module => ({ default: module.Resources })))
+const Privacy = lazy(() => import('./pages/Privacy').then(module => ({ default: module.Privacy })))
+const Terms = lazy(() => import('./pages/Terms').then(module => ({ default: module.Terms })))
 
 function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -58,6 +62,22 @@ function Navigation() {
               Services
             </Link>
             <Link
+              to="/about"
+              className={`text-body-md font-sans transition-colors duration-150 ${
+                isActive('/about') ? 'text-neutral-950' : 'text-neutral-600 hover:text-neutral-950'
+              }`}
+            >
+              About
+            </Link>
+            <Link
+              to="/resources"
+              className={`text-body-md font-sans transition-colors duration-150 ${
+                isActive('/resources') ? 'text-neutral-950' : 'text-neutral-600 hover:text-neutral-950'
+              }`}
+            >
+              Resources
+            </Link>
+            <Link
               to="/contact"
               className="px-6 py-2.5 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation"
             >
@@ -99,6 +119,24 @@ function Navigation() {
               onClick={() => setIsMenuOpen(false)}
             >
               Services
+            </Link>
+            <Link
+              to="/about"
+              className={`block px-4 py-3 text-body-md font-sans rounded-sm ${
+                isActive('/about') ? 'bg-neutral-100 text-neutral-950' : 'text-neutral-600 hover:bg-neutral-50'
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About
+            </Link>
+            <Link
+              to="/resources"
+              className={`block px-4 py-3 text-body-md font-sans rounded-sm ${
+                isActive('/resources') ? 'bg-neutral-100 text-neutral-950' : 'text-neutral-600 hover:bg-neutral-50'
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Resources
             </Link>
             <Link
               to="/contact"
@@ -150,9 +188,16 @@ function Footer() {
             </Link>
           </div>
         </div>
-        <div className="border-t border-neutral-900 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-body-sm text-neutral-500">
-          <p>&copy; {new Date().getFullYear()} Orvant Services. All rights reserved.</p>
-          <p className="mt-4 md:mt-0">Securities offered through registered representatives. Member FINRA/SIPC.</p>
+        <div className="border-t border-neutral-900 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center text-body-sm text-neutral-500 mb-6">
+            <p>&copy; {new Date().getFullYear()} Orvant Services. All rights reserved.</p>
+            <div className="flex items-center gap-6 mt-4 md:mt-0">
+              <Link to="/privacy" className="hover:text-white transition-colors duration-150">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-white transition-colors duration-150">Terms of Service</Link>
+              <a href="https://www.linkedin.com/company/orvant-services" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-150">LinkedIn</a>
+            </div>
+          </div>
+          <p className="text-body-sm text-neutral-500 text-center md:text-left">Securities offered through registered representatives. Member FINRA/SIPC.</p>
         </div>
       </div>
     </footer>
@@ -173,7 +218,11 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/resources" element={<Resources />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
             </Routes>
           </Suspense>
         </main>
