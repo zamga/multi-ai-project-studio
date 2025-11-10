@@ -131,7 +131,7 @@ export function Contact() {
               Message received
             </h1>
             <p className="text-body-lg text-neutral-600 mb-8">
-              We'll review your inquiry and respond within one business day.
+              Thank you for contacting us. We'll review your inquiry and respond within one business day.
             </p>
             <button
               onClick={() => setSubmitStatus('idle')}
@@ -157,13 +157,13 @@ export function Contact() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="font-display text-display-xl text-neutral-950 mb-6">
-              Contact us
+              Get in Touch
             </h1>
             <p className="text-body-lg text-neutral-600 max-w-prose">
-              Begin a confidential conversation with a senior advisor. Share your objectives and constraints; we'll respond with a considered view.
+              Ready to discuss your business objectives? Contact us today to schedule a consultation with our experienced team. We're here to help you navigate complex financial transitions with confidence.
             </p>
             <p className="text-body-sm text-neutral-500 mt-4">
-              Case studies and references available under NDA.
+              We respond to all inquiries within one business day.
             </p>
           </motion.div>
         </div>
@@ -173,9 +173,9 @@ export function Contact() {
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-1">
-              <h2 className="font-display text-display-md text-neutral-950 mb-6">Get in touch</h2>
+              <h2 className="font-display text-display-md text-neutral-950 mb-6">Contact Information</h2>
               <p className="text-body-md text-neutral-600 mb-8">
-                We respond to inquiries within one business day.
+                Reach out to discuss how we can help your business succeed.
               </p>
 
               <div className="space-y-6">
@@ -284,7 +284,7 @@ export function Contact() {
                     {...register('message')}
                     rows={6}
                     className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150 resize-none"
-                    placeholder="Context, stakeholders, and timing window..."
+                    placeholder="Tell us about your business objectives and how we can help..."
                   />
                   {errors.message && (
                     <p className="mt-1 text-body-sm text-red-600">{errors.message.message}</p>

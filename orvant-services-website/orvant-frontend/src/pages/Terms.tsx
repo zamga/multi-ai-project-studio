@@ -28,7 +28,7 @@ export function Terms() {
           <div className="prose prose-lg max-w-none">
             <h2 className="font-display text-display-md text-neutral-950 mb-6">Agreement to Terms</h2>
             <p className="text-body-md text-neutral-700 leading-relaxed mb-6">
-              By accessing or using the Orvant Services website, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using this site.
+              By accessing or using the Orvantt Services website, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using this site.
             </p>
 
             <h2 className="font-display text-display-md text-neutral-950 mb-6 mt-12">Use of Website</h2>
@@ -38,7 +38,7 @@ export function Terms() {
 
             <h2 className="font-display text-display-md text-neutral-950 mb-6 mt-12">Intellectual Property</h2>
             <p className="text-body-md text-neutral-700 leading-relaxed mb-6">
-              All content on this website, including text, graphics, logos, and software, is the property of Orvant Services and is protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works from this content without our express written permission.
+              All content on this website, including text, graphics, logos, and software, is the property of Orvantt Services and is protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works from this content without our express written permission.
             </p>
 
             <h2 className="font-display text-display-md text-neutral-950 mb-6 mt-12">Confidentiality</h2>
@@ -48,12 +48,12 @@ export function Terms() {
 
             <h2 className="font-display text-display-md text-neutral-950 mb-6 mt-12">No Advisory Relationship</h2>
             <p className="text-body-md text-neutral-700 leading-relaxed mb-6">
-              Use of this website does not create an advisory relationship between you and Orvant Services. An advisory relationship is established only through a formal engagement letter signed by both parties.
+              Use of this website does not create an advisory relationship between you and Orvantt Services. An advisory relationship is established only through a formal engagement letter signed by both parties.
             </p>
 
             <h2 className="font-display text-display-md text-neutral-950 mb-6 mt-12">Limitation of Liability</h2>
             <p className="text-body-md text-neutral-700 leading-relaxed mb-6">
-              Orvant Services shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of this website or any services provided through this website.
+              Orvantt Services shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of this website or any services provided through this website.
             </p>
 
             <h2 className="font-display text-display-md text-neutral-950 mb-6 mt-12">Third-Party Links</h2>

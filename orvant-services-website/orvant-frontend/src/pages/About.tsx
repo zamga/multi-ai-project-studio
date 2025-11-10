@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 export function About() {
   const team = [
     {
-      name: 'Michael Orvant',
+      name: 'Michael Orvantt',
       role: 'Founding Partner',
       expertise: 'M&A Advisory, Corporate Finance',
       bio: 'Previously led advisory mandates across industrials and technology sectors. Focused on complex cross-border transactions and strategic restructurings.',
@@ -51,10 +51,10 @@ export function About() {
             className="max-w-3xl"
           >
             <h1 className="font-display text-display-xl text-white mb-6">
-              Independent advisory built on trust
+              Your Trusted Partner for Business Success
             </h1>
             <p className="text-body-lg text-navy-100 leading-relaxed">
-              We provide strategic guidance to companies and boards navigating complex transitions. Our approach combines deep sector expertise with a commitment to discretion and alignment.
+              We provide expert financial advisory services to businesses navigating complex transitions. Our approach combines deep industry expertise with personalized service and unwavering commitment to your success.
             </p>
           </motion.div>
         </div>
@@ -65,41 +65,41 @@ export function About() {
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
-              <h2 className="font-display text-display-lg text-neutral-950 mb-6">Our approach</h2>
+              <h2 className="font-display text-display-lg text-neutral-950 mb-6">Our Approach</h2>
               <div className="prose max-w-prose">
                 <p className="text-body-lg text-neutral-700 leading-relaxed mb-6">
-                  We work exclusively with senior decision-makers on situations that require careful judgment and execution. Every engagement is led by a partner who takes personal responsibility for outcomes.
+                  We work closely with business leaders and decision-makers to deliver exceptional results. Every engagement is led by experienced professionals who are personally committed to your success.
                 </p>
                 <p className="text-body-lg text-neutral-700 leading-relaxed">
-                  Our independence allows us to provide unbiased advice. We have no lending relationships, no proprietary capital, and no conflicts that would compromise our recommendations.
+                  Our client-focused approach ensures you receive personalized attention and strategic guidance tailored to your unique business objectives and challenges.
                 </p>
               </div>
             </div>
             <div>
-              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-4">What guides us</h3>
+              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-4">What Guides Us</h3>
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Discretion first</h4>
+                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Trusted Expertise</h4>
                   <p className="text-body-md text-neutral-700">
-                    Complete confidentiality in every engagement. We don't publish transaction values or client names without explicit permission.
+                    Deep industry knowledge and proven track record delivering exceptional results for businesses across diverse sectors.
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Senior attention</h4>
+                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Client-Focused Service</h4>
                   <p className="text-body-md text-neutral-700">
-                    Partners lead every mandate. No delegation to junior teams. Direct access throughout the process.
+                    Personalized attention and dedicated support throughout every engagement. Your success is our priority.
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Independent advice</h4>
+                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Proven Results</h4>
                   <p className="text-body-md text-neutral-700">
-                    No lending, no proprietary capital, no conflicts. Our only interest is your success.
+                    Track record of successful transactions and satisfied clients. We deliver measurable value and strategic outcomes.
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Execution certainty</h4>
+                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Comprehensive Solutions</h4>
                   <p className="text-body-md text-neutral-700">
-                    We commit to outcomes, not just advice. Hands-on support through closing and beyond.
+                    End-to-end support from initial consultation through successful completion and beyond.
                   </p>
                 </div>
               </div>
@@ -171,16 +171,16 @@ export function About() {
       <section className="py-28 bg-navy-900">
         <div className="max-w-container mx-auto px-6 lg:px-12 text-center">
           <h2 className="font-display text-display-lg text-white mb-6">
-            Let's discuss your situation
+            Ready to Get Started?
           </h2>
           <p className="text-body-lg text-navy-100 mb-8 max-w-2xl mx-auto">
-            Every engagement begins with a confidential conversation. No obligation, no pressure.
+            Contact us today to schedule a consultation and discover how we can help transform your business.
           </p>
           <Link
             to="/contact"
             className="inline-flex items-center justify-center px-8 py-4 bg-gold-500 text-navy-900 text-body-md font-sans font-medium rounded-sm hover:bg-gold-400 transition-all duration-150 hover:shadow-elevation"
           >
-            Start a confidential conversation
+            Schedule a Consultation
             <ArrowRight className="ml-2" size={18} />
           </Link>
         </div>

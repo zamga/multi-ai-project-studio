@@ -26,12 +26,12 @@ export function Services() {
     {
       id: 'ma-advisory',
       title: 'M&A Advisory',
-      description: 'Sell- and buy-side counsel from preparation through close.',
-      approach: 'Rigorous preparation and positioning, a structured process, and tight counterparty choreography. We coordinate diligence, negotiate terms, and manage documentation through closing.',
+      description: 'Strategic guidance through complex mergers, acquisitions, and corporate restructuring with proven expertise.',
+      approach: 'We provide comprehensive support from initial valuation through deal closing, ensuring smooth execution and optimal outcomes. Our experienced team coordinates all aspects of the transaction process.',
       outcomes: [
-        'Negotiating leverage with credible alternatives',
-        'Board alignment and clear record',
-        'Clean diligence and execution certainty',
+        'Optimal transaction value',
+        'Smooth execution process',
+        'Strategic alignment achieved',
       ],
       situations: [
         'Sell-side mandates',
@@ -49,12 +49,12 @@ export function Services() {
     {
       id: 'restructuring',
       title: 'Restructuring',
-      description: 'Operational and financial resets that restore stability and runway.',
-      approach: 'Rapid assessment, options analysis, and a plan sequenced for liquidity, operations, and capital structure. We negotiate with creditors and oversee implementation.',
+      description: 'Expert guidance through operational and financial restructuring to restore stability and drive growth.',
+      approach: 'We assess your current situation, develop comprehensive restructuring plans, and work with stakeholders to implement solutions that position your business for long-term success.',
       outcomes: [
-        'Stabilized cash and operations',
-        'Stakeholder alignment and milestones',
-        'Path to sustainable performance',
+        'Improved financial stability',
+        'Operational efficiency gains',
+        'Sustainable growth path',
       ],
       situations: [
         'Operational turnarounds',
@@ -72,12 +72,12 @@ export function Services() {
     {
       id: 'public-markets',
       title: 'Public Markets',
-      description: 'Counsel on access to public capital and listing readiness.',
-      approach: 'Readiness work across reporting, governance, and controls; documentation and advisor coordination; measured communications and timetable discipline.',
+      description: 'Comprehensive support for companies seeking to access public capital markets and achieve successful listings.',
+      approach: 'We guide you through IPO preparation, regulatory compliance, and investor relations, ensuring your company is fully prepared for the public markets with strong governance and reporting systems.',
       outcomes: [
-        'Market-ready narrative and filings',
-        'Disciplined execution with advisors',
-        'Post-listing investor cadence',
+        'Successful market entry',
+        'Strong investor relations',
+        'Regulatory compliance',
       ],
       situations: [
         'IPO preparation',
@@ -95,12 +95,12 @@ export function Services() {
     {
       id: 'accounting',
       title: 'Accounting & Compliance',
-      description: 'Financial reporting, controls, and audit readiness that withstand scrutiny.',
-      approach: 'Reporting frameworks aligned to GAAP/IFRS, evidence-ready files, and auditor coordination. We resolve technical issues and institutionalize routines.',
+      description: 'Comprehensive accounting, tax planning, and financial reporting services that ensure compliance and optimize performance.',
+      approach: 'Our team provides expert accounting services, tax planning strategies, and ensures your financial reporting meets all regulatory requirements while optimizing your financial performance.',
       outcomes: [
-        'Clean opinions and timely closes',
-        'Controls mapped and operating',
-        'Regulatory confidence',
+        'Accurate financial reporting',
+        'Tax optimization achieved',
+        'Full regulatory compliance',
       ],
       situations: [
         'Audit preparation',
@@ -118,12 +118,12 @@ export function Services() {
     {
       id: 'buy-sell',
       title: 'Buy/Sell Company',
-      description: 'Institutional process to acquire or exit a business end-to-end.',
-      approach: 'Preparation and materials, targeted outreach, and measured negotiation. We run diligence workstreams and close with documented certainty.',
+      description: 'Professional guidance for buying or selling businesses with expert valuations and confidential transaction management.',
+      approach: 'We handle the entire process from business valuation and buyer identification to negotiation and closing, ensuring confidential and professional transaction management throughout.',
       outcomes: [
-        'Valuation clarity and positioning',
-        'Qualified counterparties and traction',
-        'Smooth transition and day-one plan',
+        'Optimal business valuation',
+        'Qualified buyer matches',
+        'Seamless transaction close',
       ],
       situations: [
         'Business sales',
@@ -158,10 +158,10 @@ export function Services() {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1 className="font-display text-display-xl text-neutral-950 mb-6 leading-tight">
-              Capabilities
+              Our Services
             </h1>
             <p className="text-body-lg text-neutral-600 leading-relaxed">
-              Institutional execution across transactions, restructurings, and public markets—senior teams, discreet process, aligned outcomes.
+              Comprehensive financial services tailored to your business needs. From M&A advisory to restructuring and capital raising, we deliver exceptional results with personalized attention.
             </p>
           </motion.div>
         </div>
@@ -257,13 +257,13 @@ export function Services() {
 
                   <div className="pt-4">
                     <p className="text-body-md text-neutral-600 mb-6 leading-relaxed">
-                      Share context; we'll respond with a considered view.
+                      Ready to discuss your needs? Contact us to schedule a consultation and explore how we can help.
                     </p>
                     <Link
                       to="/contact"
                       className="inline-flex items-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-220 hover:shadow-elevation"
                     >
-                      Schedule consultation
+                      Get Started
                       <ArrowRight className="ml-2" size={18} />
                     </Link>
                   </div>
@@ -277,8 +277,8 @@ export function Services() {
       <section id="engagement-models" className="py-28 bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
-            title="Engagement models"
-            deck="Structures aligned with your objectives and timeline."
+            title="Engagement Models"
+            deck="Flexible engagement structures designed to align with your specific objectives and timeline."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -291,7 +291,7 @@ export function Services() {
             >
               <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Retainer</h3>
               <p className="text-body-md text-neutral-600 leading-relaxed">
-                Ongoing advisory with dedicated senior attention for complex situations requiring sustained guidance.
+                Ongoing advisory services with dedicated expert attention for complex situations requiring sustained strategic guidance.
               </p>
             </motion.div>
 
@@ -302,9 +302,9 @@ export function Services() {
               transition={{ duration: 0.22, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
               className="bg-white p-8 rounded-sm border border-neutral-200"
             >
-              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Success-based</h3>
+              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Success-Based</h3>
               <p className="text-body-md text-neutral-600 leading-relaxed">
-                Compensation tied to transaction completion or milestones—aligning incentives with your outcome.
+                Performance-based compensation tied to successful transaction completion or achievement of key milestones.
               </p>
             </motion.div>
 
@@ -315,9 +315,9 @@ export function Services() {
               transition={{ duration: 0.22, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="bg-white p-8 rounded-sm border border-neutral-200"
             >
-              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Fixed-scope</h3>
+              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Fixed-Scope</h3>
               <p className="text-body-md text-neutral-600 leading-relaxed">
-                Defined deliverables and timeline for specific projects—providing cost certainty.
+                Clearly defined deliverables and timeline for specific projects, providing cost certainty and predictable outcomes.
               </p>
             </motion.div>
           </div>
@@ -332,16 +332,16 @@ export function Services() {
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
             <h2 className="font-display text-display-lg mb-6 leading-tight">
-              First conversation
+              Ready to Get Started?
             </h2>
             <p className="text-body-lg text-neutral-400 mb-10 leading-relaxed">
-              Share context; we'll respond with a considered view.
+              Contact us today to discuss your objectives and explore how our services can help transform your business.
             </p>
             <Link
               to="/contact"
               className="inline-flex items-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-220 hover:shadow-elevation"
             >
-              Schedule consultation
+              Schedule a Consultation
               <ArrowRight className="ml-2" size={18} />
             </Link>
           </div>

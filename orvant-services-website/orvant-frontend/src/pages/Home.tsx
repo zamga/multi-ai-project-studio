@@ -6,17 +6,17 @@ import { SplitSection } from '../components/SplitSection'
 
 export function Home() {
   const principles = [
-    'Discretion as default',
-    'Senior attention throughout',
-    'Independent perspective',
-    'Completion discipline',
+    'Trusted expertise',
+    'Proven results',
+    'Client-focused approach',
+    'Personalized service',
   ]
 
   const situations = [
-    'Sell-side mandates',
-    'Carve-outs',
-    'Cross-border M&A',
-    'Special situations',
+    'Mergers & Acquisitions',
+    'Business Sales',
+    'Strategic Acquisitions',
+    'Corporate Restructuring',
   ]
 
   const sectors = [
@@ -78,17 +78,17 @@ export function Home() {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1 className="font-display text-display-xl text-neutral-950 mb-6 leading-tight">
-              Independent counsel for transactions and transitions
+              Navigate Complex Business Transitions with Confidence
             </h1>
             <p className="text-body-lg text-neutral-600 mb-10 max-w-2xl leading-relaxed">
-              We advise boards, owners, and special committees across M&A, restructurings, and public markets with senior-led execution and discretion.
+              Expert guidance through M&A, restructuring, and capital raising. We combine deep expertise with personalized service to deliver exceptional results for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-200 hover:shadow-elevation"
               >
-                Schedule consultation
+                Get Started
                 <ArrowRight className="ml-2" size={18} />
               </Link>
               <Link
@@ -105,9 +105,9 @@ export function Home() {
       <section className="py-28 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
-            eyebrow="WHO WE SERVE"
-            title="Situations where judgment and discretion matter"
-            deck="We engage at inflection points—when the path is consequential and the record must stand."
+            eyebrow="WHAT WE DO"
+            title="Comprehensive Financial Services"
+            deck="From mergers and acquisitions to restructuring and capital raising, we provide end-to-end solutions tailored to your business needs."
           />
           
           <div className="space-y-12">
@@ -151,12 +151,12 @@ export function Home() {
       <section className="py-28 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
-            eyebrow="HOW WE WORK"
-            title="Principles that govern every mandate"
+            eyebrow="WHY CHOOSE US"
+            title="Your Trusted Partner for Success"
           />
           
           <SplitSection
-            left="Independent perspective, senior attention, and a quiet, disciplined process."
+            left="Decades of experience delivering exceptional value and strategic outcomes for businesses across industries."
             right={
               <div className="space-y-3">
                 {principles.map((principle, index) => (
@@ -187,7 +187,7 @@ export function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.3 }}
             >
-              "We do not publish transaction values. Discretion is core to our practice."
+              "Delivering exceptional results through personalized service and unwavering commitment to your success."
             </motion.blockquote>
           </div>
         </div>
@@ -225,8 +225,8 @@ export function Home() {
       <section className="py-28 bg-white">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
-            title="Selected mandates"
-            deck="Representative, anonymized engagements."
+            title="Recent Engagements"
+            deck="Successfully completed transactions across diverse industries and situations."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
@@ -255,8 +255,8 @@ export function Home() {
       <section className="py-28 bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
-            title="Perspectives"
-            deck="Insights on transactions and governance."
+            title="Insights & Resources"
+            deck="Expert perspectives on navigating complex business transitions."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -285,27 +285,27 @@ export function Home() {
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
             <h2 className="font-display text-display-lg mb-6 leading-tight">
-              First conversation
+              Ready to Transform Your Business?
             </h2>
             <p className="text-body-lg text-neutral-400 mb-4 leading-relaxed">
-              Share context; we'll respond with a considered view.
+              Join businesses that have trusted Orvantt Services with their most important financial decisions.
             </p>
             <p className="text-body-sm text-neutral-500 mb-10 leading-relaxed">
-              Case studies and references available under NDA.
+              Schedule a consultation to discuss your objectives and explore how we can help.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-220 hover:shadow-elevation"
               >
-                Schedule consultation
+                Schedule a Consultation
                 <ArrowRight className="ml-2" size={18} />
               </Link>
               <Link
                 to="/contact?subject=NDA case studies"
                 className="inline-flex items-center justify-center px-8 py-4 border border-neutral-700 text-white text-body-md font-sans font-medium rounded-sm hover:bg-neutral-900 transition-all duration-220"
               >
-                Request case studies
+                Learn More
                 <ArrowRight className="ml-2" size={18} />
               </Link>
             </div>

@@ -40,7 +40,7 @@ function Navigation() {
         <div className="flex justify-between items-center h-full">
           <Link to="/" className="flex items-center">
             <span className="text-xl font-sans font-semibold text-neutral-950 tracking-tight">
-              Orvant Services
+              Orvantt Services
             </span>
           </Link>
 
@@ -159,7 +159,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <span className="text-xl font-sans font-semibold text-white tracking-tight mb-4 block">
-              Orvant Services
+              Orvantt Services
             </span>
             <p className="text-body-md text-neutral-400 max-w-md">
               Advisory and capital for complex transitions. M&A, restructuring, and public markets advisory for growth and special situations.
@@ -190,14 +190,13 @@ function Footer() {
         </div>
         <div className="border-t border-neutral-900 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-body-sm text-neutral-500 mb-6">
-            <p>&copy; {new Date().getFullYear()} Orvant Services. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Orvantt Services. All rights reserved.</p>
             <div className="flex items-center gap-6 mt-4 md:mt-0">
               <Link to="/privacy" className="hover:text-white transition-colors duration-150">Privacy Policy</Link>
               <Link to="/terms" className="hover:text-white transition-colors duration-150">Terms of Service</Link>
               <a href="https://www.linkedin.com/company/orvant-services" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-150">LinkedIn</a>
             </div>
           </div>
-          <p className="text-body-sm text-neutral-500 text-center md:text-left">Securities offered through registered representatives. Member FINRA/SIPC.</p>
         </div>
       </div>
     </footer>
