@@ -5,7 +5,7 @@ export default {
   theme: {
   	extend: {
   		fontFamily: {
-  			display: ['Newsreader', 'Georgia', 'serif'],
+  			display: ['Playfair Display', 'Georgia', 'serif'],
   			sans: ['Inter', 'system-ui', 'sans-serif'],
   		},
   		fontSize: {
@@ -15,8 +15,28 @@ export default {
   			'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
   			'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
   			'body-sm': ['14px', { lineHeight: '22px', fontWeight: '400' }],
+  			'body-xs': ['12px', { lineHeight: '18px', fontWeight: '400', letterSpacing: '0.05em', textTransform: 'uppercase' }],
   		},
   		colors: {
+  			navy: {
+  				950: '#000A14',
+  				900: '#001F3F',
+  				800: '#002952',
+  				700: '#003D66',
+  				600: '#005080',
+  				500: '#006699',
+  				400: '#3385AD',
+  				300: '#66A3C2',
+  				200: '#99C2D6',
+  				100: '#CCE0EB',
+  				50: '#E6F0F5',
+  			},
+  			gold: {
+  				600: '#B8941E',
+  				500: '#D4AF37',
+  				400: '#DCC05C',
+  				300: '#E5D081',
+  			},
   			neutral: {
   				950: '#0B1020',
   				900: '#111827',
@@ -28,13 +48,13 @@ export default {
   				300: '#D1D5DB',
   				200: '#E5E7EB',
   				100: '#F3F4F6',
-  				50: '#F7F7F8',
+  				50: '#F9FAFB',
   			},
   			accent: {
-  				600: '#2F6BFF',
-  				500: '#4B82FF',
-  				400: '#7AA5FF',
-  				300: '#A3C2FF',
+  				600: '#D4AF37',
+  				500: '#DCC05C',
+  				400: '#E5D081',
+  				300: '#EDE0A6',
   			},
   			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
@@ -99,4 +119,3 @@ export default {
   },
   plugins: [import("tailwindcss-animate")],
 }
-
