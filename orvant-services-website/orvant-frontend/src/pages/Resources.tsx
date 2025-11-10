@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { SEO } from '../components/SEO'
 
 export function Resources() {
   const articles = [
@@ -25,7 +26,13 @@ export function Resources() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO
+        title="Resources"
+        description="Expert insights and resources on M&A, restructuring, and financial advisory. Stay informed with our latest perspectives on navigating complex business transitions."
+        canonical="/resources"
+      />
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-navy-900">
         <div className="max-w-container mx-auto px-6 lg:px-12">
@@ -126,5 +133,6 @@ export function Resources() {
         </div>
       </section>
     </div>
+    </>
   )
 }

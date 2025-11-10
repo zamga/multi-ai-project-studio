@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { SEO } from '../components/SEO'
+import { BreadcrumbSchema } from '../components/StructuredData'
 
 export function About() {
   const team = [
@@ -40,7 +42,17 @@ export function About() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO
+        title="About Us"
+        description="Learn about Orvantt Services - your trusted partner for business success. Expert financial advisory team with deep industry expertise and proven results."
+        canonical="/about"
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: '/' },
+        { name: 'About', url: '/about' },
+      ]} />
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-navy-900">
         <div className="max-w-container mx-auto px-6 lg:px-12">
@@ -186,5 +198,6 @@ export function About() {
         </div>
       </section>
     </div>
+    </>
   )
 }

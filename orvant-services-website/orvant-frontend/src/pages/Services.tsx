@@ -9,6 +9,8 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { SectionHeader } from '../components/SectionHeader'
+import { SEO } from '../components/SEO'
+import { BreadcrumbSchema, ServiceSchema } from '../components/StructuredData'
 
 export function Services() {
   const location = useLocation()
@@ -148,7 +150,21 @@ export function Services() {
   }
 
   return (
-    <div className="bg-white">
+    <>
+      <SEO
+        title="Our Services"
+        description="Comprehensive financial services including M&A advisory, restructuring, public markets, accounting & compliance, and buy/sell company services. Expert guidance tailored to your business needs."
+        canonical="/services"
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: '/' },
+        { name: 'Services', url: '/services' },
+      ]} />
+      <ServiceSchema service={{
+        name: currentService.title,
+        description: currentService.description,
+      }} />
+      <div className="bg-white">
       <section className="py-24 md:py-32 bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <motion.div
@@ -348,5 +364,6 @@ export function Services() {
         </div>
       </section>
     </div>
+    </>
   )
 }

@@ -1,8 +1,16 @@
 import { motion } from 'framer-motion'
+import { SEO } from '../components/SEO'
 
 export function Terms() {
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO
+        title="Terms of Service"
+        description="Terms of Service for Orvantt Services. Read our terms and conditions for using our website and services."
+        canonical="/terms"
+        noindex={true}
+      />
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-navy-900">
         <div className="max-w-container mx-auto px-6 lg:px-12">
@@ -79,5 +87,6 @@ export function Terms() {
         </div>
       </section>
     </div>
+    </>
   )
 }

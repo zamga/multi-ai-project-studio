@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://business-service-website-3w4lo7sy.devinapps.com/sitemap.xml

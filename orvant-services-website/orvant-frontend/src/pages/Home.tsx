@@ -3,6 +3,8 @@ import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { SectionHeader } from '../components/SectionHeader'
 import { SplitSection } from '../components/SplitSection'
+import { SEO } from '../components/SEO'
+import { OrganizationSchema, WebsiteSchema } from '../components/StructuredData'
 
 export function Home() {
   const principles = [
@@ -62,7 +64,15 @@ export function Home() {
 
 
   return (
-    <div className="bg-white">
+    <>
+      <SEO
+        title="Home"
+        description="Expert financial advisory services for M&A, restructuring, and capital raising. Navigate complex business transitions with confidence through personalized guidance and proven results."
+        canonical="/"
+      />
+      <OrganizationSchema />
+      <WebsiteSchema />
+      <div className="bg-white">
       <section className="relative py-24 md:py-32 bg-neutral-50 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -313,5 +323,6 @@ export function Home() {
         </div>
       </section>
     </div>
+    </>
   )
 }

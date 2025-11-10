@@ -6,6 +6,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useDropzone } from 'react-dropzone'
 import { useSearchParams } from 'react-router-dom'
 import * as z from 'zod'
+import { SEO } from '../components/SEO'
+import { BreadcrumbSchema } from '../components/StructuredData'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
@@ -147,7 +149,17 @@ export function Contact() {
   }
 
   return (
-    <div className="bg-white">
+    <>
+      <SEO
+        title="Contact Us"
+        description="Get in touch with Orvantt Services to discuss your business objectives. Schedule a consultation with our experienced team for expert financial advisory services."
+        canonical="/contact"
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: '/' },
+        { name: 'Contact', url: '/contact' },
+      ]} />
+      <div className="bg-white">
       <section className="py-24 md:py-32 bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <motion.div
@@ -371,5 +383,6 @@ export function Contact() {
         </div>
       </section>
     </div>
+    </>
   )
 }
