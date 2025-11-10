@@ -1,43 +1,29 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { SectionHeader } from '../components/SectionHeader'
+import { SplitSection } from '../components/SplitSection'
 
 export function Home() {
   const principles = [
-    {
-      title: 'Discretion first',
-      description: 'Complete confidentiality in every engagement.',
-    },
-    {
-      title: 'Senior attention',
-      description: 'Partners lead from assessment through close.',
-    },
-    {
-      title: 'Independent advice',
-      description: 'No conflicts. Your outcome is our only incentive.',
-    },
-    {
-      title: 'Execution certainty',
-      description: 'Structured for maximum completion probability.',
-    },
+    'Discretion first',
+    'Senior-led execution',
+    'Independent advice',
+    'Completion focus',
   ]
 
   const situations = [
     'Sell-side mandates',
     'Carve-outs',
     'Cross-border M&A',
-    'Liquidity for founders',
     'Special situations',
-    'Capital structure resets',
   ]
 
   const sectors = [
     'Industrials',
     'Technology',
-    'Consumer',
     'Healthcare',
     'Financial Services',
-    'Energy & Infrastructure',
   ]
 
   const mandates = [
@@ -74,23 +60,6 @@ export function Home() {
     },
   ]
 
-  const leadership = [
-    {
-      name: 'Michael Chen',
-      title: 'Managing Partner, M&A',
-      background: 'Former Goldman Sachs—M&A',
-    },
-    {
-      name: 'Sarah Williams',
-      title: 'Partner, Restructuring',
-      background: 'Ex-McKinsey—Operational turnarounds',
-    },
-    {
-      name: 'David Rodriguez',
-      title: 'Partner, Capital Markets',
-      background: 'Former Morgan Stanley—Public offerings',
-    },
-  ]
 
   return (
     <div className="bg-white">
@@ -106,25 +75,25 @@ export function Home() {
             className="max-w-4xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="font-display text-display-xl text-neutral-950 mb-6">
+            <h1 className="font-display text-display-xl text-neutral-950 mb-6 leading-tight">
               Advisory and capital for complex transitions
             </h1>
-            <p className="text-body-lg text-neutral-600 mb-10 max-w-2xl">
-              M&A, restructuring, and public markets advisory for growth and special situations. We deliver decisive outcomes for companies navigating critical inflection points.
+            <p className="text-body-lg text-neutral-600 mb-10 max-w-2xl leading-relaxed">
+              Advisory across M&A, restructurings, and public markets—delivered with discretion.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-150 hover:shadow-elevation"
+                className="inline-flex items-center justify-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-200 hover:shadow-elevation"
               >
                 Schedule consultation
                 <ArrowRight className="ml-2" size={18} />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center px-8 py-4 border border-neutral-300 text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-50 transition-all duration-150"
+                className="inline-flex items-center justify-center px-8 py-4 border border-neutral-300 text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-50 transition-all duration-200"
               >
                 Our capabilities
               </Link>
@@ -133,63 +102,36 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-white border-b border-neutral-200">
+      <section className="py-28 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="mb-12">
-            <h2 className="font-display text-display-md text-neutral-950 mb-3">Why clients choose us</h2>
-            <p className="text-body-sm text-neutral-600">
-              Detailed case studies and references available under NDA.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {principles.map((principle, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-              >
-                <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-2">
-                  {principle.title}
-                </h3>
-                <p className="text-body-sm text-neutral-600 leading-relaxed">
-                  {principle.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-28 bg-white">
-        <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="mb-16">
-            <h2 className="font-display text-display-lg text-neutral-950 mb-8">What we do</h2>
-            
-            <div className="space-y-10">
-              <div>
-                <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Situations we specialize in</p>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                  {situations.map((situation, index) => (
-                    <span key={index} className="text-body-sm text-neutral-700">
-                      {situation}
-                      {index < situations.length - 1 && <span className="ml-4 text-neutral-300">|</span>}
-                    </span>
-                  ))}
-                </div>
+          <SectionHeader
+            eyebrow="WHO WE SERVE"
+            title="Situations and sectors where we deliver decisive outcomes"
+            deck="We advise across M&A, restructurings, and public markets for growth and special situations."
+          />
+          
+          <div className="space-y-12">
+            <div>
+              <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Situations</p>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                {situations.map((situation, index) => (
+                  <span key={index} className="text-body-sm text-neutral-700">
+                    {situation}
+                    {index < situations.length - 1 && <span className="ml-4 text-neutral-300">|</span>}
+                  </span>
+                ))}
               </div>
+            </div>
 
-              <div>
-                <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Sectors served</p>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                  {sectors.map((sector, index) => (
-                    <span key={index} className="text-body-sm text-neutral-700">
-                      {sector}
-                      {index < sectors.length - 1 && <span className="ml-4 text-neutral-300">|</span>}
-                    </span>
-                  ))}
-                </div>
+            <div>
+              <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Sectors</p>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                {sectors.map((sector, index) => (
+                  <span key={index} className="text-body-sm text-neutral-700">
+                    {sector}
+                    {index < sectors.length - 1 && <span className="ml-4 text-neutral-300">|</span>}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -197,7 +139,7 @@ export function Home() {
           <div className="mt-12">
             <Link
               to="/services"
-              className="inline-flex items-center text-body-md text-navy-900 hover:text-navy-800 font-medium transition-colors duration-150"
+              className="inline-flex items-center text-body-md text-navy-900 hover:text-navy-800 font-medium transition-colors duration-200"
             >
               View all capabilities
               <ArrowRight className="ml-2" size={18} />
@@ -206,15 +148,47 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-neutral-50 border-y border-neutral-200">
+      <section className="py-28 bg-white border-b border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <SectionHeader
+            eyebrow="HOW WE WORK"
+            title="Principles that guide every engagement"
+          />
+          
+          <SplitSection
+            left="Independent advice, senior-led execution, and absolute discretion."
+            right={
+              <div className="space-y-3">
+                {principles.map((principle, index) => (
+                  <motion.p
+                    key={index}
+                    className="text-body-md text-neutral-700 leading-relaxed"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.2, delay: index * 0.05 }}
+                  >
+                    {principle}
+                  </motion.p>
+                ))}
+              </div>
+            }
+          />
+        </div>
+      </section>
+
+      <section className="py-24 bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl mx-auto text-center">
-            <blockquote className="font-display text-display-md text-neutral-950 mb-4">
-              "We don't publish transaction values. Discretion is core to our practice."
-            </blockquote>
-            <p className="text-body-sm text-neutral-600">
-              Detailed case studies and references available under NDA.
-            </p>
+            <motion.blockquote
+              className="font-display text-display-md text-neutral-950 mb-4 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3 }}
+            >
+              "We do not publish transaction values. Discretion is core to our practice."
+            </motion.blockquote>
           </div>
         </div>
       </section>
@@ -248,62 +222,57 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-28 bg-white">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="mb-12">
-            <h2 className="font-display text-display-lg text-neutral-950 mb-4">Selected mandates</h2>
-            <p className="text-body-md text-neutral-600 max-w-2xl">
-              Representative engagements across sectors and deal types.
-            </p>
-          </div>
+          <SectionHeader
+            title="Selected mandates"
+            deck="Representative, anonymized engagements."
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
             {mandates.map((mandate, index) => (
               <motion.div
                 key={index}
-                className="group border-l-2 border-gold-500 pl-6 py-4 hover:bg-neutral-50 transition-all duration-200 cursor-pointer"
-                initial={{ opacity: 0, y: 10 }}
+                className="group border-l-2 border-gold-500 pl-6 py-4 hover:bg-neutral-50 transition-all duration-220 cursor-pointer"
+                initial={{ opacity: 0, y: 6 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                transition={{ duration: 0.22, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ x: 4 }}
               >
                 <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-2">
                   {mandate.type}
                 </p>
-                <h3 className="font-sans font-medium text-body-lg text-neutral-950 mb-1 group-hover:text-navy-900 transition-colors duration-200">
+                <h3 className="font-sans font-medium text-body-lg text-neutral-950 mb-1 group-hover:text-navy-900 transition-colors duration-220">
                   {mandate.title}
                 </h3>
               </motion.div>
             ))}
           </div>
-          
-          <div className="mt-8">
-            <p className="text-body-sm text-neutral-500 italic">All mandates under NDA</p>
-          </div>
         </div>
       </section>
 
-      <section className="py-24 bg-neutral-50 border-y border-neutral-200">
+      <section className="py-28 bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="mb-12">
-            <h2 className="font-display text-display-lg text-neutral-950 mb-4">Selected insights</h2>
-          </div>
+          <SectionHeader
+            title="Perspectives"
+            deck="Insights on transactions and governance."
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {insights.map((insight, index) => (
               <motion.div
                 key={index}
                 className="group cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 6 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                transition={{ duration: 0.22, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="mb-3">
-                  <span className="text-body-sm text-neutral-500 font-medium uppercase tracking-widest">{insight.category}</span>
+                  <span className="text-body-xs text-neutral-500 font-medium uppercase tracking-widest">{insight.category}</span>
                 </div>
-                <h3 className="font-sans font-medium text-body-lg text-neutral-950 group-hover:text-navy-900 transition-colors duration-150">
+                <h3 className="font-sans font-medium text-body-lg text-neutral-950 group-hover:text-navy-900 transition-colors duration-220">
                   {insight.title}
                 </h3>
               </motion.div>
@@ -312,58 +281,31 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-24 bg-white">
-        <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="mb-12">
-            <h2 className="font-display text-display-lg text-neutral-950 mb-4">Leadership</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {leadership.map((leader, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-              >
-                <div className="mb-3">
-                  <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-1">
-                    {leader.name}
-                  </h3>
-                  <p className="text-body-sm text-neutral-600 mb-2">{leader.title}</p>
-                  <p className="text-body-sm text-neutral-600">
-                    {leader.background}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-neutral-950 text-white">
+      <section className="py-28 bg-neutral-950 text-white">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
-            <h2 className="font-display text-display-lg mb-6">
-              Discuss your situation
+            <h2 className="font-display text-display-lg mb-6 leading-tight">
+              First conversation
             </h2>
-            <p className="text-body-lg text-neutral-400 mb-10">
-              We approach each engagement with discretion and focus on decisive outcomes. Contact us to explore how we can support your objectives.
+            <p className="text-body-lg text-neutral-400 mb-4 leading-relaxed">
+              Outline your situation; we'll propose a path promptly.
+            </p>
+            <p className="text-body-sm text-neutral-500 mb-10 leading-relaxed">
+              Case studies and references available under NDA.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-150 hover:shadow-elevation"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-220 hover:shadow-elevation"
               >
                 Schedule consultation
                 <ArrowRight className="ml-2" size={18} />
               </Link>
               <Link
                 to="/contact?subject=NDA case studies"
-                className="inline-flex items-center justify-center px-8 py-4 border border-neutral-700 text-white text-body-md font-sans font-medium rounded-sm hover:bg-neutral-900 transition-all duration-150"
+                className="inline-flex items-center justify-center px-8 py-4 border border-neutral-700 text-white text-body-md font-sans font-medium rounded-sm hover:bg-neutral-900 transition-all duration-220"
               >
-                Request case studies (NDA)
+                Request case studies
                 <ArrowRight className="ml-2" size={18} />
               </Link>
             </div>

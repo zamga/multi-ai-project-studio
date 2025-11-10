@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { SectionHeader } from '../components/SectionHeader'
 
 export function Services() {
   const location = useLocation()
@@ -154,13 +155,13 @@ export function Services() {
             className="max-w-3xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="font-display text-display-xl text-neutral-950 mb-6">
+            <h1 className="font-display text-display-xl text-neutral-950 mb-6 leading-tight">
               Our capabilities
             </h1>
-            <p className="text-body-lg text-neutral-600">
-              We advise on transactions, restructurings, and capital raises where precision and discretion matter.
+            <p className="text-body-lg text-neutral-600 leading-relaxed">
+              Advisory across transactions, restructurings, and capital raises—delivered with precision.
             </p>
           </motion.div>
         </div>
@@ -192,14 +193,17 @@ export function Services() {
                 key={activeService}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h2 className="font-display text-display-lg text-neutral-950 mb-4">
-                  {currentService.title}
-                </h2>
-                <p className="text-body-lg text-neutral-600 mb-12">
-                  {currentService.description}
-                </p>
+                <div className="mb-12">
+                  <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">SERVICE</p>
+                  <h2 className="font-display text-display-lg text-neutral-950 mb-4 leading-tight">
+                    {currentService.title}
+                  </h2>
+                  <p className="text-body-lg text-neutral-600 leading-relaxed">
+                    {currentService.description}
+                  </p>
+                </div>
 
                 <div className="space-y-10">
                   <div>
@@ -252,9 +256,12 @@ export function Services() {
                   </div>
 
                   <div className="pt-4">
+                    <p className="text-body-md text-neutral-600 mb-6 leading-relaxed">
+                      Outline your situation; we'll propose a path promptly.
+                    </p>
                     <Link
                       to="/contact"
-                      className="inline-flex items-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-150 hover:shadow-elevation"
+                      className="inline-flex items-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-220 hover:shadow-elevation"
                     >
                       Schedule consultation
                       <ArrowRight className="ml-2" size={18} />
@@ -267,52 +274,50 @@ export function Services() {
         </div>
       </section>
 
-      <section id="engagement-models" className="py-24 bg-neutral-50 border-y border-neutral-200">
+      <section id="engagement-models" className="py-28 bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="mb-12">
-            <h2 className="font-display text-display-lg text-neutral-950 mb-4">Engagement models</h2>
-            <p className="text-body-md text-neutral-600 max-w-2xl">
-              We structure engagements to align with your objectives and timeline. Each model is tailored to the specific situation.
-            </p>
-          </div>
+          <SectionHeader
+            title="Engagement models"
+            deck="Structures aligned with your objectives and timeline."
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 6 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
               className="bg-white p-8 rounded-sm border border-neutral-200"
             >
               <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Retainer</h3>
               <p className="text-body-md text-neutral-600 leading-relaxed">
-                Ongoing advisory relationship with dedicated senior attention. Ideal for complex situations requiring sustained guidance through multiple phases.
+                Ongoing advisory with dedicated senior attention for complex situations requiring sustained guidance.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 6 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.1 }}
+              transition={{ duration: 0.22, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
               className="bg-white p-8 rounded-sm border border-neutral-200"
             >
               <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Success-based</h3>
               <p className="text-body-md text-neutral-600 leading-relaxed">
-                Compensation tied to transaction completion or specific milestones. Aligns our incentives directly with your outcome.
+                Compensation tied to transaction completion or milestones—aligning incentives with your outcome.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 6 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.2 }}
+              transition={{ duration: 0.22, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="bg-white p-8 rounded-sm border border-neutral-200"
             >
               <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Fixed-scope</h3>
               <p className="text-body-md text-neutral-600 leading-relaxed">
-                Defined deliverables and timeline for specific projects. Provides cost certainty for discrete advisory needs.
+                Defined deliverables and timeline for specific projects—providing cost certainty.
               </p>
             </motion.div>
           </div>
@@ -323,18 +328,18 @@ export function Services() {
         </div>
       </section>
 
-      <section className="py-24 bg-neutral-950 text-white">
+      <section className="py-28 bg-neutral-950 text-white">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
-            <h2 className="font-display text-display-lg mb-6">
-              Ready to begin?
+            <h2 className="font-display text-display-lg mb-6 leading-tight">
+              First conversation
             </h2>
-            <p className="text-body-lg text-neutral-400 mb-10">
-              Contact us to discuss your situation and explore how we can support your objectives.
+            <p className="text-body-lg text-neutral-400 mb-10 leading-relaxed">
+              Outline your situation; we'll propose a path promptly.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-150 hover:shadow-elevation"
+              className="inline-flex items-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-220 hover:shadow-elevation"
             >
               Schedule consultation
               <ArrowRight className="ml-2" size={18} />
