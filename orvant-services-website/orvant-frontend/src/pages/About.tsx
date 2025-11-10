@@ -45,7 +45,7 @@ export function About() {
     <>
       <SEO
         title="About Us"
-        description="Learn about Orvantt Services - your trusted partner for business success. Expert financial advisory team with deep industry expertise and proven results."
+        description="Independent advisory, delivered with discretion. We partner with owners and boards at critical moments when decisions have implications for the future of the business."
         canonical="/about"
       />
       <BreadcrumbSchema items={[
@@ -63,10 +63,10 @@ export function About() {
             className="max-w-3xl"
           >
             <h1 className="font-display text-display-xl text-white mb-6">
-              Your Trusted Partner for Business Success
+              Independent Advisory, Delivered with Discretion
             </h1>
             <p className="text-body-lg text-navy-100 leading-relaxed">
-              We provide expert financial advisory services to businesses navigating complex transitions. Our approach combines deep industry expertise with personalized service and unwavering commitment to your success.
+              We partner with owners and boards at critical moments—when decisions have implications for people, capital, and the future of the business.
             </p>
           </motion.div>
         </div>
@@ -80,10 +80,10 @@ export function About() {
               <h2 className="font-display text-display-lg text-neutral-950 mb-6">Our Approach</h2>
               <div className="prose max-w-prose">
                 <p className="text-body-lg text-neutral-700 leading-relaxed mb-6">
-                  We work closely with business leaders and decision-makers to deliver exceptional results. Every engagement is led by experienced professionals who are personally committed to your success.
+                  We advise at inflection points—when the stakes are high, the timeline is tight, and the outcome matters for years to come.
                 </p>
                 <p className="text-body-lg text-neutral-700 leading-relaxed">
-                  Our client-focused approach ensures you receive personalized attention and strategic guidance tailored to your unique business objectives and challenges.
+                  Our work is grounded in clear thinking, practical execution, and respect for the complexity of your situation.
                 </p>
               </div>
             </div>
@@ -91,27 +91,21 @@ export function About() {
               <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-4">What Guides Us</h3>
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Trusted Expertise</h4>
+                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Senior attention on every mandate</h4>
                   <p className="text-body-md text-neutral-700">
-                    Deep industry knowledge and proven track record delivering exceptional results for businesses across diverse sectors.
+                    Experienced professionals lead every engagement, ensuring continuity and accountability throughout.
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Client-Focused Service</h4>
+                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Clear materials that enable good decisions</h4>
                   <p className="text-body-md text-neutral-700">
-                    Personalized attention and dedicated support throughout every engagement. Your success is our priority.
+                    We build board-ready materials that anticipate questions and support informed decision-making.
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Proven Results</h4>
+                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Calm execution, even under pressure</h4>
                   <p className="text-body-md text-neutral-700">
-                    Track record of successful transactions and satisfied clients. We deliver measurable value and strategic outcomes.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">Comprehensive Solutions</h4>
-                  <p className="text-body-md text-neutral-700">
-                    End-to-end support from initial consultation through successful completion and beyond.
+                    We run clean processes, manage stakeholders effectively, and maintain discretion throughout.
                   </p>
                 </div>
               </div>
@@ -186,13 +180,13 @@ export function About() {
             Ready to Get Started?
           </h2>
           <p className="text-body-lg text-navy-100 mb-8 max-w-2xl mx-auto">
-            Contact us today to schedule a consultation and discover how we can help transform your business.
+            Share your context and objectives. We'll suggest a pragmatic next step.
           </p>
           <Link
             to="/contact"
             className="inline-flex items-center justify-center px-8 py-4 bg-gold-500 text-navy-900 text-body-md font-sans font-medium rounded-sm hover:bg-gold-400 transition-all duration-150 hover:shadow-elevation"
           >
-            Schedule a Consultation
+            Start a confidential conversation
             <ArrowRight className="ml-2" size={18} />
           </Link>
         </div>

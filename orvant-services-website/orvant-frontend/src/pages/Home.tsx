@@ -67,7 +67,7 @@ export function Home() {
     <>
       <SEO
         title="Home"
-        description="Expert financial advisory services for M&A, restructuring, and capital raising. Navigate complex business transitions with confidence through personalized guidance and proven results."
+        description="We advise owners and boards through M&A, restructurings, and public markets. Clear guidance, discreet execution, and outcomes that hold up in the boardroom."
         canonical="/"
       />
       <OrganizationSchema />
@@ -91,7 +91,7 @@ export function Home() {
               Navigate Complex Business Transitions with Confidence
             </h1>
             <p className="text-body-lg text-neutral-600 mb-10 max-w-2xl leading-relaxed">
-              Expert guidance through M&A, restructuring, and capital raising. We combine deep expertise with personalized service to deliver exceptional results for your business.
+              We advise owners and boards through M&A, restructurings, and public markets. Clear guidance, discreet execution, and outcomes that hold up in the boardroom.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -298,17 +298,17 @@ export function Home() {
               Ready to Transform Your Business?
             </h2>
             <p className="text-body-lg text-neutral-400 mb-4 leading-relaxed">
-              Join businesses that have trusted Orvantt Services with their most important financial decisions.
+              Share your context, constraints, and objectives. We'll suggest a pragmatic next step.
             </p>
             <p className="text-body-sm text-neutral-500 mb-10 leading-relaxed">
-              Schedule a consultation to discuss your objectives and explore how we can help.
+              References and detailed case studies available under NDA.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-220 hover:shadow-elevation"
               >
-                Schedule a Consultation
+                Start a confidential conversation
                 <ArrowRight className="ml-2" size={18} />
               </Link>
               <Link

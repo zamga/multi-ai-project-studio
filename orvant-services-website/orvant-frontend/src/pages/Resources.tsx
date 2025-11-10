@@ -29,7 +29,7 @@ export function Resources() {
     <>
       <SEO
         title="Resources"
-        description="Expert insights and resources on M&A, restructuring, and financial advisory. Stay informed with our latest perspectives on navigating complex business transitions."
+        description="Practical guidance drawn from mandates we've worked on. For decisions with consequences, get advice tailored to you."
         canonical="/resources"
       />
       <div className="min-h-screen bg-white">
@@ -46,7 +46,7 @@ export function Resources() {
               Insights and perspectives
             </h1>
             <p className="text-body-lg text-navy-100 leading-relaxed">
-              Practical guidance on complex transitions, drawn from our experience advising companies and boards through challenging situations.
+              Practical guidance drawn from mandates we've worked on. For decisions with consequences, get advice tailored to you.
             </p>
           </motion.div>
         </div>

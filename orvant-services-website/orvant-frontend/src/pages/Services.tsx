@@ -28,116 +28,126 @@ export function Services() {
     {
       id: 'ma-advisory',
       title: 'M&A Advisory',
-      description: 'Strategic guidance through complex mergers, acquisitions, and corporate restructuring with proven expertise.',
-      approach: 'We provide comprehensive support from initial valuation through deal closing, ensuring smooth execution and optimal outcomes. Our experienced team coordinates all aspects of the transaction process.',
+      description: 'Preparation to close for buy- and sell-side mandates. We structure the process, align stakeholders, and execute discreetly.',
+      approach: 'We coordinate every stage from deal preparation through closing, managing diligence, negotiating terms, and keeping stakeholders aligned. Board-ready materials at each milestone ensure informed decisions.',
       outcomes: [
-        'Optimal transaction value',
-        'Smooth execution process',
-        'Strategic alignment achieved',
+        'Deal preparation and positioning',
+        'Buyer/investor engagement under NDA',
+        'Diligence coordination and issue resolution',
+        'Term sheet and negotiation support',
+        'Board-ready materials at each stage',
       ],
       situations: [
-        'Sell-side mandates',
-        'Buy-side representation',
+        'Sale readiness and timing',
+        'Strategic acquisitions',
         'Carve-outs',
-        'Cross-border M&A',
+        'Board mandates',
       ],
       capabilities: [
-        'Valuation',
-        'Deal structuring',
-        'Due diligence',
-        'Negotiation',
+        'Teaser and information memorandum',
+        'Financial model and sensitivities',
+        'Data room and diligence tracker',
+        'Process letter and timeline',
       ],
     },
     {
       id: 'restructuring',
       title: 'Restructuring',
-      description: 'Expert guidance through operational and financial restructuring to restore stability and drive growth.',
-      approach: 'We assess your current situation, develop comprehensive restructuring plans, and work with stakeholders to implement solutions that position your business for long-term success.',
+      description: 'Stabilize the business, align stakeholders, and execute a credible path forward—operational and financial.',
+      approach: 'We build cash and liquidity plans, map stakeholder positions, and develop turnaround plans with clear milestones. Our focus is on executable solutions that restore confidence and create breathing room.',
       outcomes: [
-        'Improved financial stability',
-        'Operational efficiency gains',
-        'Sustainable growth path',
+        'Cash and liquidity planning',
+        'Options analysis and decision framework',
+        'Stakeholder mapping and communications',
+        'Turnaround plan with milestones',
+        'Lender and investor engagement',
       ],
       situations: [
-        'Operational turnarounds',
-        'Debt restructuring',
-        'Covenant resets',
-        'Liquidity management',
+        'Liquidity pressure',
+        'Covenants and maturities',
+        'Performance resets',
+        'Stakeholder misalignment',
       ],
       capabilities: [
-        'Turnaround planning',
-        'Debt refinancing',
-        'Stakeholder negotiation',
-        'Cash optimization',
+        '13-week cash flow and scenario plan',
+        'KPI pack and operating cadence',
+        'Restructuring plan and workplan',
+        'Stakeholder materials and scripts',
       ],
     },
     {
       id: 'public-markets',
       title: 'Public Markets',
-      description: 'Comprehensive support for companies seeking to access public capital markets and achieve successful listings.',
-      approach: 'We guide you through IPO preparation, regulatory compliance, and investor relations, ensuring your company is fully prepared for the public markets with strong governance and reporting systems.',
+      description: 'Prepare to meet the market. Readiness across governance, disclosure, and investor messaging.',
+      approach: 'We assess readiness gaps, build the equity story, and coordinate with underwriters and advisors. Our work ensures you enter the market with credible disclosure, strong controls, and a clear investor narrative.',
       outcomes: [
-        'Successful market entry',
-        'Strong investor relations',
-        'Regulatory compliance',
+        'Readiness assessment and gap closure',
+        'Equity story and investor materials',
+        'Disclosure, controls, and calendar planning',
+        'Underwriter/partner coordination',
+        'Investor relations foundations',
       ],
       situations: [
-        'IPO preparation',
+        'IPO readiness',
         'Secondary offerings',
-        'SPAC transactions',
-        'Direct listings',
+        'Dual-track processes',
+        'Public company transitions',
       ],
       capabilities: [
-        'IPO readiness',
-        'Roadshow execution',
-        'Underwriter coordination',
-        'Post-IPO support',
+        'Equity story and presentation',
+        'KPI and disclosure framework',
+        'Draft timetable and responsibility matrix',
+        'Analyst/underwriter Q&A preparation',
       ],
     },
     {
       id: 'accounting',
       title: 'Accounting & Compliance',
-      description: 'Comprehensive accounting, tax planning, and financial reporting services that ensure compliance and optimize performance.',
-      approach: 'Our team provides expert accounting services, tax planning strategies, and ensures your financial reporting meets all regulatory requirements while optimizing your financial performance.',
+      description: 'Accurate, timely reporting and well-run processes—so decisions are made on dependable numbers.',
+      approach: 'We improve close and reporting processes, resolve technical accounting issues, and prepare for audits. Our work ensures your numbers are reliable, your controls are documented, and your board reporting is clear.',
       outcomes: [
-        'Accurate financial reporting',
-        'Tax optimization achieved',
-        'Full regulatory compliance',
+        'Close and reporting improvements',
+        'Policy alignment and technical memos',
+        'Controls and documentation readiness',
+        'Audit coordination and issue resolution',
+        'Board reporting pack refinement',
       ],
       situations: [
         'Audit preparation',
-        'Technical accounting',
-        'SOX compliance',
-        'GAAP/IFRS conversion',
+        'New systems',
+        'Policy alignment',
+        'IFRS/GAAP bridging',
       ],
       capabilities: [
-        'GAAP/IFRS reporting',
-        'Audit coordination',
-        'Internal controls',
-        'Technical guidance',
+        'Accounting position papers',
+        'Close calendar and playbooks',
+        'Controls matrices and narratives',
+        'Audit request tracker and data room',
       ],
     },
     {
       id: 'buy-sell',
       title: 'Buy/Sell Company',
-      description: 'Professional guidance for buying or selling businesses with expert valuations and confidential transaction management.',
-      approach: 'We handle the entire process from business valuation and buyer identification to negotiation and closing, ensuring confidential and professional transaction management throughout.',
+      description: 'Confidential, disciplined processes to buy or sell a business—preparation, outreach, diligence, and close.',
+      approach: 'We assess readiness, identify and engage buyers or targets, manage diligence, and coordinate closing. Our process is discreet, thorough, and designed to minimize disruption while maximizing outcomes.',
       outcomes: [
-        'Optimal business valuation',
-        'Qualified buyer matches',
-        'Seamless transaction close',
+        'Valuation and readiness assessment',
+        'Target/buyer mapping and outreach',
+        'Diligence management and issue closure',
+        'Negotiation and closing coordination',
+        'Transition planning',
       ],
       situations: [
-        'Business sales',
-        'Strategic acquisitions',
+        'Founder succession',
+        'Strategic expansion',
+        'Carve-outs',
         'Management buyouts',
-        'Founder liquidity',
       ],
       capabilities: [
-        'Business valuation',
-        'Buyer identification',
-        'Marketing',
-        'Transaction closing',
+        'Teaser/IM or target list and profiles',
+        'Valuation analysis and rationale',
+        'Diligence checklist and tracker',
+        'Process letters and timeline',
       ],
     },
   ]
@@ -153,7 +163,7 @@ export function Services() {
     <>
       <SEO
         title="Our Services"
-        description="Comprehensive financial services including M&A advisory, restructuring, public markets, accounting & compliance, and buy/sell company services. Expert guidance tailored to your business needs."
+        description="Preparation to close for M&A, restructuring, public markets, accounting & compliance, and buy/sell company services. Discreet execution and board-ready materials."
         canonical="/services"
       />
       <BreadcrumbSchema items={[
@@ -273,13 +283,13 @@ export function Services() {
 
                   <div className="pt-4">
                     <p className="text-body-md text-neutral-600 mb-6 leading-relaxed">
-                      Ready to discuss your needs? Contact us to schedule a consultation and explore how we can help.
+                      Share your context and objectives. We'll suggest a pragmatic next step.
                     </p>
                     <Link
                       to="/contact"
                       className="inline-flex items-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-220 hover:shadow-elevation"
                     >
-                      Get Started
+                      Start a confidential conversation
                       <ArrowRight className="ml-2" size={18} />
                     </Link>
                   </div>
@@ -351,13 +361,13 @@ export function Services() {
               Ready to Get Started?
             </h2>
             <p className="text-body-lg text-neutral-400 mb-10 leading-relaxed">
-              Contact us today to discuss your objectives and explore how our services can help transform your business.
+              Share your context, constraints, and objectives. We'll suggest a pragmatic next step.
             </p>
             <Link
               to="/contact"
               className="inline-flex items-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-220 hover:shadow-elevation"
             >
-              Schedule a Consultation
+              Start a confidential conversation
               <ArrowRight className="ml-2" size={18} />
             </Link>
           </div>

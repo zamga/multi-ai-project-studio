@@ -152,7 +152,7 @@ export function Contact() {
     <>
       <SEO
         title="Contact Us"
-        description="Get in touch with Orvantt Services to discuss your business objectives. Schedule a consultation with our experienced team for expert financial advisory services."
+        description="Share your context, constraints, and objectives. We'll suggest a pragmatic next step. Start a confidential conversation with Orvantt Services."
         canonical="/contact"
       />
       <BreadcrumbSchema items={[
@@ -169,10 +169,10 @@ export function Contact() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="font-display text-display-xl text-neutral-950 mb-6">
-              Get in Touch
+              Start a Confidential Conversation
             </h1>
             <p className="text-body-lg text-neutral-600 max-w-prose">
-              Ready to discuss your business objectives? Contact us today to schedule a consultation with our experienced team. We're here to help you navigate complex financial transitions with confidence.
+              Share your context, constraints, and objectives. We'll suggest a pragmatic next step.
             </p>
             <p className="text-body-sm text-neutral-500 mt-4">
               We respond to all inquiries within one business day.
@@ -187,8 +187,16 @@ export function Contact() {
             <div className="lg:col-span-1">
               <h2 className="font-display text-display-md text-neutral-950 mb-6">Contact Information</h2>
               <p className="text-body-md text-neutral-600 mb-8">
-                Reach out to discuss how we can help your business succeed.
+                Reach out to discuss your specific situation.
               </p>
+              <div className="mb-8 p-4 bg-neutral-50 border border-neutral-200 rounded-sm">
+                <h3 className="font-sans font-medium text-body-sm text-neutral-950 mb-2">What to prepare (optional)</h3>
+                <ul className="space-y-1 text-body-sm text-neutral-600">
+                  <li>• One-paragraph background and objective</li>
+                  <li>• Recent management pack or summary financials</li>
+                  <li>• Timing window and key stakeholders</li>
+                </ul>
+              </div>
 
               <div className="space-y-6">
                 <div>
@@ -296,7 +304,7 @@ export function Contact() {
                     {...register('message')}
                     rows={6}
                     className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150 resize-none"
-                    placeholder="Tell us about your business objectives and how we can help..."
+                    placeholder="Context, stakeholders, and timing window..."
                   />
                   {errors.message && (
                     <p className="mt-1 text-body-sm text-red-600">{errors.message.message}</p>
