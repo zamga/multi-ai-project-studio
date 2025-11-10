@@ -1,0 +1,16 @@
+{
+  "name": "Orvant Services",
+  "short_name": "Orvant",
+  "description": "Independent advisory firm providing strategic guidance on M&A, restructuring, and capital raising",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#001F3F",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
