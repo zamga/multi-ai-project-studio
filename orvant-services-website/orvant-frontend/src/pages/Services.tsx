@@ -207,7 +207,7 @@ export function Services() {
                     <ul className="space-y-2">
                       {currentService.outcomes.map((outcome, index) => (
                         <li key={index} className="flex items-start">
-                          <span className="text-accent-600 mr-3">•</span>
+                          <span className="text-gold-500 mr-3">•</span>
                           <span className="text-body-md text-neutral-600">{outcome}</span>
                         </li>
                       ))}
@@ -254,15 +254,71 @@ export function Services() {
                   <div className="pt-4">
                     <Link
                       to="/contact"
-                      className="inline-flex items-center px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation"
+                      className="inline-flex items-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-150 hover:shadow-elevation"
                     >
-                      Discuss this capability
+                      Schedule consultation
                       <ArrowRight className="ml-2" size={18} />
                     </Link>
                   </div>
                 </div>
               </motion.div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="engagement-models" className="py-24 bg-neutral-50 border-y border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="mb-12">
+            <h2 className="font-display text-display-lg text-neutral-950 mb-4">Engagement models</h2>
+            <p className="text-body-md text-neutral-600 max-w-2xl">
+              We structure engagements to align with your objectives and timeline. Each model is tailored to the specific situation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="bg-white p-8 rounded-sm border border-neutral-200"
+            >
+              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Retainer</h3>
+              <p className="text-body-md text-neutral-600 leading-relaxed">
+                Ongoing advisory relationship with dedicated senior attention. Ideal for complex situations requiring sustained guidance through multiple phases.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="bg-white p-8 rounded-sm border border-neutral-200"
+            >
+              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Success-based</h3>
+              <p className="text-body-md text-neutral-600 leading-relaxed">
+                Compensation tied to transaction completion or specific milestones. Aligns our incentives directly with your outcome.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="bg-white p-8 rounded-sm border border-neutral-200"
+            >
+              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Fixed-scope</h3>
+              <p className="text-body-md text-neutral-600 leading-relaxed">
+                Defined deliverables and timeline for specific projects. Provides cost certainty for discrete advisory needs.
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="mt-8">
+            <p className="text-body-sm text-neutral-500 italic">Terms discussed during initial consultation</p>
           </div>
         </div>
       </section>
@@ -278,9 +334,9 @@ export function Services() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation"
+              className="inline-flex items-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-150 hover:shadow-elevation"
             >
-              Get in touch
+              Schedule consultation
               <ArrowRight className="ml-2" size={18} />
             </Link>
           </div>

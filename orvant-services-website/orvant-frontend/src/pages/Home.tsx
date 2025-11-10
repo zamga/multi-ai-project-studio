@@ -117,9 +117,9 @@ export function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation"
+                className="inline-flex items-center justify-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-150 hover:shadow-elevation"
               >
-                Start a confidential conversation
+                Schedule consultation
                 <ArrowRight className="ml-2" size={18} />
               </Link>
               <Link
@@ -197,7 +197,7 @@ export function Home() {
           <div className="mt-12">
             <Link
               to="/services"
-              className="inline-flex items-center text-body-md text-accent-600 hover:text-accent-500 font-medium transition-colors duration-150"
+              className="inline-flex items-center text-body-md text-navy-900 hover:text-navy-800 font-medium transition-colors duration-150"
             >
               View all capabilities
               <ArrowRight className="ml-2" size={18} />
@@ -261,17 +261,17 @@ export function Home() {
             {mandates.map((mandate, index) => (
               <motion.div
                 key={index}
-                className="group border-l-2 border-accent-600 pl-6 py-4 hover:bg-neutral-50 transition-all duration-200 cursor-pointer"
+                className="group border-l-2 border-gold-500 pl-6 py-4 hover:bg-neutral-50 transition-all duration-200 cursor-pointer"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 whileHover={{ x: 4 }}
               >
-                <p className="font-sans text-body-xs uppercase tracking-widest text-accent-600 mb-2">
+                <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-2">
                   {mandate.type}
                 </p>
-                <h3 className="font-sans font-medium text-body-lg text-neutral-950 mb-1 group-hover:text-accent-600 transition-colors duration-200">
+                <h3 className="font-sans font-medium text-body-lg text-neutral-950 mb-1 group-hover:text-navy-900 transition-colors duration-200">
                   {mandate.title}
                 </h3>
               </motion.div>
@@ -301,9 +301,9 @@ export function Home() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
                 <div className="mb-3">
-                  <span className="text-body-sm text-accent-600 font-medium">{insight.category}</span>
+                  <span className="text-body-sm text-neutral-500 font-medium uppercase tracking-widest">{insight.category}</span>
                 </div>
-                <h3 className="font-sans font-medium text-body-lg text-neutral-950 group-hover:text-accent-600 transition-colors duration-150">
+                <h3 className="font-sans font-medium text-body-lg text-neutral-950 group-hover:text-navy-900 transition-colors duration-150">
                   {insight.title}
                 </h3>
               </motion.div>
@@ -354,9 +354,9 @@ export function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-150 hover:shadow-elevation"
               >
-                Start a confidential conversation
+                Schedule consultation
                 <ArrowRight className="ml-2" size={18} />
               </Link>
               <Link

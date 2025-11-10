@@ -135,7 +135,7 @@ export function Contact() {
             </p>
             <button
               onClick={() => setSubmitStatus('idle')}
-              className="inline-flex items-center px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150"
+              className="inline-flex items-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-150"
             >
               Send another message
               <ArrowRight className="ml-2" size={18} />
@@ -183,7 +183,7 @@ export function Contact() {
                   </div>
                   <a
                     href="mailto:filipberg@orvanttservices.com"
-                    className="text-body-md text-accent-600 hover:text-accent-500 transition-colors duration-150"
+                    className="text-body-md text-navy-900 hover:text-navy-800 transition-colors duration-150"
                   >
                     filipberg@orvanttservices.com
                   </a>
@@ -201,7 +201,7 @@ export function Contact() {
                     <input
                       id="name"
                       {...register('name')}
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150"
                       placeholder="John Doe"
                     />
                     {errors.name && (
@@ -217,7 +217,7 @@ export function Contact() {
                       id="email"
                       type="email"
                       {...register('email')}
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150"
                       placeholder="john@company.com"
                     />
                     {errors.email && (
@@ -234,7 +234,7 @@ export function Contact() {
                     <input
                       id="company"
                       {...register('company')}
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150"
                       placeholder="Company Name"
                     />
                   </div>
@@ -247,7 +247,7 @@ export function Contact() {
                       id="phone"
                       type="tel"
                       {...register('phone')}
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150"
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
@@ -260,7 +260,7 @@ export function Contact() {
                   <select
                     id="service"
                     {...register('service')}
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150"
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150"
                   >
                     <option value="">Select a service</option>
                     <option value="ma-advisory">M&A Advisory</option>
@@ -280,7 +280,7 @@ export function Contact() {
                     id="message"
                     {...register('message')}
                     rows={6}
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-600 focus:border-transparent transition-all duration-150 resize-none"
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150 resize-none"
                     placeholder="Describe your situation and objectives..."
                   />
                   {errors.message && (
@@ -296,8 +296,8 @@ export function Contact() {
                     {...getRootProps()}
                     className={`border-2 border-dashed rounded-sm p-8 text-center transition-all duration-150 cursor-pointer ${
                       isDragActive
-                        ? 'border-accent-600 bg-accent-50'
-                        : 'border-neutral-300 hover:border-accent-400 hover:bg-neutral-50'
+                        ? 'border-navy-900 bg-navy-50'
+                        : 'border-neutral-300 hover:border-navy-700 hover:bg-neutral-50'
                     }`}
                   >
                     <input {...getInputProps()} />
@@ -338,7 +338,7 @@ export function Contact() {
                     id="consent"
                     type="checkbox"
                     {...register('consent')}
-                    className="mt-1 h-4 w-4 text-accent-600 border-neutral-300 rounded focus:ring-accent-600"
+                    className="mt-1 h-4 w-4 text-navy-900 border-neutral-300 rounded focus:ring-navy-900"
                   />
                   <label htmlFor="consent" className="ml-3 text-body-sm text-neutral-600">
                     I agree to the privacy policy and consent to being contacted regarding my inquiry. *
@@ -358,7 +358,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-8 py-4 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-150 hover:shadow-elevation disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Sending...' : 'Send message'}
                 </button>

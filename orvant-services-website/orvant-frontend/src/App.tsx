@@ -79,7 +79,7 @@ function Navigation() {
             </Link>
             <Link
               to="/contact"
-              className="px-6 py-2.5 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150 hover:shadow-elevation"
+              className="px-6 py-2.5 bg-gold-600 text-white text-body-md font-sans font-medium rounded-sm hover:bg-gold-500 transition-all duration-150 hover:shadow-elevation"
             >
               Contact
             </Link>
@@ -140,7 +140,7 @@ function Navigation() {
             </Link>
             <Link
               to="/contact"
-              className="block px-4 py-3 bg-accent-600 text-white text-body-md font-sans font-medium rounded-sm text-center"
+              className="block px-4 py-3 bg-gold-600 text-white text-body-md font-sans font-medium rounded-sm text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
@@ -182,7 +182,7 @@ function Footer() {
             </p>
             <Link
               to="/contact"
-              className="inline-block px-6 py-2.5 bg-accent-600 text-white text-body-sm font-sans font-medium rounded-sm hover:bg-accent-500 transition-all duration-150"
+              className="inline-block px-6 py-2.5 bg-gold-600 text-white text-body-sm font-sans font-medium rounded-sm hover:bg-gold-500 transition-all duration-150"
             >
               Get in Touch
             </Link>
