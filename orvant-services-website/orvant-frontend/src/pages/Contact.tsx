@@ -131,7 +131,7 @@ export function Contact() {
               Message received
             </h1>
             <p className="text-body-lg text-neutral-600 mb-8">
-              Thank you for reaching out. We'll review your inquiry and respond within one business day.
+              We'll review your inquiry and respond within one business day.
             </p>
             <button
               onClick={() => setSubmitStatus('idle')}
@@ -160,7 +160,10 @@ export function Contact() {
               Contact us
             </h1>
             <p className="text-body-lg text-neutral-600 max-w-prose">
-              Discuss your situation with our team. We approach each engagement with discretion and focus on decisive outcomes.
+              Begin a confidential conversation with a senior advisor. Share your objectives and constraints; we'll respond with a considered view.
+            </p>
+            <p className="text-body-sm text-neutral-500 mt-4">
+              Case studies and references available under NDA.
             </p>
           </motion.div>
         </div>
@@ -172,7 +175,7 @@ export function Contact() {
             <div className="lg:col-span-1">
               <h2 className="font-display text-display-md text-neutral-950 mb-6">Get in touch</h2>
               <p className="text-body-md text-neutral-600 mb-8">
-                Our team will respond to your inquiry within one business day.
+                We respond to inquiries within one business day.
               </p>
 
               <div className="space-y-6">
@@ -281,7 +284,7 @@ export function Contact() {
                     {...register('message')}
                     rows={6}
                     className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150 resize-none"
-                    placeholder="Describe your situation and objectives..."
+                    placeholder="Context, stakeholders, and timing window..."
                   />
                   {errors.message && (
                     <p className="mt-1 text-body-sm text-red-600">{errors.message.message}</p>

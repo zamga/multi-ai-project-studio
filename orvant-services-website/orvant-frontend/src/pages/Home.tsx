@@ -6,10 +6,10 @@ import { SplitSection } from '../components/SplitSection'
 
 export function Home() {
   const principles = [
-    'Discretion first',
-    'Senior-led execution',
-    'Independent advice',
-    'Completion focus',
+    'Discretion as default',
+    'Senior attention throughout',
+    'Independent perspective',
+    'Completion discipline',
   ]
 
   const situations = [
@@ -78,10 +78,10 @@ export function Home() {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1 className="font-display text-display-xl text-neutral-950 mb-6 leading-tight">
-              Advisory and capital for complex transitions
+              Independent counsel for transactions and transitions
             </h1>
             <p className="text-body-lg text-neutral-600 mb-10 max-w-2xl leading-relaxed">
-              Advisory across M&A, restructurings, and public markets—delivered with discretion.
+              We advise boards, owners, and special committees across M&A, restructurings, and public markets with senior-led execution and discretion.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -106,8 +106,8 @@ export function Home() {
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             eyebrow="WHO WE SERVE"
-            title="Situations and sectors where we deliver decisive outcomes"
-            deck="We advise across M&A, restructurings, and public markets for growth and special situations."
+            title="Situations where judgment and discretion matter"
+            deck="We engage at inflection points—when the path is consequential and the record must stand."
           />
           
           <div className="space-y-12">
@@ -152,11 +152,11 @@ export function Home() {
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             eyebrow="HOW WE WORK"
-            title="Principles that guide every engagement"
+            title="Principles that govern every mandate"
           />
           
           <SplitSection
-            left="Independent advice, senior-led execution, and absolute discretion."
+            left="Independent perspective, senior attention, and a quiet, disciplined process."
             right={
               <div className="space-y-3">
                 {principles.map((principle, index) => (
@@ -288,7 +288,7 @@ export function Home() {
               First conversation
             </h2>
             <p className="text-body-lg text-neutral-400 mb-4 leading-relaxed">
-              Outline your situation; we'll propose a path promptly.
+              Share context; we'll respond with a considered view.
             </p>
             <p className="text-body-sm text-neutral-500 mb-10 leading-relaxed">
               Case studies and references available under NDA.

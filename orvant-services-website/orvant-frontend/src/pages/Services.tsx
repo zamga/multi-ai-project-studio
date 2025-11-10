@@ -26,12 +26,12 @@ export function Services() {
     {
       id: 'ma-advisory',
       title: 'M&A Advisory',
-      description: 'Strategic guidance through acquisitions, divestitures, and mergers from LOI through close.',
-      approach: 'We begin with strategic assessment and market positioning. Our team conducts valuation analysis, identifies counterparties, and structures transactions to maximize value while managing risk. We coordinate due diligence, negotiate terms, and oversee execution.',
+      description: 'Sell- and buy-side counsel from preparation through close.',
+      approach: 'Rigorous preparation and positioning, a structured process, and tight counterparty choreography. We coordinate diligence, negotiate terms, and manage documentation through closing.',
       outcomes: [
-        'Stronger negotiating position',
-        'Board alignment on execution',
-        'Clean diligence files',
+        'Negotiating leverage with credible alternatives',
+        'Board alignment and clear record',
+        'Clean diligence and execution certainty',
       ],
       situations: [
         'Sell-side mandates',
@@ -49,12 +49,12 @@ export function Services() {
     {
       id: 'restructuring',
       title: 'Restructuring',
-      description: 'Operational and financial restructuring for companies in transition and special situations.',
-      approach: 'Our engagements begin with rapid assessment of operational and financial challenges. We develop turnaround plans, negotiate with stakeholders, and implement improvements focused on preserving value and creating a sustainable path forward.',
+      description: 'Operational and financial resets that restore stability and runway.',
+      approach: 'Rapid assessment, options analysis, and a plan sequenced for liquidity, operations, and capital structure. We negotiate with creditors and oversee implementation.',
       outcomes: [
-        'Stabilized operations',
-        'Stakeholder alignment',
-        'Path to profitability',
+        'Stabilized cash and operations',
+        'Stakeholder alignment and milestones',
+        'Path to sustainable performance',
       ],
       situations: [
         'Operational turnarounds',
@@ -72,12 +72,12 @@ export function Services() {
     {
       id: 'public-markets',
       title: 'Public Markets',
-      description: 'Capital raising and IPO advisory for companies accessing public markets and institutional capital.',
-      approach: 'We assess IPO readiness across financial reporting, governance, and operations. Our team prepares offering materials, coordinates with underwriters, and manages the roadshow. Post-IPO, we provide ongoing support for investor relations and compliance.',
+      description: 'Counsel on access to public capital and listing readiness.',
+      approach: 'Readiness work across reporting, governance, and controls; documentation and advisor coordination; measured communications and timetable discipline.',
       outcomes: [
-        'Market-ready narrative',
-        'Smooth execution',
-        'Post-IPO stability',
+        'Market-ready narrative and filings',
+        'Disciplined execution with advisors',
+        'Post-listing investor cadence',
       ],
       situations: [
         'IPO preparation',
@@ -95,12 +95,12 @@ export function Services() {
     {
       id: 'accounting',
       title: 'Accounting & Compliance',
-      description: 'Financial reporting, audit preparation, and regulatory compliance for accuracy and transparency.',
-      approach: 'We establish financial reporting processes aligned with GAAP and IFRS standards. Our team coordinates audit preparation, implements internal controls, and ensures regulatory compliance with ongoing support for complex accounting issues.',
+      description: 'Financial reporting, controls, and audit readiness that withstand scrutiny.',
+      approach: 'Reporting frameworks aligned to GAAP/IFRS, evidence-ready files, and auditor coordination. We resolve technical issues and institutionalize routines.',
       outcomes: [
-        'Clean audit opinions',
-        'Efficient close processes',
-        'Regulatory compliance',
+        'Clean opinions and timely closes',
+        'Controls mapped and operating',
+        'Regulatory confidence',
       ],
       situations: [
         'Audit preparation',
@@ -118,12 +118,12 @@ export function Services() {
     {
       id: 'buy-sell',
       title: 'Buy/Sell Company',
-      description: 'End-to-end support for business acquisitions and divestitures with optimal terms.',
-      approach: 'We manage the complete transaction lifecycle from valuation through closing. Our team identifies qualified buyers or targets, prepares marketing materials, conducts negotiations, and coordinates due diligence for smooth transitions.',
+      description: 'Institutional process to acquire or exit a business end-to-end.',
+      approach: 'Preparation and materials, targeted outreach, and measured negotiation. We run diligence workstreams and close with documented certainty.',
       outcomes: [
-        'Optimal valuation',
-        'Qualified buyers',
-        'Smooth transition',
+        'Valuation clarity and positioning',
+        'Qualified counterparties and traction',
+        'Smooth transition and day-one plan',
       ],
       situations: [
         'Business sales',
@@ -158,10 +158,10 @@ export function Services() {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1 className="font-display text-display-xl text-neutral-950 mb-6 leading-tight">
-              Our capabilities
+              Capabilities
             </h1>
             <p className="text-body-lg text-neutral-600 leading-relaxed">
-              Advisory across transactions, restructurings, and capital raises—delivered with precision.
+              Institutional execution across transactions, restructurings, and public markets—senior teams, discreet process, aligned outcomes.
             </p>
           </motion.div>
         </div>
@@ -207,7 +207,7 @@ export function Services() {
 
                 <div className="space-y-10">
                   <div>
-                    <h3 className="font-sans font-medium text-body-md text-neutral-950 mb-4">What we drive</h3>
+                    <h3 className="font-sans font-medium text-body-md text-neutral-950 mb-4">What we deliver</h3>
                     <ul className="space-y-2">
                       {currentService.outcomes.map((outcome, index) => (
                         <li key={index} className="flex items-start">
@@ -257,7 +257,7 @@ export function Services() {
 
                   <div className="pt-4">
                     <p className="text-body-md text-neutral-600 mb-6 leading-relaxed">
-                      Outline your situation; we'll propose a path promptly.
+                      Share context; we'll respond with a considered view.
                     </p>
                     <Link
                       to="/contact"
@@ -335,7 +335,7 @@ export function Services() {
               First conversation
             </h2>
             <p className="text-body-lg text-neutral-400 mb-10 leading-relaxed">
-              Outline your situation; we'll propose a path promptly.
+              Share context; we'll respond with a considered view.
             </p>
             <Link
               to="/contact"
