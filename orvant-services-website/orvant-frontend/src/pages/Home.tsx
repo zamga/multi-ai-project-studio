@@ -197,7 +197,7 @@ export function Home() {
       </section>
 
       {/* Distinctive Value Section - Why Choose Us - Premium Editorial Style */}
-      <section className="py-24 md:py-32 bg-neutral-50 border-b border-neutral-200">
+      <section className="py-[100px] sm:py-[60px] bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
             <h2 className="font-display text-display-lg text-neutral-950 mb-6">
@@ -248,7 +248,7 @@ export function Home() {
       </section>
 
       {/* What We Do - Services Overview */}
-      <section className="py-24 md:py-32 bg-white border-b border-neutral-200">
+      <section className="py-[100px] sm:py-[60px] bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
             {/* Left: Narrative */}
@@ -345,7 +345,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-40 bg-white border-b border-neutral-200">
+      <section className="py-[100px] sm:py-[60px] bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             eyebrow="HOW WE WORK"
@@ -405,7 +405,7 @@ export function Home() {
       </section>
 
       {/* Awards & Recognition */}
-      <section className="py-32 bg-white border-y border-neutral-200">
+      <section className="py-[100px] sm:py-[60px] bg-white border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="font-display text-display-lg text-neutral-950 mb-6">
@@ -472,7 +472,7 @@ export function Home() {
       </section>
 
       {/* Recent Engagements & Global Presence - Combined Section */}
-      <section className="py-32 bg-neutral-50 border-y border-neutral-200">
+      <section className="py-[100px] sm:py-[60px] bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="font-display text-display-lg text-neutral-950 mb-6">
@@ -572,7 +572,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-32 bg-neutral-50 border-y border-neutral-200">
+      <section className="py-[100px] sm:py-[60px] bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             title="Featured Insights"
@@ -594,7 +594,7 @@ export function Home() {
       </section>
 
       {/* Client Testimonials */}
-      <section className="py-32 bg-white border-y border-neutral-200">
+      <section className="py-[100px] sm:py-[60px] bg-white border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="font-display text-display-lg text-neutral-950 mb-6">
@@ -659,7 +659,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-32 bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 text-white border-t border-neutral-800">
+      <section className="py-[100px] sm:py-[60px] bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 text-white border-t border-neutral-800">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-display text-display-xl mb-6 leading-tight">
