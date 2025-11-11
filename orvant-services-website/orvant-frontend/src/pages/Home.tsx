@@ -539,48 +539,102 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-32 bg-white">
+      {/* Recent Engagements & Global Presence - Combined Section */}
+      <section className="py-32 bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <SectionHeader
-            title="Recent Engagements"
-            deck="Representative transactions across M&A, restructuring, and public markets."
-          />
+          <div className="text-center mb-16">
+            <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+              Recent Engagements & Global Presence
+            </h2>
+            <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
+              Representative transactions across M&A, restructuring, and public markets—delivered with deep regional expertise.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {mandates.map((mandate, index) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+            {/* Left Column: Global Map & Regional Cards */}
+            <div>
               <motion.div
-                key={index}
-                className="group relative bg-neutral-50 p-6 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:bg-white hover:shadow-elevation transition-all duration-220 cursor-pointer"
-                initial={{ opacity: 0, y: 6 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.22, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.4 }}
+                className="mb-12"
               >
-                <div className="w-10 h-10 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4 group-hover:bg-navy-900 transition-colors duration-220">
-                  <div className="w-5 h-5 border-2 border-navy-900 group-hover:border-gold-500 rounded-sm transition-colors duration-220" />
-                </div>
-                <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-2 transition-colors duration-220 group-hover:text-gold-600">
-                  {mandate.type}
-                </p>
-                <h3 className="font-sans font-medium text-body-md text-neutral-950 mb-3 group-hover:text-navy-900 transition-colors duration-220 leading-snug">
-                  {mandate.title}
-                </h3>
-                <div className="flex items-center gap-2">
-                  <span className="inline-block px-2 py-1 bg-neutral-100 text-neutral-600 text-body-xs rounded-sm">
-                    Confidential
-                  </span>
-                </div>
+                <GlobalMap />
               </motion.div>
-            ))}
+
+              <div className="space-y-6">
+                {[
+                  {
+                    region: "Americas",
+                    items: ["New York, Toronto, São Paulo coverage", "SEC, TSX regulatory expertise", "North-South transaction structuring"]
+                  },
+                  {
+                    region: "EMEA",
+                    items: ["London, Frankfurt, Dubai presence", "FCA, BaFin regional compliance", "Pan-European coordination"]
+                  },
+                  {
+                    region: "APAC",
+                    items: ["Singapore, Hong Kong, Sydney networks", "MAS, HKMA, ASIC knowledge", "Asia-Pacific cross-border expertise"]
+                  }
+                ].map((region, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="bg-white p-6 rounded-sm border border-neutral-200"
+                  >
+                    <h3 className="font-sans font-bold text-body-lg text-neutral-950 mb-3">{region.region}</h3>
+                    <ul className="space-y-2 text-body-sm text-neutral-600">
+                      {region.items.map((item, i) => (
+                        <li key={i} className="flex items-start">
+                          <span className="text-gold-500 mr-2">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Engagement Cards */}
+            <div>
+              <div className="space-y-6">
+                {mandates.map((mandate, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="group bg-white p-6 rounded-sm border border-neutral-200 hover:border-gold-500/30 hover:shadow-elevation transition-all duration-300"
+                  >
+                    <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-2">
+                      {mandate.type}
+                    </p>
+                    <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-2 group-hover:text-navy-900 transition-colors duration-300">
+                      {mandate.title}
+                    </h3>
+                    <p className="text-body-sm text-neutral-600">
+                      Confidential engagement—board-ready outcomes delivered with discretion.
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
-          
-          <div className="mt-12 text-center">
+
+          <div className="text-center">
             <Link
               to="/tombstones"
-              className="inline-flex items-center text-body-md text-navy-900 hover:text-navy-800 font-medium transition-colors duration-200 link-underline"
+              className="inline-flex items-center justify-center px-10 py-5 border-2 border-navy-900 text-navy-900 text-body-lg font-sans font-medium rounded-sm hover:bg-navy-900 hover:text-white transition-all duration-300"
             >
-              View all transactions
-              <ArrowRight className="ml-2" size={18} />
+              View All Transactions
+              <ArrowRight className="ml-2" size={20} />
             </Link>
           </div>
         </div>
@@ -669,113 +723,6 @@ export function Home() {
             <p className="text-body-sm text-neutral-500 italic">
               Client names withheld to maintain confidentiality
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Global Operations */}
-      <section className="py-32 bg-neutral-50 border-y border-neutral-200">
-        <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-display-lg text-neutral-950 mb-6">
-              Global Operations
-            </h2>
-            <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto mb-12">
-              We advise on cross-border transactions and operate across major financial centers with deep regional expertise.
-            </p>
-          </div>
-          
-          {/* Interactive Map */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="mb-16"
-          >
-            <GlobalMap />
-          </motion.div>
-
-          {/* Regional Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="bg-neutral-50 p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
-            >
-              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Americas</h3>
-              <p className="text-body-md text-neutral-600 leading-relaxed mb-4">
-                Deep expertise in US and Canadian markets, with extensive experience in cross-border transactions involving Latin America.
-              </p>
-              <ul className="space-y-2 text-body-sm text-neutral-700">
-                <li className="flex items-start">
-                  <span className="text-gold-600 mr-2">•</span>
-                  <span>New York, Toronto, São Paulo coverage</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-gold-600 mr-2">•</span>
-                  <span>SEC, TSX, and regional regulatory expertise</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-gold-600 mr-2">•</span>
-                  <span>North-South transaction structuring</span>
-                </li>
-              </ul>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="bg-neutral-50 p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
-            >
-              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">EMEA</h3>
-              <p className="text-body-md text-neutral-600 leading-relaxed mb-4">
-                Extensive experience across European and Middle Eastern markets, with particular strength in UK, Germany, and UAE.
-              </p>
-              <ul className="space-y-2 text-body-sm text-neutral-700">
-                <li className="flex items-start">
-                  <span className="text-gold-600 mr-2">•</span>
-                  <span>London, Frankfurt, Dubai presence</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-gold-600 mr-2">•</span>
-                  <span>FCA, BaFin, and regional compliance</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-gold-600 mr-2">•</span>
-                  <span>Pan-European transaction coordination</span>
-                </li>
-              </ul>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="bg-neutral-50 p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
-            >
-              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">APAC</h3>
-              <p className="text-body-md text-neutral-600 leading-relaxed mb-4">
-                Strong relationships and transaction experience across Asia-Pacific, with focus on Singapore, Hong Kong, and Australia.
-              </p>
-              <ul className="space-y-2 text-body-sm text-neutral-700">
-                <li className="flex items-start">
-                  <span className="text-gold-600 mr-2">•</span>
-                  <span>Singapore, Hong Kong, Sydney networks</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-gold-600 mr-2">•</span>
-                  <span>MAS, HKMA, ASIC regulatory knowledge</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-gold-600 mr-2">•</span>
-                  <span>Asia-Pacific cross-border expertise</span>
-                </li>
-              </ul>
-            </motion.div>
           </div>
         </div>
       </section>
