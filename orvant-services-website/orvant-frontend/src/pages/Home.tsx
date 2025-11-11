@@ -240,6 +240,72 @@ export function Home() {
         </div>
       </section>
 
+      <section className="py-32 bg-neutral-50 border-b border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <SectionHeader
+            eyebrow="WHY CHOOSE US"
+            title="What Sets Us Apart"
+            deck="Independent thinking, senior execution, and outcomes that hold up under scrutiny."
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Senior Attention Throughout",
+                description: "Partners lead every engagement from initial conversation through completion. No delegation to junior teams—you work directly with experienced advisors who have seen complex situations before.",
+                icon: "1"
+              },
+              {
+                title: "Independence & Objectivity",
+                description: "We have no lending relationships, no investment banking conflicts, and no pressure to cross-sell. Our only obligation is to provide clear-eyed advice aligned with your interests.",
+                icon: "2"
+              },
+              {
+                title: "Board-Ready Materials",
+                description: "Every deliverable is built to withstand board scrutiny. We anticipate questions, document assumptions, and present options with clarity—so decisions can be made with confidence.",
+                icon: "3"
+              },
+              {
+                title: "Discretion by Design",
+                description: "Confidentiality isn't just a promise—it's how we operate. Controlled processes, limited distribution lists, and careful stakeholder management protect sensitive information throughout.",
+                icon: "4"
+              },
+              {
+                title: "Cross-Border Expertise",
+                description: "We navigate multi-jurisdictional transactions across Americas, EMEA, and APAC. Deep understanding of regulatory frameworks, tax structures, and cultural nuances that impact deal execution.",
+                icon: "5"
+              },
+              {
+                title: "Calm Under Pressure",
+                description: "When timelines compress and stakes escalate, we maintain composure. Clean processes, clear communication, and steady execution—even when circumstances are difficult.",
+                icon: "6"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="group bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+              >
+                <div className="w-12 h-12 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4 group-hover:bg-navy-900 transition-colors duration-220">
+                  <span className="text-navy-900 group-hover:text-gold-500 text-xl font-display font-semibold transition-colors duration-220">
+                    {item.icon}
+                  </span>
+                </div>
+                <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3 group-hover:text-navy-900 transition-colors duration-220">
+                  {item.title}
+                </h3>
+                <p className="text-body-md text-neutral-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-32 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
