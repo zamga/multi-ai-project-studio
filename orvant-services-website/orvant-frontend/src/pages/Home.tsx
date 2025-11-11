@@ -136,66 +136,6 @@ export function Home() {
         </section>
       </HeroVideo>
 
-      {/* Principles - Institutional Trust Section */}
-      <section 
-        aria-labelledby="principles-heading"
-        className="relative py-[100px] sm:py-[60px] bg-[#0D1A2A] border-y border-navy-800 overflow-hidden"
-      >
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDOUEyNTkiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItMnptMC0ydjJoLTJ2LTJoMnptLTItMmgydjJoLTJ2LTJ6bTItMmgydjJoLTJ2LTJ6bTAtMmgydjJoLTJ2LTJ6bS0yLTJoMnYyaC0ydi0yem0yLTJoMnYyaC0ydi0yem0wLTJoMnYyaC0ydi0yem0tMi0yaDF2Mmgtdi0yem0yLTJoMnYyaC0ydi0yem0wLTJoMnYyaC0ydi0yeiIvPjwvZz48L2c+PC9zdmc+')] opacity-20" />
-        </div>
-
-        <div className="relative max-w-container mx-auto px-6 lg:px-12">
-          {/* Headline */}
-          <motion.h2
-            id="principles-heading"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-white/90 text-center text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] leading-tight mb-16 max-w-5xl mx-auto"
-            style={{ letterSpacing: '-0.02em' }}
-          >
-            Trusted by boards navigating complex transitions worldwide.
-          </motion.h2>
-
-          {/* Four Principles */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 max-w-5xl mx-auto mb-16">
-            {[
-              'Integrity in every engagement.',
-              'Discretion by design.',
-              'Global perspective, local precision.',
-              'Outcomes that stand up in the boardroom.'
-            ].map((principle, index) => (
-              <motion.p
-                key={index}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display text-white/90 text-[40px] sm:text-[44px] md:text-[48px] leading-tight text-center md:text-left"
-                style={{ letterSpacing: '-0.02em' }}
-              >
-                {principle}
-              </motion.p>
-            ))}
-          </div>
-
-          {/* Narrative sentence */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center text-[18px] font-sans font-normal text-[#A3B0C0] max-w-4xl mx-auto"
-            style={{ lineHeight: '1.7' }}
-          >
-            Our senior team has guided cross-border transactions across Europe, the Americas and Asia, applying consistent discipline built over decades of institutional experience.
-          </motion.p>
-        </div>
-      </section>
-
       {/* Distinctive Value Section - Why Choose Us - Premium Editorial Style */}
       <section className="py-[100px] sm:py-[60px] bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
