@@ -93,9 +93,10 @@ export function Navigation() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200 transition-all duration-300 ${
-        isScrolled ? 'shadow-sm' : ''
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/95 border-b border-neutral-200 transition-all duration-300 ${
+        isScrolled ? 'shadow-md' : ''
       }`}
+      style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
