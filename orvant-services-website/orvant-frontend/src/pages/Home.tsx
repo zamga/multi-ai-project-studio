@@ -5,6 +5,9 @@ import { SectionHeader } from '../components/SectionHeader'
 import { SEO } from '../components/SEO'
 import { HeroVideo } from '../components/HeroVideo'
 import { OrganizationSchema, WebsiteSchema } from '../components/StructuredData'
+import { GlobalMap } from '../components/GlobalMap'
+import { InsightsCarousel } from '../components/InsightsCarousel'
+import { ServiceIcon } from '../components/ServiceIcon'
 
 export function Home() {
   const situations = [
@@ -44,14 +47,27 @@ export function Home() {
     {
       title: 'Navigating Market Volatility in M&A',
       category: 'M&A Advisory',
+      excerpt: 'How to maintain deal momentum and valuation discipline when market conditions shift mid-process.',
     },
     {
       title: 'Capital Structure Optimization',
       category: 'Public Markets',
+      excerpt: 'Strategic approaches to balance sheet management and capital allocation for public companies.',
     },
     {
       title: 'Operational Restructuring',
       category: 'Restructuring',
+      excerpt: 'Practical frameworks for stabilizing operations and restoring stakeholder confidence under pressure.',
+    },
+    {
+      title: 'Cross-Border Transaction Considerations',
+      category: 'M&A Advisory',
+      excerpt: 'Key regulatory, tax, and cultural factors to navigate in international deals.',
+    },
+    {
+      title: 'IPO Readiness Assessment',
+      category: 'Public Markets',
+      excerpt: 'Critical governance, controls, and disclosure requirements for companies preparing to go public.',
     },
   ]
 
@@ -150,29 +166,32 @@ export function Home() {
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {situations.map((situation, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="group relative bg-neutral-50 p-6 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:bg-white hover:shadow-elevation transition-all duration-220 card-premium"
-              >
-                <div className="w-12 h-12 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4 group-hover:bg-navy-900 transition-colors duration-220">
-                  <div className="w-6 h-6 border-2 border-navy-900 group-hover:border-gold-500 rounded-sm transition-colors duration-220" />
-                </div>
-                <h3 className="font-sans font-semibold text-body-md text-neutral-950 mb-2 group-hover:text-navy-900 transition-colors duration-220">
-                  {situation}
-                </h3>
-                <p className="text-body-sm text-neutral-600 leading-relaxed">
-                  {index === 0 && "Strategic guidance from preparation through closing"}
-                  {index === 1 && "Confidential processes for ownership transitions"}
-                  {index === 2 && "Platform consolidation and market expansion"}
-                  {index === 3 && "Operational and financial stabilization"}
-                </p>
-              </motion.div>
-            ))}
+            {situations.map((situation, index) => {
+              const serviceIds = ['ma-advisory', 'buy-sell', 'ma-advisory', 'restructuring']
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="group relative bg-neutral-50 p-6 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:bg-white hover:shadow-elevation transition-all duration-220 card-premium"
+                >
+                  <div className="w-12 h-12 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4 group-hover:bg-navy-900 transition-colors duration-220">
+                    <ServiceIcon serviceId={serviceIds[index]} className="w-6 h-6 text-navy-900 group-hover:text-gold-500 transition-colors duration-220" />
+                  </div>
+                  <h3 className="font-sans font-semibold text-body-md text-neutral-950 mb-2 group-hover:text-navy-900 transition-colors duration-220">
+                    {situation}
+                  </h3>
+                  <p className="text-body-sm text-neutral-600 leading-relaxed">
+                    {index === 0 && "Strategic guidance from preparation through closing"}
+                    {index === 1 && "Confidential processes for ownership transitions"}
+                    {index === 2 && "Platform consolidation and market expansion"}
+                    {index === 3 && "Operational and financial stabilization"}
+                  </p>
+                </motion.div>
+              )
+            })}
           </div>
 
           <div className="mb-12">
@@ -345,46 +364,51 @@ export function Home() {
             deck="Expert perspectives on navigating complex business transitions."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {insights.map((insight, index) => (
-              <motion.div
-                key={index}
-                className="group cursor-pointer"
-                initial={{ opacity: 0, y: 6 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.22, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="mb-3">
-                  <span className="text-body-xs text-neutral-500 font-medium uppercase tracking-widest">{insight.category}</span>
-                </div>
-                <h3 className="font-sans font-medium text-body-lg text-neutral-950 group-hover:text-navy-900 transition-colors duration-220">
-                  {insight.title}
-                </h3>
-              </motion.div>
-            ))}
+          <InsightsCarousel insights={insights} />
+
+          <div className="mt-12 text-center">
+            <Link
+              to="/insights"
+              className="inline-flex items-center text-body-md text-navy-900 hover:text-navy-800 font-medium transition-colors duration-200"
+            >
+              View all insights
+              <ArrowRight className="ml-2" size={18} />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Global Operations */}
-      <section className="py-28 bg-neutral-50 border-t border-neutral-200">
+      <section className="py-28 bg-white border-t border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="font-display text-display-lg text-neutral-950 mb-6">
               Global Operations
             </h2>
-            <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
+            <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto mb-12">
               We advise on cross-border transactions and operate across major financial centers with deep regional expertise.
             </p>
           </div>
+          
+          {/* Interactive Map */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="mb-16"
+          >
+            <GlobalMap />
+          </motion.div>
+
+          {/* Regional Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+              className="bg-neutral-50 p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
             >
               <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Americas</h3>
               <p className="text-body-md text-neutral-600 leading-relaxed mb-4">
@@ -410,7 +434,7 @@ export function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+              className="bg-neutral-50 p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
             >
               <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">EMEA</h3>
               <p className="text-body-md text-neutral-600 leading-relaxed mb-4">
@@ -436,7 +460,7 @@ export function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+              className="bg-neutral-50 p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
             >
               <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">APAC</h3>
               <p className="text-body-md text-neutral-600 leading-relaxed mb-4">

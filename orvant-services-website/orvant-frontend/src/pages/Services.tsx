@@ -12,6 +12,7 @@ import { SectionHeader } from '../components/SectionHeader'
 import { SEO } from '../components/SEO'
 import Breadcrumb from '../components/Breadcrumb'
 import { BreadcrumbSchema, ServiceSchema } from '../components/StructuredData'
+import { ServiceIcon } from '../components/ServiceIcon'
 
 export function Services() {
   const location = useLocation()
@@ -248,10 +249,17 @@ export function Services() {
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="mb-12">
-                  <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">SERVICE</p>
-                  <h2 className="font-display text-display-lg text-neutral-950 mb-4 leading-tight">
-                    {currentService.title}
-                  </h2>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-navy-900 rounded-sm flex items-center justify-center">
+                      <ServiceIcon serviceId={currentService.id} className="w-8 h-8 text-gold-500" />
+                    </div>
+                    <div>
+                      <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-1">SERVICE</p>
+                      <h2 className="font-display text-display-lg text-neutral-950 leading-tight">
+                        {currentService.title}
+                      </h2>
+                    </div>
+                  </div>
                   <p className="text-body-lg text-neutral-600 leading-relaxed">
                     {currentService.description}
                   </p>

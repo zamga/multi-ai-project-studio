@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { Navigation } from './components/Navigation'
 import { FloatingCTA } from './components/FloatingCTA'
+import { FloatingCTAButton } from './components/FloatingCTAButton'
+import { StickyFooter } from './components/StickyFooter'
 import { CookieConsent, ManageCookies } from './components/CookieConsent'
 import { trackNewsletterSubscribe } from './utils/analytics'
 import './App.css'
@@ -174,6 +176,8 @@ function App() {
           </main>
           <Footer />
           <FloatingCTA />
+          <FloatingCTAButton />
+          <StickyFooter />
           <CookieConsent />
         </div>
       </Router>
