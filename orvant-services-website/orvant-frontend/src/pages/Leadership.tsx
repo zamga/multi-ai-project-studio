@@ -7,54 +7,78 @@ export function Leadership() {
   const leaders = [
     {
       name: 'Leadership Team',
-      role: 'Partners & Advisors',
+      role: 'Managing Partners',
+      title: 'Senior Advisory Partners',
       monogram: 'LT',
       focusAreas: ['M&A Advisory', 'Restructuring', 'Public Markets'],
-      credentials: [
-        'Decades of experience advising owners and boards',
-        'Cross-border transaction expertise',
-        'Board-level advisory and governance',
+      specialties: [
+        'Cross-border M&A transactions',
+        'Complex restructuring mandates',
+        'Public market preparation and governance',
       ],
-      bio: 'Our leadership team brings decades of experience advising owners and boards through complex transitions. Detailed profiles and credentials available upon request.',
+      credentials: [
+        'Decades of experience advising owners and boards through high-stakes transitions',
+        'Extensive cross-border transaction expertise across Americas, EMEA, and APAC',
+        'Board-level strategic advisory and governance counsel',
+      ],
+      bio: 'Our leadership team brings decades of experience advising owners and boards through complex transitions. We maintain senior attention on every mandate from initial engagement through successful completion. Detailed profiles and credentials available upon request for confidential discussions.',
       placeholder: true,
     },
     {
       name: 'Advisory Partner',
-      role: 'M&A Advisory',
+      role: 'M&A Advisory Lead',
+      title: 'Partner, Mergers & Acquisitions',
       monogram: 'AP',
       focusAreas: ['Cross-Border Transactions', 'Strategic Acquisitions', 'Divestitures'],
-      credentials: [
-        'Extensive M&A structuring experience',
-        'Multi-jurisdictional transaction expertise',
-        'Board-level strategic advisory',
+      specialties: [
+        'Buy-side and sell-side transaction advisory',
+        'Multi-jurisdictional deal structuring',
+        'Carve-out and divestiture execution',
       ],
-      bio: 'Extensive experience structuring and executing M&A mandates across multiple jurisdictions. Board-level advisory for strategic acquisitions and divestitures.',
+      credentials: [
+        'Extensive M&A structuring and execution experience across industrials, technology, and healthcare sectors',
+        'Multi-jurisdictional transaction expertise with deep knowledge of cross-border regulatory frameworks',
+        'Board-level strategic advisory for complex acquisitions, divestitures, and corporate carve-outs',
+      ],
+      bio: 'Extensive experience structuring and executing M&A mandates across multiple jurisdictions. Specializes in board-level advisory for strategic acquisitions and divestitures, with particular expertise in complex cross-border transactions and corporate carve-outs. Maintains senior attention throughout the engagement lifecycle.',
       placeholder: true,
     },
     {
       name: 'Advisory Partner',
-      role: 'Restructuring & Turnaround',
+      role: 'Restructuring & Turnaround Lead',
+      title: 'Partner, Corporate Restructuring',
       monogram: 'AP',
       focusAreas: ['Operational Restructuring', 'Financial Restructuring', 'Turnaround Management'],
-      credentials: [
-        'Specializes in business stabilization',
-        'Multi-stakeholder alignment expertise',
-        'Credible turnaround execution',
+      specialties: [
+        'Business stabilization and liquidity management',
+        'Multi-stakeholder negotiation and alignment',
+        'Operational and financial turnaround execution',
       ],
-      bio: 'Specializes in stabilizing businesses under pressure, aligning stakeholders, and executing credible turnaround plans with clear milestones.',
+      credentials: [
+        'Specializes in stabilizing businesses under pressure with focus on cash preservation and stakeholder alignment',
+        'Multi-stakeholder negotiation expertise including lenders, investors, boards, and management teams',
+        'Credible turnaround execution with track record of developing and implementing executable restructuring plans',
+      ],
+      bio: 'Specializes in stabilizing businesses under pressure, aligning stakeholders, and executing credible turnaround plans with clear milestones. Deep expertise in both operational and financial restructuring, with particular strength in multi-stakeholder negotiations and liquidity management. Maintains calm execution even in high-pressure situations.',
       placeholder: true,
     },
     {
       name: 'Advisory Partner',
-      role: 'Public Markets',
+      role: 'Public Markets Lead',
+      title: 'Partner, Capital Markets',
       monogram: 'AP',
       focusAreas: ['IPO Readiness', 'Investor Relations', 'Governance Advisory'],
-      credentials: [
-        'Public market preparation expertise',
-        'Governance and controls advisory',
-        'Investor messaging and coordination',
+      specialties: [
+        'IPO preparation and readiness assessment',
+        'Public company governance and controls',
+        'Investor relations and equity story development',
       ],
-      bio: 'Guides companies through public market preparation, governance readiness, and investor messaging. Coordinates with underwriters and advisors.',
+      credentials: [
+        'Public market preparation expertise with deep understanding of regulatory requirements and disclosure frameworks',
+        'Governance and controls advisory including SOX compliance, board composition, and internal control frameworks',
+        'Investor messaging and coordination with underwriters, legal counsel, and auditors throughout the IPO process',
+      ],
+      bio: 'Guides companies through public market preparation, governance readiness, and investor messaging. Coordinates with underwriters and advisors to ensure smooth market entry. Specializes in readiness assessments, equity story development, and establishing robust investor relations foundations. Maintains focus on credible disclosure and strong controls.',
       placeholder: true,
     },
   ]
@@ -134,16 +158,33 @@ export function Leadership() {
                       <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-1 group-hover:text-navy-900 transition-colors duration-220">
                         {leader.name}
                       </h3>
-                      <p className="text-body-sm text-neutral-600 mb-3">{leader.role}</p>
+                      <p className="text-body-sm text-neutral-600 mb-1">{leader.role}</p>
+                      {leader.title && (
+                        <p className="text-body-xs text-neutral-500 mb-3">{leader.title}</p>
+                      )}
                     </div>
                   </div>
+
+                  {/* Specialties */}
+                  {leader.specialties && (
+                    <div className="mb-4">
+                      <p className="text-body-xs uppercase tracking-widest text-neutral-500 mb-2">Specialties</p>
+                      <div className="flex flex-wrap gap-2">
+                        {leader.specialties.map((specialty, i) => (
+                          <span key={i} className="inline-block px-3 py-1 bg-gold-500/10 text-gold-700 text-body-xs font-medium rounded-sm">
+                            {specialty}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   {/* Focus areas as tags */}
                   <div className="mb-4">
                     <p className="text-body-xs uppercase tracking-widest text-neutral-500 mb-2">Areas of Focus</p>
                     <div className="flex flex-wrap gap-2">
                       {leader.focusAreas.map((area, i) => (
-                        <span key={i} className="inline-block px-3 py-1 bg-gold-500/10 text-gold-700 text-body-xs font-medium rounded-sm">
+                        <span key={i} className="inline-block px-3 py-1 bg-navy-900/5 text-navy-900 text-body-xs font-medium rounded-sm">
                           {area}
                         </span>
                       ))}
@@ -152,11 +193,11 @@ export function Leadership() {
 
                   {/* Credentials bullets */}
                   <div className="mb-6">
-                    <p className="text-body-xs uppercase tracking-widest text-neutral-500 mb-2">Credentials</p>
-                    <ul className="space-y-1">
+                    <p className="text-body-xs uppercase tracking-widest text-neutral-500 mb-2">Experience & Credentials</p>
+                    <ul className="space-y-2">
                       {leader.credentials.map((credential, i) => (
-                        <li key={i} className="text-body-sm text-neutral-700 flex items-start">
-                          <span className="text-gold-600 mr-2">•</span>
+                        <li key={i} className="text-body-sm text-neutral-700 flex items-start leading-relaxed">
+                          <span className="text-gold-600 mr-2 mt-1">•</span>
                           <span>{credential}</span>
                         </li>
                       ))}
