@@ -7,7 +7,7 @@ import { HeroVideo } from '../components/HeroVideo'
 import { OrganizationSchema, WebsiteSchema } from '../components/StructuredData'
 import { GlobalMap } from '../components/GlobalMap'
 import { InsightsCarousel } from '../components/InsightsCarousel'
-import { ServiceIcon } from '../components/ServiceIcon'
+import { PhotoCard } from '../components/PhotoCard'
 
 export function Home() {
   const mandates = [
@@ -205,48 +205,33 @@ export function Home() {
               </p>
             </div>
 
-            {/* Right: Service Cards Grid */}
+            {/* Right: Service Photo Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
                 {
                   title: "M&A Advisory",
-                  benefit: "Strategic guidance from preparation through closing with board-ready materials.",
-                  serviceId: "ma-advisory"
+                  description: "Strategic guidance from preparation through closing with board-ready materials."
                 },
                 {
                   title: "Restructuring",
-                  benefit: "Stabilise performance, optimise capital structure and position for value recovery.",
-                  serviceId: "restructuring"
+                  description: "Stabilise performance, optimise capital structure and position for value recovery."
                 },
                 {
                   title: "Public Markets",
-                  benefit: "Navigate IPOs, secondary offerings, and capital raises with institutional credibility.",
-                  serviceId: "public-markets"
+                  description: "Navigate IPOs, secondary offerings, and capital raises with institutional credibility."
                 },
                 {
                   title: "Strategic Counsel",
-                  benefit: "Board-level advice on critical decisions, governance, and stakeholder alignment.",
-                  serviceId: "strategic-counsel"
+                  description: "Board-level advice on critical decisions, governance, and stakeholder alignment."
                 }
               ].map((service, index) => (
-                <motion.div
+                <PhotoCard
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group bg-neutral-50 p-6 rounded-sm border border-neutral-200 hover:border-gold-500/30 hover:bg-white hover:shadow-elevation transition-all duration-300"
-                >
-                  <div className="w-12 h-12 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4 group-hover:bg-navy-900 transition-colors duration-300">
-                    <ServiceIcon serviceId={service.serviceId} className="w-6 h-6 text-navy-900 group-hover:text-gold-500 transition-colors duration-300" />
-                  </div>
-                  <h3 className="font-sans font-bold text-body-lg text-neutral-950 mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-body-sm text-neutral-600 leading-relaxed">
-                    {service.benefit}
-                  </p>
-                </motion.div>
+                  title={service.title}
+                  description={service.description}
+                  href="/services"
+                  index={index}
+                />
               ))}
             </div>
           </div>
