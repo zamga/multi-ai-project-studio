@@ -18,6 +18,11 @@ export function Insights() {
       tags: ['M&A', 'Board Advisory'],
       slug: 'preparing-for-sale',
       coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop',
+      keyTakeaways: [
+        'Assess readiness before engaging buyers',
+        'Build clean data room and diligence materials',
+        'Align board on process and decision criteria',
+      ],
     },
     {
       title: 'Restructuring under pressure: A practical framework',
@@ -26,6 +31,11 @@ export function Insights() {
       tags: ['Restructuring', 'Turnaround'],
       slug: 'restructuring-framework',
       coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
+      keyTakeaways: [
+        'Build 13-week cash flow with scenarios',
+        'Map stakeholder positions early',
+        'Communicate credible plan with milestones',
+      ],
     },
     {
       title: 'IPO readiness: Beyond the financials',
@@ -34,6 +44,11 @@ export function Insights() {
       tags: ['Public Markets', 'Governance'],
       slug: 'ipo-readiness',
       coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop',
+      keyTakeaways: [
+        'Close governance and controls gaps early',
+        'Build equity story with clear narrative',
+        'Prepare for underwriter and analyst scrutiny',
+      ],
     },
   ]
 
@@ -184,6 +199,21 @@ export function Insights() {
                       <p className="text-body-md text-neutral-600 leading-relaxed mb-4">
                         {article.excerpt}
                       </p>
+                      
+                      {article.keyTakeaways && article.keyTakeaways.length > 0 && (
+                        <div className="mb-4 pt-4 border-t border-neutral-200">
+                          <p className="text-body-xs uppercase tracking-widest text-neutral-500 mb-2">Key Takeaways</p>
+                          <ul className="space-y-1">
+                            {article.keyTakeaways.map((takeaway, idx) => (
+                              <li key={idx} className="flex items-start text-body-sm text-neutral-600">
+                                <span className="text-gold-500 mr-2 mt-0.5">•</span>
+                                <span>{takeaway}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      
                       <div className="flex items-center justify-between">
                         <span className="text-body-sm text-neutral-500">{article.date}</span>
                         <Link
