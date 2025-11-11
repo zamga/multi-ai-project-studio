@@ -71,18 +71,20 @@ export function Navigation() {
   }, [focusedIndex, activeDropdown])
 
   const capabilities = [
-    { name: 'M&A Advisory', path: '/services#ma-advisory' },
-    { name: 'Restructuring', path: '/services#restructuring' },
-    { name: 'Public Markets', path: '/services#public-markets' },
-    { name: 'Accounting & Compliance', path: '/services#accounting' },
-    { name: 'Buy/Sell Company', path: '/services#buy-sell' },
+    { name: 'All Capabilities', path: '/services', isOverview: true },
+    { name: 'M&A Advisory', path: '/services#ma-advisory', description: 'Buy-side and sell-side transaction advisory' },
+    { name: 'Restructuring', path: '/services#restructuring', description: 'Operational and financial stabilization' },
+    { name: 'Public Markets', path: '/services#public-markets', description: 'IPO readiness and investor relations' },
+    { name: 'Accounting & Compliance', path: '/services#accounting', description: 'Financial reporting and controls' },
+    { name: 'Buy/Sell Company', path: '/services#buy-sell', description: 'Confidential business transactions' },
   ]
 
   const industries = [
-    { name: 'Industrials', path: '/services' },
-    { name: 'Technology', path: '/services' },
-    { name: 'Healthcare', path: '/services' },
-    { name: 'Financial Services', path: '/services' },
+    { name: 'All Industries', path: '/services', isOverview: true },
+    { name: 'Industrials', path: '/services', description: 'Manufacturing and distribution' },
+    { name: 'Technology', path: '/services', description: 'Software and digital services' },
+    { name: 'Healthcare', path: '/services', description: 'Medical devices and services' },
+    { name: 'Financial Services', path: '/services', description: 'Banking and fintech' },
   ]
 
   const about = [
@@ -154,7 +156,7 @@ export function Navigation() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-56 bg-white border border-neutral-200 rounded-sm shadow-elevation py-2"
+                    className="absolute top-full left-0 mt-2 w-80 bg-white border border-neutral-200 rounded-sm shadow-elevation py-3"
                     onKeyDown={(e) => handleDropdownKeyDown(e, 'capabilities', capabilities)}
                   >
                     {capabilities.map((item) => (
@@ -162,9 +164,27 @@ export function Navigation() {
                         key={item.path}
                         to={item.path}
                         role="menuitem"
-                        className="block px-4 py-2.5 text-body-sm text-neutral-700 hover:bg-neutral-50 hover:text-neutral-950 transition-colors duration-150"
+                        className={`block px-5 py-3 text-body-sm hover:bg-neutral-50 transition-colors duration-150 ${
+                          item.isOverview 
+                            ? 'text-navy-900 font-semibold border-b border-neutral-200 mb-2' 
+                            : 'text-neutral-700 hover:text-neutral-950'
+                        }`}
                       >
-                        {item.name}
+                        <div className="flex items-start gap-3">
+                          {!item.isOverview && (
+                            <span className="text-gold-500 mt-0.5">•</span>
+                          )}
+                          <div className="flex-1">
+                            <div className={item.isOverview ? 'text-body-md' : 'text-body-sm font-medium mb-0.5'}>
+                              {item.name}
+                            </div>
+                            {item.description && (
+                              <div className="text-body-xs text-neutral-500 leading-snug">
+                                {item.description}
+                              </div>
+                            )}
+                          </div>
+                        </div>
                       </Link>
                     ))}
                   </motion.div>
@@ -199,7 +219,7 @@ export function Navigation() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-56 bg-white border border-neutral-200 rounded-sm shadow-elevation py-2"
+                    className="absolute top-full left-0 mt-2 w-80 bg-white border border-neutral-200 rounded-sm shadow-elevation py-3"
                     onKeyDown={(e) => handleDropdownKeyDown(e, 'industries', industries)}
                   >
                     {industries.map((item) => (
@@ -207,9 +227,27 @@ export function Navigation() {
                         key={item.name}
                         to={item.path}
                         role="menuitem"
-                        className="block px-4 py-2.5 text-body-sm text-neutral-700 hover:bg-neutral-50 hover:text-neutral-950 transition-colors duration-150"
+                        className={`block px-5 py-3 text-body-sm hover:bg-neutral-50 transition-colors duration-150 ${
+                          item.isOverview 
+                            ? 'text-navy-900 font-semibold border-b border-neutral-200 mb-2' 
+                            : 'text-neutral-700 hover:text-neutral-950'
+                        }`}
                       >
-                        {item.name}
+                        <div className="flex items-start gap-3">
+                          {!item.isOverview && (
+                            <span className="text-gold-500 mt-0.5">•</span>
+                          )}
+                          <div className="flex-1">
+                            <div className={item.isOverview ? 'text-body-md' : 'text-body-sm font-medium mb-0.5'}>
+                              {item.name}
+                            </div>
+                            {item.description && (
+                              <div className="text-body-xs text-neutral-500 leading-snug">
+                                {item.description}
+                              </div>
+                            )}
+                          </div>
+                        </div>
                       </Link>
                     ))}
                   </motion.div>
