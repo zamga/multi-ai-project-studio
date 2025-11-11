@@ -83,9 +83,9 @@ function Footer() {
         {/* Newsletter signup */}
         <div className="border-t border-neutral-900 mt-12 pt-12">
           <div className="max-w-2xl">
-            <h3 className="text-white font-sans font-medium text-body-lg mb-2">Stay informed</h3>
+            <h3 className="text-white font-sans font-medium text-body-lg mb-2">Occasional perspectives</h3>
             <p className="text-body-sm text-neutral-400 mb-6">
-              Receive insights on M&A, restructuring, and public markets. Unsubscribe anytime.
+              Occasional perspectives from our senior partners.
             </p>
             <form 
               className="flex flex-col sm:flex-row gap-3"

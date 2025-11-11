@@ -200,7 +200,7 @@ export function Home() {
       <section className="py-[100px] sm:py-[60px] bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+            <h2 className="font-display text-display-xl text-neutral-950 mb-6">
               Why Choose Us
             </h2>
             <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto" style={{ lineHeight: '1.8' }}>
@@ -254,7 +254,7 @@ export function Home() {
             {/* Left: Narrative */}
             <div>
               <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">WHAT WE DO</p>
-              <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+              <h2 className="font-display text-display-xl text-neutral-950 mb-6">
                 Advisory for Complex Transitions
               </h2>
               <p className="text-body-lg text-neutral-600 mb-6" style={{ lineHeight: '1.8' }}>
@@ -408,7 +408,7 @@ export function Home() {
       <section className="py-[100px] sm:py-[60px] bg-white border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+            <h2 className="font-display text-display-xl text-neutral-950 mb-6">
               Recognition & Standards
             </h2>
             <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
@@ -475,7 +475,7 @@ export function Home() {
       <section className="py-[100px] sm:py-[60px] bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+            <h2 className="font-display text-display-xl text-neutral-950 mb-6">
               Recent Engagements & Global Presence
             </h2>
             <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
@@ -597,7 +597,7 @@ export function Home() {
       <section className="py-[100px] sm:py-[60px] bg-white border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+            <h2 className="font-display text-display-xl text-neutral-950 mb-6">
               Client Perspectives
             </h2>
             <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
