@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Mail, ArrowRight, CheckCircle2, AlertCircle, X } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useDropzone } from 'react-dropzone'
@@ -9,6 +9,7 @@ import * as z from 'zod'
 import { SEO } from '../components/SEO'
 import Breadcrumb from '../components/Breadcrumb'
 import { BreadcrumbSchema, ContactPageSchema } from '../components/StructuredData'
+import { LoadingSpinner } from '../components/LoadingSpinner'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
@@ -428,9 +429,39 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-150 hover:shadow-elevation disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="group w-full px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-220 hover:shadow-elevation disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send message'}
+                  <AnimatePresence mode="wait">
+                    {isSubmitting ? (
+                      <motion.div
+                        key="loading"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <LoadingSpinner size="sm" color="white" />
+                        <span>Sending...</span>
+                      </motion.div>
+                    ) : (
+                      <motion.span
+                        key="text"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="flex items-center justify-center"
+                      >
+                        Send message
+                        <motion.span
+                          className="ml-2"
+                          animate={{ x: [0, 4, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          →
+                        </motion.span>
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
                 </button>
               </form>
             </div>
