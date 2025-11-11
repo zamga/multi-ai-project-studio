@@ -157,50 +157,6 @@ export function Home() {
         </section>
       </HeroVideo>
 
-      {/* Client Logos / Trust Signals */}
-      <section className="py-24 bg-neutral-50 border-b border-neutral-200">
-        <div className="max-w-container mx-auto px-6 lg:px-12">
-          <p className="text-center text-body-lg text-neutral-800 mb-3 font-semibold">
-            Trusted by boards and owners across high-stakes global industries
-          </p>
-          <p className="text-center text-body-xs uppercase tracking-widest text-neutral-500 mb-12">
-            Select Sectors
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center">
-            {[
-              { 
-                name: 'Financial Services',
-                icon: <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              },
-              { 
-                name: 'Technology',
-                icon: <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-              },
-              { 
-                name: 'Healthcare',
-                icon: <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-              },
-              { 
-                name: 'Industrials',
-                icon: <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-              }
-            ].map((sector, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-center group"
-              >
-                <div className="mb-4 text-gold-500 group-hover:text-gold-400 transition-colors duration-300 flex justify-center">{sector.icon}</div>
-                <div className="text-body-md font-sans font-semibold text-neutral-700 group-hover:text-navy-900 transition-colors duration-220">{sector.name}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="py-40 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
