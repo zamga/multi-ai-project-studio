@@ -4,7 +4,6 @@ import { HelmetProvider } from 'react-helmet-async'
 import { Navigation } from './components/Navigation'
 import { FloatingCTA } from './components/FloatingCTA'
 import { FloatingCTAButton } from './components/FloatingCTAButton'
-import { StickyFooter } from './components/StickyFooter'
 import { ScrollProgress, BackToTop } from './components/ScrollProgress'
 import { CookieConsent, ManageCookies } from './components/CookieConsent'
 import { trackNewsletterSubscribe } from './utils/analytics'
@@ -182,7 +181,6 @@ function App() {
           <Footer />
           <FloatingCTA />
           <FloatingCTAButton />
-          <StickyFooter />
           <BackToTop />
           <CookieConsent />
         </div>

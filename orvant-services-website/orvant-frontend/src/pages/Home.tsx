@@ -249,19 +249,19 @@ export function Home() {
         </motion.div>
       </section>
 
-      {/* Distinctive Value Section - Why Choose Us */}
+      {/* Distinctive Value Section - Why Choose Us - Premium Editorial Style */}
       <section className="py-24 md:py-32 bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <h2 className="font-display text-display-lg text-neutral-950 mb-6">
               Why Choose Us
             </h2>
-            <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
+            <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto" style={{ lineHeight: '1.8' }}>
               We bring senior-led execution, independence, and discretion to every engagement.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-5xl mx-auto">
             {[
               {
                 title: "Senior Partner-Led Throughout",
@@ -286,15 +286,12 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-center"
+                className="text-left"
               >
-                <div className="w-16 h-16 bg-gold-500/10 rounded-sm flex items-center justify-center mb-6 mx-auto">
-                  <div className="w-8 h-8 border-2 border-gold-500 rounded-sm" />
-                </div>
-                <h3 className="font-sans font-bold text-body-lg text-neutral-950 mb-3">
+                <h3 className="font-sans font-bold text-body-xl text-neutral-950 mb-3" style={{ letterSpacing: '-0.01em' }}>
                   {pillar.title}
                 </h3>
-                <p className="text-body-md text-neutral-600 leading-relaxed">
+                <p className="text-body-md text-neutral-600" style={{ lineHeight: '1.7' }}>
                   {pillar.description}
                 </p>
               </motion.div>
@@ -398,58 +395,6 @@ export function Home() {
               Focused on high-stakes transitions in technology, healthcare, industrials and financial services.
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Old duplicate section removed - replaced with sections above */}
-      <section className="py-40 bg-neutral-50 border-b border-neutral-200" style={{ display: 'none' }}>
-        <div className="max-w-container mx-auto px-6 lg:px-12">
-          <SectionHeader
-            eyebrow="WHY CHOOSE US"
-            title="What Sets Us Apart"
-            deck="Senior partner-led from start to finish. Independent thinking. Outcomes that hold up in the boardroom."
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              {
-                title: "Senior Partner-Led Throughout",
-                description: "Partners lead every engagement from initial conversation through completion. You work directly with experienced advisors who have navigated complex situations across multiple jurisdictions and industries.",
-                icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-              },
-              {
-                title: "Independence & Objectivity",
-                description: "No lending relationships, no investment banking conflicts, no pressure to cross-sell. Our only obligation is to provide clear-eyed advice aligned with your interests and board-level outcomes.",
-                icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-              },
-              {
-                title: "Discretion by Design",
-                description: "Confidentiality isn't just a promise—it's how we operate. Controlled processes, limited distribution lists, and careful stakeholder management protect sensitive information at every stage.",
-                icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group bg-white p-10 rounded-sm border border-neutral-200 hover:border-gold-500/30 hover:shadow-premium transition-all duration-300"
-              >
-                <div className="w-16 h-16 bg-navy-900/5 rounded-sm flex items-center justify-center mb-6 group-hover:bg-navy-900 transition-colors duration-300">
-                  <div className="text-navy-900 group-hover:text-gold-500 transition-colors duration-300">
-                    {item.icon}
-                  </div>
-                </div>
-                <h3 className="font-sans font-bold text-body-xl text-neutral-950 mb-4 group-hover:text-navy-900 transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="text-body-md text-neutral-600 leading-relaxed" style={{ lineHeight: '1.7' }}>
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -574,35 +519,6 @@ export function Home() {
               <span className="hover:text-navy-900 transition-colors duration-220">Professional Ethics Board</span>
               <span className="text-neutral-300">·</span>
               <span className="hover:text-navy-900 transition-colors duration-220">Global M&A Network</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-8 bg-white border-b border-neutral-200">
-        <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-2">Operating standards</p>
-              <div className="flex flex-wrap items-center gap-x-3 text-body-sm text-neutral-700">
-                <span>Independence</span>
-                <span className="text-neutral-300">·</span>
-                <span>Senior-led execution</span>
-                <span className="text-neutral-300">·</span>
-                <span>Confidentiality</span>
-                <span className="text-neutral-300">·</span>
-                <span>Alignment</span>
-              </div>
-            </div>
-            <div>
-              <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-2">Where we operate</p>
-              <div className="flex flex-wrap items-center gap-x-3 text-body-sm text-neutral-700">
-                <span>Americas</span>
-                <span className="text-neutral-300">·</span>
-                <span>EMEA</span>
-                <span className="text-neutral-300">·</span>
-                <span>APAC</span>
-              </div>
             </div>
           </div>
         </div>
