@@ -9,6 +9,8 @@ export default {
   			sans: ['Inter', 'system-ui', 'sans-serif'],
   		},
   		fontSize: {
+  			'h1': ['clamp(40px, 6vw, 64px)', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
+  			'h2': ['clamp(28px, 4.5vw, 44px)', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '600' }],
   			'display-2xl': ['72px', { lineHeight: '80px', letterSpacing: '-0.02em', fontWeight: '700' }],
   			'display-xl': ['56px', { lineHeight: '64px', letterSpacing: '-0.02em', fontWeight: '700' }],
   			'display-lg': ['40px', { lineHeight: '48px', letterSpacing: '-0.02em', fontWeight: '600' }],

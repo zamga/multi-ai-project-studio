@@ -97,7 +97,7 @@ export function Home() {
                   Independent Advisory
                 </span>
               </motion.div>
-              <h1 className="font-display text-display-2xl text-white mb-8 leading-[1.1]" style={{ letterSpacing: '-0.02em' }}>
+              <h1 className="font-display text-h1 text-white mb-8 leading-[1.1]" style={{ letterSpacing: '-0.02em' }}>
                 Independent Advisory for Complex Transitions
               </h1>
               
@@ -140,7 +140,7 @@ export function Home() {
       <section className="py-[100px] sm:py-[60px] bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <h2 className="font-display text-display-xl text-neutral-950 mb-6">
+            <h2 className="font-display text-h2 text-neutral-950 mb-6">
               Why Choose Us
             </h2>
             <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto" style={{ lineHeight: '1.8' }}>
@@ -194,7 +194,7 @@ export function Home() {
             {/* Left: Narrative */}
             <div>
               <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">WHAT WE DO</p>
-              <h2 className="font-display text-display-xl text-neutral-950 mb-6">
+              <h2 className="font-display text-h2 text-neutral-950 mb-6">
                 Advisory for Complex Transitions
               </h2>
               <p className="text-body-lg text-neutral-600 mb-6" style={{ lineHeight: '1.8' }}>
@@ -275,7 +275,7 @@ export function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-display text-display-xl text-white mb-6">
+            <h2 className="font-display text-h2 text-white mb-6">
               Partnering with Leaders Across Global Industries
             </h2>
             <p className="text-body-xl text-white/80 max-w-3xl mx-auto" style={{ lineHeight: '1.8' }}>
@@ -348,7 +348,7 @@ export function Home() {
       <section className="py-[100px] sm:py-[60px] bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="font-display text-display-xl text-neutral-950 mb-6">
+            <h2 className="font-display text-h2 text-neutral-950 mb-6">
               Recognition & Standards
             </h2>
             <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
@@ -415,7 +415,7 @@ export function Home() {
       <section className="py-[100px] sm:py-[60px] bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="font-display text-display-xl text-neutral-950 mb-6">
+            <h2 className="font-display text-h2 text-neutral-950 mb-6">
               Recent Engagements & Global Presence
             </h2>
             <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
@@ -537,7 +537,7 @@ export function Home() {
       <section className="py-[100px] sm:py-[60px] bg-white border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="font-display text-display-xl text-neutral-950 mb-6">
+            <h2 className="font-display text-h2 text-neutral-950 mb-6">
               Client Perspectives
             </h2>
             <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
@@ -602,7 +602,7 @@ export function Home() {
       <section className="py-[100px] sm:py-[60px] bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 text-white border-t border-neutral-800">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-display-xl mb-6 leading-tight">
+            <h2 className="font-display text-h2 mb-6 leading-tight">
               First conversation
             </h2>
             <p className="text-body-xl text-neutral-300 mb-4" style={{ lineHeight: '1.7' }}>
