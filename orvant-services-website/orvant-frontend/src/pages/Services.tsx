@@ -175,18 +175,35 @@ export function Services() {
         description: currentService.description,
       }} />
       <div className="bg-white">
-      <section className="py-24 md:py-32 bg-neutral-50 border-b border-neutral-200">
-        <div className="max-w-container mx-auto px-6 lg:px-12">
+      <section className="relative py-32 md:py-40 bg-gradient-to-br from-neutral-50 via-white to-neutral-50 border-b border-neutral-200 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(to right, #001F3F 1px, transparent 1px), linear-gradient(to bottom, #001F3F 1px, transparent 1px)',
+            backgroundSize: '80px 80px'
+          }} />
+        </div>
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gold-500/5 rounded-full blur-3xl" />
+        <div className="max-w-container mx-auto px-6 lg:px-12 relative">
           <motion.div
             className="max-w-3xl"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="font-display text-display-xl text-neutral-950 mb-6 leading-tight">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-block mb-6"
+            >
+              <span className="inline-flex items-center px-4 py-2 bg-navy-900/5 border border-navy-900/10 rounded-full text-body-sm font-medium text-navy-900">
+                Advisory Services
+              </span>
+            </motion.div>
+            <h1 className="font-display text-display-xl text-neutral-950 mb-8 leading-[1.1] tracking-tight">
               Our Services
             </h1>
-            <p className="text-body-lg text-neutral-600 leading-relaxed">
+            <p className="text-body-xl text-neutral-600 leading-relaxed">
               We advise at inflection points—when the stakes are high, the timeline is tight, and the outcome matters for years to come.
             </p>
           </motion.div>
@@ -202,13 +219,20 @@ export function Services() {
                   <button
                     key={service.id}
                     onClick={() => handleServiceClick(service.id)}
-                    className={`w-full text-left px-4 py-3 rounded-sm text-body-md font-sans transition-all duration-200 ${
+                    className={`group w-full text-left px-4 py-3 rounded-sm text-body-md font-sans transition-all duration-220 relative overflow-hidden ${
                       activeService === service.id
-                        ? 'bg-neutral-100 text-neutral-950 font-medium'
+                        ? 'bg-navy-900 text-white font-medium shadow-sm'
                         : 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-950'
                     }`}
                   >
-                    {service.title}
+                    {activeService === service.id && (
+                      <motion.div
+                        layoutId="activeService"
+                        className="absolute inset-0 bg-navy-900 -z-10"
+                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                      />
+                    )}
+                    <span className="relative z-10">{service.title}</span>
                   </button>
                 ))}
               </div>
@@ -287,10 +311,10 @@ export function Services() {
                     </p>
                     <Link
                       to="/contact"
-                      className="inline-flex items-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-220 hover:shadow-elevation"
+                      className="group inline-flex items-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-220 hover:shadow-elevation-lg hover:scale-[1.02]"
                     >
                       Start a confidential conversation
-                      <ArrowRight className="ml-2" size={18} />
+                      <ArrowRight className="ml-2 transition-transform duration-220 group-hover:translate-x-1" size={18} />
                     </Link>
                   </div>
                 </div>
