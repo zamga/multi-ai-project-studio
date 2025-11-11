@@ -367,6 +367,100 @@ export function Home() {
         </div>
       </section>
 
+      {/* Global Operations */}
+      <section className="py-28 bg-neutral-50 border-t border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+              Global Operations
+            </h2>
+            <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
+              We advise on cross-border transactions and operate across major financial centers with deep regional expertise.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+            >
+              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Americas</h3>
+              <p className="text-body-md text-neutral-600 leading-relaxed mb-4">
+                Deep expertise in US and Canadian markets, with extensive experience in cross-border transactions involving Latin America.
+              </p>
+              <ul className="space-y-2 text-body-sm text-neutral-700">
+                <li className="flex items-start">
+                  <span className="text-gold-600 mr-2">•</span>
+                  <span>New York, Toronto, São Paulo coverage</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gold-600 mr-2">•</span>
+                  <span>SEC, TSX, and regional regulatory expertise</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gold-600 mr-2">•</span>
+                  <span>North-South transaction structuring</span>
+                </li>
+              </ul>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+            >
+              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">EMEA</h3>
+              <p className="text-body-md text-neutral-600 leading-relaxed mb-4">
+                Extensive experience across European and Middle Eastern markets, with particular strength in UK, Germany, and UAE.
+              </p>
+              <ul className="space-y-2 text-body-sm text-neutral-700">
+                <li className="flex items-start">
+                  <span className="text-gold-600 mr-2">•</span>
+                  <span>London, Frankfurt, Dubai presence</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gold-600 mr-2">•</span>
+                  <span>FCA, BaFin, and regional compliance</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gold-600 mr-2">•</span>
+                  <span>Pan-European transaction coordination</span>
+                </li>
+              </ul>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+            >
+              <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">APAC</h3>
+              <p className="text-body-md text-neutral-600 leading-relaxed mb-4">
+                Strong relationships and transaction experience across Asia-Pacific, with focus on Singapore, Hong Kong, and Australia.
+              </p>
+              <ul className="space-y-2 text-body-sm text-neutral-700">
+                <li className="flex items-start">
+                  <span className="text-gold-600 mr-2">•</span>
+                  <span>Singapore, Hong Kong, Sydney networks</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gold-600 mr-2">•</span>
+                  <span>MAS, HKMA, ASIC regulatory knowledge</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gold-600 mr-2">•</span>
+                  <span>Asia-Pacific cross-border expertise</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-28 bg-neutral-950 text-white">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
