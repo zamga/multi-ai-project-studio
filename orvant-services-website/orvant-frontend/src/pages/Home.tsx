@@ -114,7 +114,10 @@ export function Home() {
               <h1 className="font-display text-display-2xl text-white mb-6 leading-[1.05] tracking-tight" style={{ letterSpacing: '-0.02em' }}>
                 Independent Advisory for Complex Transitions
               </h1>
-              <p className="text-body-xl text-white/90 mb-10 max-w-2xl leading-relaxed">
+              <p className="text-body-xl text-white/90 mb-6 max-w-2xl leading-relaxed font-light">
+                At Orvantt Services, we partner with leaders navigating pivotal transitions. Our mission is to deliver clarity when complexity peaks—combining discretion, independent thinking, and cross-border expertise to help organizations achieve enduring outcomes.
+              </p>
+              <p className="text-body-lg text-white/80 mb-10 max-w-2xl leading-relaxed">
                 Clear guidance and discreet execution for M&A, restructuring, and public markets.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start">

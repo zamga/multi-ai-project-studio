@@ -92,6 +92,18 @@ export function About() {
         </div>
       </section>
 
+      {/* Our Standards - Institutional Credibility */}
+      <section className="py-20 bg-neutral-50 border-b border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-display text-display-md text-neutral-950 mb-6">Our Standards</h2>
+            <p className="text-body-lg text-neutral-700 leading-relaxed">
+              We maintain the highest standards of confidentiality, integrity, and regulatory compliance across all engagements. Our commitment to professional ethics and client stewardship guides every decision we make.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Our Approach */}
       <section className="py-28 bg-white">
         <div className="max-w-container mx-auto px-6 lg:px-12">
@@ -137,7 +149,10 @@ export function About() {
       {/* Team */}
       <section className="py-28 bg-neutral-50">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <h2 className="font-display text-display-lg text-neutral-950 mb-12">Leadership</h2>
+          <h2 className="font-display text-display-lg text-neutral-950 mb-6 text-center">Leadership</h2>
+          <p className="text-body-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto text-center mb-12">
+            Our leadership team brings decades of transaction experience from global investment banks and advisory firms, combining institutional expertise with the independence of a partner-led platform.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {team.map((member, index) => (
               <motion.div
@@ -167,7 +182,10 @@ export function About() {
       {/* Awards & Certifications */}
       <section className="py-28 bg-white border-t border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <h2 className="font-display text-display-lg text-neutral-950 mb-12 text-center">Awards & Recognition</h2>
+          <h2 className="font-display text-display-lg text-neutral-950 mb-6 text-center">Awards & Recognition</h2>
+          <p className="text-body-md text-neutral-600 leading-relaxed max-w-2xl mx-auto text-center mb-12">
+            Industry recognition reflects our commitment to independent excellence.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {[
               {
@@ -212,6 +230,12 @@ export function About() {
                   {award.title}
                 </h3>
                 <p className="text-body-sm text-neutral-600 mb-1">{award.organization}</p>
+                <p className="text-body-xs text-neutral-500 mb-2 italic">
+                  {award.category === "Middle Market" && "Recognized for leadership in middle-market advisory execution"}
+                  {award.category === "Special Situations" && "Recognized for expertise in complex restructuring situations"}
+                  {award.category === "Cross-Border Transaction" && "Recognized for excellence in international deal execution"}
+                  {award.category === "Independent Advisory" && "Recognized for independent advisory excellence"}
+                </p>
                 <div className="flex items-center justify-between mt-3 pt-3 border-t border-neutral-200">
                   <span className="text-body-xs uppercase tracking-widest text-gold-600">{award.category}</span>
                   <span className="text-body-xs font-medium text-neutral-500">{award.year}</span>
@@ -275,9 +299,9 @@ export function About() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-28 bg-neutral-50">
+      <section className="py-28 bg-white border-t border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <h2 className="font-display text-display-lg text-neutral-950 mb-12">What clients say</h2>
+          <h2 className="font-display text-display-lg text-neutral-950 mb-12 text-center">What clients say</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {testimonials.map((testimonial, index) => (
               <motion.div
@@ -286,22 +310,25 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+                className="relative bg-neutral-50 p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:bg-white hover:shadow-elevation transition-all duration-220"
               >
-                <div className="mb-4">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-5 h-5 text-gold-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <blockquote className="text-body-lg text-neutral-950 mb-4 leading-relaxed font-medium">
+                {/* Quote icon */}
+                <div className="absolute top-6 right-6 opacity-10">
+                  <svg className="w-12 h-12 text-gold-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                </div>
+                <div className="mb-4 relative">
+                  <blockquote className="text-body-lg text-neutral-950 mb-4 leading-relaxed font-normal">
                     "{testimonial.quote}"
                   </blockquote>
                 </div>
                 <div className="pt-4 border-t border-neutral-200">
-                  <p className="text-body-sm text-neutral-600 font-medium">— {testimonial.attribution}</p>
+                  <p className="text-body-sm text-neutral-600 font-medium">
+                    {testimonial.attribution.replace('CEO, Industrial Manufacturing', 'CEO, Global Industrials Group')
+                      .replace('CFO, Technology Services', 'CFO, Technology Platform')
+                      .replace('Board Chair, Healthcare Company', 'Board Chair, Healthcare Services')}
+                  </p>
                 </div>
               </motion.div>
             ))}
