@@ -120,17 +120,17 @@ export function Home() {
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <Link
                   to="/contact"
-                  className="group inline-flex items-center justify-center px-10 py-5 bg-gold-500 text-navy-900 text-body-lg font-sans font-bold rounded-sm hover:bg-gold-400 transition-all duration-300 hover:shadow-premium hover:scale-[1.05] shadow-xl"
+                  className="group inline-flex items-center justify-center px-10 py-5 bg-gold-500 text-white text-body-lg font-sans font-bold rounded-sm hover:bg-gold-400 transition-all duration-300 hover:shadow-premium hover:scale-[1.05] shadow-xl"
                 >
                   Begin a Confidential Conversation
                   <ArrowRight className="ml-2 btn-arrow" size={20} />
                 </Link>
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-white/80 text-body-sm font-sans font-medium hover:text-gold-400 transition-colors duration-220 pt-5 underline underline-offset-4"
+                  className="inline-flex items-center justify-center px-10 py-5 border-2 border-white/30 text-white text-body-lg font-sans font-medium rounded-sm hover:border-gold-400 hover:text-gold-400 transition-all duration-300"
                 >
                   Explore Our Capabilities
-                  <ArrowRight className="ml-2" size={16} />
+                  <ArrowRight className="ml-2" size={20} />
                 </Link>
               </div>
               
@@ -156,6 +156,97 @@ export function Home() {
           </div>
         </section>
       </HeroVideo>
+
+      {/* Proof / Credibility Strip */}
+      <section className="py-20 bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 border-y border-navy-800">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+            {[
+              { label: "Years Experience", value: "15+", description: "Combined team expertise" },
+              { label: "Jurisdictions", value: "20+", description: "Global reach" },
+              { label: "Industries", value: "12+", description: "Sector coverage" },
+              { label: "Success Rate", value: "95%+", description: "Completed mandates" }
+            ].map((metric, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="text-center relative"
+              >
+                <div className="absolute inset-0 bg-gold-500/5 blur-2xl rounded-full" />
+                <div className="relative text-[72px] leading-none font-display text-gold-500 mb-3 font-bold">
+                  {metric.value}
+                </div>
+                <div className="text-body-md font-sans font-semibold text-white mb-1">
+                  {metric.label}
+                </div>
+                <div className="text-body-sm text-navy-200">
+                  {metric.description}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <p className="text-center text-body-md text-navy-200 mt-12 max-w-3xl mx-auto" style={{ lineHeight: '1.7' }}>
+            Our track record reflects the discipline and senior oversight we bring to every engagement.
+          </p>
+        </div>
+      </section>
+
+      {/* Distinctive Value Section - Why Choose Us */}
+      <section className="py-24 md:py-32 bg-neutral-50 border-b border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+              Why Choose Us
+            </h2>
+            <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
+              We bring senior-led execution, independence, and discretion to every engagement.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Senior Partner-Led Throughout",
+                description: "Partners take personal ownership of your mandate from day one, ensuring accountability and continuity."
+              },
+              {
+                title: "Independence & Objectivity",
+                description: "No conflicts, no product sales—just clear-eyed advice aligned with your interests."
+              },
+              {
+                title: "Discretion by Design",
+                description: "Controlled processes, limited distribution lists, and careful stakeholder management protect sensitive information."
+              },
+              {
+                title: "Global Execution Expertise",
+                description: "Deep experience across 20+ jurisdictions with local regulatory knowledge and cross-border coordination."
+              }
+            ].map((pillar, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-16 h-16 bg-gold-500/10 rounded-sm flex items-center justify-center mb-6 mx-auto">
+                  <div className="w-8 h-8 border-2 border-gold-500 rounded-sm" />
+                </div>
+                <h3 className="font-sans font-bold text-body-lg text-neutral-950 mb-3">
+                  {pillar.title}
+                </h3>
+                <p className="text-body-md text-neutral-600 leading-relaxed">
+                  {pillar.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="py-40 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
