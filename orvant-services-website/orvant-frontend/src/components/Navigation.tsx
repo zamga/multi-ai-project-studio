@@ -79,14 +79,6 @@ export function Navigation() {
     { name: 'Buy/Sell Company', path: '/services#buy-sell', description: 'Confidential business transactions' },
   ]
 
-  const industries = [
-    { name: 'All Industries', path: '/services', isOverview: true },
-    { name: 'Industrials', path: '/services', description: 'Manufacturing and distribution' },
-    { name: 'Technology', path: '/services', description: 'Software and digital services' },
-    { name: 'Healthcare', path: '/services', description: 'Medical devices and services' },
-    { name: 'Financial Services', path: '/services', description: 'Banking and fintech' },
-  ]
-
   const about = [
     { name: 'Our Firm', path: '/about' },
     { name: 'Leadership', path: '/leadership' },
@@ -162,69 +154,6 @@ export function Navigation() {
                     {capabilities.map((item) => (
                       <Link
                         key={item.path}
-                        to={item.path}
-                        role="menuitem"
-                        className={`block px-5 py-3 text-body-sm hover:bg-neutral-50 transition-colors duration-150 ${
-                          item.isOverview 
-                            ? 'text-navy-900 font-semibold border-b border-neutral-200 mb-2' 
-                            : 'text-neutral-700 hover:text-neutral-950'
-                        }`}
-                      >
-                        <div className="flex items-start gap-3">
-                          {!item.isOverview && (
-                            <span className="text-gold-500 mt-0.5">•</span>
-                          )}
-                          <div className="flex-1">
-                            <div className={item.isOverview ? 'text-body-md' : 'text-body-sm font-medium mb-0.5'}>
-                              {item.name}
-                            </div>
-                            {item.description && (
-                              <div className="text-body-xs text-neutral-500 leading-snug">
-                                {item.description}
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* Industries Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setActiveDropdown('industries')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                ref={el => buttonRefs.current['industries'] = el}
-                className="flex items-center text-body-sm font-sans text-neutral-600 hover:text-neutral-950 transition-colors duration-150"
-                aria-expanded={activeDropdown === 'industries'}
-                aria-haspopup="menu"
-                aria-controls="menu-industries"
-                onKeyDown={(e) => handleButtonKeyDown(e, 'industries')}
-              >
-                Industries
-                <ChevronDown size={16} className="ml-1" />
-              </button>
-              <AnimatePresence>
-                {activeDropdown === 'industries' && (
-                  <motion.div
-                    ref={el => dropdownRefs.current['industries'] = el}
-                    id="menu-industries"
-                    role="menu"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-80 bg-white border border-neutral-200 rounded-sm shadow-elevation py-3"
-                    onKeyDown={(e) => handleDropdownKeyDown(e, 'industries', industries)}
-                  >
-                    {industries.map((item) => (
-                      <Link
-                        key={item.name}
                         to={item.path}
                         role="menuitem"
                         className={`block px-5 py-3 text-body-sm hover:bg-neutral-50 transition-colors duration-150 ${
