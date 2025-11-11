@@ -25,6 +25,7 @@ function PhotoCardContent({ title, description, imageUrl }: { title: string; des
           <img
             src={imageUrl}
             alt={title}
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale group-hover:opacity-50 group-hover:grayscale-0 transition-all duration-300"
           />
         )}
