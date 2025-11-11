@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/accordion'
 import { SectionHeader } from '../components/SectionHeader'
 import { SEO } from '../components/SEO'
+import Breadcrumb from '../components/Breadcrumb'
 import { BreadcrumbSchema, ServiceSchema } from '../components/StructuredData'
 
 export function Services() {
@@ -174,6 +175,7 @@ export function Services() {
         name: currentService.title,
         description: currentService.description,
       }} />
+      <Breadcrumb items={[{ name: 'Services', path: '/services' }]} />
       <div className="bg-white">
       <section className="relative py-32 md:py-40 bg-gradient-to-br from-neutral-50 via-white to-neutral-50 border-b border-neutral-200 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]">
