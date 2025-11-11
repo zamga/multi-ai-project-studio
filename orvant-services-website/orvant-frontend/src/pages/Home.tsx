@@ -111,26 +111,26 @@ export function Home() {
                   Independent Advisory
                 </span>
               </motion.div>
-              <h1 className="font-display text-display-2xl text-white mb-8 leading-[1.05] tracking-tight" style={{ letterSpacing: '-0.02em' }}>
-                Strategic Advisory for High-Stakes Transitions
+              <h1 className="font-display text-display-2xl text-white mb-6 leading-[1.05] tracking-tight" style={{ letterSpacing: '-0.02em' }}>
+                Independent Advisory for Complex Transitions
               </h1>
-              <p className="text-body-xl text-white/90 mb-12 max-w-2xl leading-relaxed">
-                We advise owners and boards through M&A, restructurings, and public markets. Clear guidance, discreet execution, and outcomes that hold up in the boardroom.
+              <p className="text-body-xl text-white/90 mb-10 max-w-2xl leading-relaxed">
+                Clear guidance and discreet execution for M&A, restructuring, and public markets.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <Link
                   to="/contact"
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-gold-600 text-navy-900 text-body-md font-sans font-semibold rounded-sm hover:bg-gold-500 transition-all duration-220 hover:shadow-elevation-lg hover:scale-[1.02]"
+                  className="group inline-flex items-center justify-center px-10 py-5 bg-gold-600 text-navy-900 text-body-lg font-sans font-bold rounded-sm hover:bg-gold-500 transition-all duration-220 hover:shadow-elevation-lg hover:scale-[1.02] shadow-lg"
                 >
-                  Start a confidential conversation
-                  <ArrowRight className="ml-2 btn-arrow" size={18} />
+                  Start a Conversation
+                  <ArrowRight className="ml-2 btn-arrow" size={20} />
                 </Link>
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-white text-body-md font-sans font-medium hover:text-gold-400 transition-colors duration-220 pt-4"
+                  className="inline-flex items-center text-white/80 text-body-sm font-sans font-medium hover:text-gold-400 transition-colors duration-220 pt-5 underline underline-offset-4"
                 >
-                  View our capabilities
-                  <ArrowRight className="ml-2" size={18} />
+                  Our Capabilities
+                  <ArrowRight className="ml-2" size={16} />
                 </Link>
               </div>
               
@@ -157,7 +157,30 @@ export function Home() {
         </section>
       </HeroVideo>
 
-      <section className="py-28 bg-white border-b border-neutral-200">
+      {/* Client Logos / Trust Signals */}
+      <section className="py-16 bg-neutral-50 border-b border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <p className="text-center text-body-xs uppercase tracking-widest text-neutral-500 mb-8">
+            Trusted by leading organizations across sectors
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-40">
+            <div className="text-center">
+              <div className="text-body-lg font-sans font-semibold text-neutral-700">Financial Services</div>
+            </div>
+            <div className="text-center">
+              <div className="text-body-lg font-sans font-semibold text-neutral-700">Technology</div>
+            </div>
+            <div className="text-center">
+              <div className="text-body-lg font-sans font-semibold text-neutral-700">Healthcare</div>
+            </div>
+            <div className="text-center">
+              <div className="text-body-lg font-sans font-semibold text-neutral-700">Industrials</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-32 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             eyebrow="WHAT WE DO"
@@ -165,7 +188,7 @@ export function Home() {
             deck="We engage at inflection points—when the stakes are high, the timeline is tight, and the outcome matters for years to come."
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {situations.map((situation, index) => {
               const serviceIds = ['ma-advisory', 'buy-sell', 'ma-advisory', 'restructuring']
               return (
@@ -217,7 +240,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-28 bg-white border-b border-neutral-200">
+      <section className="py-32 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             eyebrow="HOW WE WORK"
@@ -311,32 +334,33 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-28 bg-white">
+      <section className="py-32 bg-white">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             title="Recent Engagements"
-            deck="Successfully completed transactions across diverse industries and situations."
+            deck="Representative transactions across M&A, restructuring, and public markets."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {mandates.map((mandate, index) => (
               <motion.div
                 key={index}
-                className="group relative border-l-2 border-gold-500 pl-6 py-4 hover:bg-neutral-50 transition-all duration-220 cursor-pointer rounded-r-sm card-premium"
+                className="group relative bg-neutral-50 p-6 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:bg-white hover:shadow-elevation transition-all duration-220 cursor-pointer"
                 initial={{ opacity: 0, y: 6 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.22, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ x: 6 }}
               >
-                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-navy-900 scale-y-0 group-hover:scale-y-100 transition-transform duration-220 origin-top" />
+                <div className="w-10 h-10 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4 group-hover:bg-navy-900 transition-colors duration-220">
+                  <div className="w-5 h-5 border-2 border-navy-900 group-hover:border-gold-500 rounded-sm transition-colors duration-220" />
+                </div>
                 <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-2 transition-colors duration-220 group-hover:text-gold-600">
                   {mandate.type}
                 </p>
-                <h3 className="font-sans font-medium text-body-lg text-neutral-950 mb-1 group-hover:text-navy-900 transition-colors duration-220">
+                <h3 className="font-sans font-medium text-body-md text-neutral-950 mb-3 group-hover:text-navy-900 transition-colors duration-220 leading-snug">
                   {mandate.title}
                 </h3>
-                <div className="mt-3 flex items-center gap-2">
+                <div className="flex items-center gap-2">
                   <span className="inline-block px-2 py-1 bg-neutral-100 text-neutral-600 text-body-xs rounded-sm">
                     Confidential
                   </span>
@@ -357,14 +381,14 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-28 bg-neutral-50 border-y border-neutral-200">
+      <section className="py-32 bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
-            title="Insights & Resources"
+            title="Featured Insights"
             deck="Expert perspectives on navigating complex business transitions."
           />
 
-          <InsightsCarousel insights={insights} />
+          <InsightsCarousel insights={insights.slice(0, 3)} />
 
           <div className="mt-12 text-center">
             <Link
@@ -379,7 +403,7 @@ export function Home() {
       </section>
 
       {/* Global Operations */}
-      <section className="py-28 bg-white border-t border-neutral-200">
+      <section className="py-32 bg-white border-t border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="font-display text-display-lg text-neutral-950 mb-6">
