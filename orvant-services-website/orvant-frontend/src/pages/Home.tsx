@@ -577,8 +577,74 @@ export function Home() {
         </div>
       </section>
 
+      {/* Client Testimonials */}
+      <section className="py-32 bg-white border-y border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+              Client Perspectives
+            </h2>
+            <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
+              Trusted by leaders navigating complex transitions across industries and geographies.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "The team's discretion and senior-level engagement made all the difference in a sensitive cross-border restructuring.",
+                title: "Chief Financial Officer",
+                company: "Industrial Manufacturing Group"
+              },
+              {
+                quote: "Their ability to navigate regulatory complexity while maintaining momentum was exceptional. True partner-led execution.",
+                title: "Board Chair",
+                company: "Technology Services Firm"
+              },
+              {
+                quote: "Clear thinking, pragmatic advice, and outcomes that held up under scrutiny. Exactly what we needed at a critical juncture.",
+                title: "Chief Executive Officer",
+                company: "Healthcare Platform"
+              }
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="relative bg-neutral-50 p-8 rounded-sm border border-neutral-200 hover:border-navy-900/10 hover:shadow-elevation transition-all duration-300"
+              >
+                <div className="mb-6">
+                  <svg className="w-10 h-10 text-gold-500/30" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                </div>
+                <p className="text-body-md text-neutral-700 mb-6 leading-relaxed italic">
+                  "{testimonial.quote}"
+                </p>
+                <div className="border-t border-neutral-200 pt-4">
+                  <p className="font-sans font-semibold text-body-sm text-neutral-950 mb-1">
+                    {testimonial.title}
+                  </p>
+                  <p className="text-body-xs text-neutral-500 uppercase tracking-wider">
+                    {testimonial.company}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-body-sm text-neutral-500 italic">
+              Client names withheld to maintain confidentiality
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Global Operations */}
-      <section className="py-32 bg-white border-t border-neutral-200">
+      <section className="py-32 bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="font-display text-display-lg text-neutral-950 mb-6">
