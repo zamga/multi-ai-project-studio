@@ -354,7 +354,7 @@ export function Home() {
 
       <section className="py-20 bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 border-y border-navy-800">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -367,6 +367,35 @@ export function Home() {
                 Clear materials. Clean process. Credible outcomes.
               </p>
             </motion.div>
+          </div>
+
+          {/* Key Metrics */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { label: "Years Experience", value: "15+", description: "Combined team expertise" },
+              { label: "Jurisdictions", value: "20+", description: "Global reach" },
+              { label: "Industries", value: "12+", description: "Sector coverage" },
+              { label: "Success Rate", value: "95%+", description: "Completed mandates" }
+            ].map((metric, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="text-display-lg font-display text-gold-500 mb-2 font-semibold">
+                  {metric.value}
+                </div>
+                <div className="text-body-md font-sans font-medium text-white mb-1">
+                  {metric.label}
+                </div>
+                <div className="text-body-sm text-navy-200">
+                  {metric.description}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
