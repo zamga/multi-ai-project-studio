@@ -68,7 +68,7 @@ export function Home() {
       <OrganizationSchema />
       <WebsiteSchema />
       <div className="bg-white">
-      <HeroVideo posterSrc="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop">
+      <HeroVideo posterSrc="/images/hero-abstract.jpg">
         <section className="relative py-32 md:py-40 overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900">
           <div className="grain-overlay" />
           <div className="radial-vignette" />
