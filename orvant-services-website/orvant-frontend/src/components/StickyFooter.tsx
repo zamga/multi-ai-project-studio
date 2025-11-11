@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Mail, X } from 'lucide-react'
 
@@ -6,7 +6,29 @@ export function StickyFooter() {
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
-  const [isVisible, setIsVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState(false)
+  const [hasScrolled, setHasScrolled] = useState(false)
+
+  useEffect(() => {
+    const dismissed = sessionStorage.getItem('newsletter-dismissed')
+    if (dismissed) {
+      setIsVisible(false)
+      return
+    }
+
+    const handleScroll = () => {
+      const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+      if (scrollPercentage > 50 && !hasScrolled) {
+        setHasScrolled(true)
+        setTimeout(() => {
+          setIsVisible(true)
+        }, 2000)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [hasScrolled])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -23,6 +45,11 @@ export function StickyFooter() {
     }, 3000)
   }
 
+  const handleDismiss = () => {
+    setIsVisible(false)
+    sessionStorage.setItem('newsletter-dismissed', 'true')
+  }
+
   if (!isVisible) return null
 
   return (
@@ -37,10 +64,10 @@ export function StickyFooter() {
         <div className="flex items-center justify-between gap-6 flex-wrap">
           <div className="flex-1 min-w-[200px]">
             <p className="text-white text-body-md font-medium mb-1">
-              Stay informed
+              Subscribe to exclusive insights
             </p>
             <p className="text-white/70 text-body-sm">
-              Receive insights on M&A, restructuring, and public markets
+              Occasional perspectives from Orvantt's senior partners
             </p>
           </div>
 
@@ -66,11 +93,11 @@ export function StickyFooter() {
           </form>
 
           <button
-            onClick={() => setIsVisible(false)}
+            onClick={handleDismiss}
             className="p-2 hover:bg-white/10 rounded-sm transition-colors duration-220"
             aria-label="Close newsletter signup"
           >
-            <X size={20} className="text-white/70" />
+            <X size={20} className="text-white/70 hover:text-white transition-colors duration-220" />
           </button>
         </div>
 
