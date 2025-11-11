@@ -413,6 +413,73 @@ export function Home() {
         </div>
       </section>
 
+      {/* Awards & Recognition */}
+      <section className="py-32 bg-white border-y border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+              Recognition & Standards
+            </h2>
+            <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto">
+              Our commitment to excellence is reflected in industry recognition and adherence to the highest professional standards.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                year: "2024",
+                title: "M&A Advisory Excellence",
+                description: "Recognized for outstanding advisory in complex cross-border transactions"
+              },
+              {
+                year: "2023",
+                title: "Restructuring Leadership",
+                description: "Acknowledged for innovative approaches to corporate restructuring"
+              },
+              {
+                year: "2022",
+                title: "Professional Standards",
+                description: "Commended for maintaining highest ethical and professional standards"
+              }
+            ].map((award, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="relative bg-neutral-50 p-8 rounded-sm border border-neutral-200 hover:border-gold-500/30 hover:shadow-elevation transition-all duration-300 group"
+              >
+                <div className="absolute top-6 right-6 w-16 h-16 bg-navy-900 rounded-sm flex items-center justify-center">
+                  <span className="text-gold-500 font-display text-body-lg font-bold">{award.year}</span>
+                </div>
+                <div className="pr-20">
+                  <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3 group-hover:text-navy-900 transition-colors duration-300">
+                    {award.title}
+                  </h3>
+                  <p className="text-body-sm text-neutral-600 leading-relaxed">
+                    {award.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Professional Affiliations */}
+          <div className="text-center">
+            <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-6">Professional Affiliations</p>
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-body-sm text-neutral-600">
+              <span className="hover:text-navy-900 transition-colors duration-220">Independent Advisory Standards</span>
+              <span className="text-neutral-300">·</span>
+              <span className="hover:text-navy-900 transition-colors duration-220">Professional Ethics Board</span>
+              <span className="text-neutral-300">·</span>
+              <span className="hover:text-navy-900 transition-colors duration-220">Global M&A Network</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-8 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
