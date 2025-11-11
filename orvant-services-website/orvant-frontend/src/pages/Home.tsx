@@ -111,14 +111,14 @@ export function Home() {
                   Independent Advisory
                 </span>
               </motion.div>
-              <h1 className="font-display text-display-2xl text-white mb-6 leading-[1.05] tracking-tight" style={{ letterSpacing: '-0.02em' }}>
+              <h1 className="font-display text-display-2xl text-white mb-8 leading-[1.05] tracking-tight" style={{ letterSpacing: '-0.02em' }}>
                 Independent Advisory for Complex Transitions
               </h1>
-              <p className="text-body-xl text-white/90 mb-6 max-w-2xl leading-relaxed font-light">
-                At Orvantt Services, we partner with leaders navigating pivotal transitions. Our mission is to deliver clarity when complexity peaks—combining discretion, independent thinking, and cross-border expertise to help organizations achieve enduring outcomes.
+              <p className="text-body-xl text-white/95 mb-6 max-w-2xl font-light" style={{ lineHeight: '1.7' }}>
+                We help leaders navigate inflection points with clarity, discretion, and strategic precision.
               </p>
-              <p className="text-body-lg text-white/80 mb-10 max-w-2xl leading-relaxed">
-                Clear guidance and discreet execution for M&A, restructuring, and public markets.
+              <p className="text-body-lg text-white/85 mb-10 max-w-2xl" style={{ lineHeight: '1.7' }}>
+                At Orvantt Services, we partner with leaders navigating pivotal transitions—combining independent thinking, senior execution, and cross-border expertise to help organizations achieve enduring outcomes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <Link
@@ -161,24 +161,33 @@ export function Home() {
       </HeroVideo>
 
       {/* Client Logos / Trust Signals */}
-      <section className="py-16 bg-neutral-50 border-b border-neutral-200">
+      <section className="py-20 bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <p className="text-center text-body-xs uppercase tracking-widest text-neutral-500 mb-8">
-            Trusted by leading organizations across sectors
+          <p className="text-center text-body-md text-neutral-700 mb-3 font-medium">
+            Trusted by organizations shaping global industries
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-40">
-            <div className="text-center">
-              <div className="text-body-lg font-sans font-semibold text-neutral-700">Financial Services</div>
-            </div>
-            <div className="text-center">
-              <div className="text-body-lg font-sans font-semibold text-neutral-700">Technology</div>
-            </div>
-            <div className="text-center">
-              <div className="text-body-lg font-sans font-semibold text-neutral-700">Healthcare</div>
-            </div>
-            <div className="text-center">
-              <div className="text-body-lg font-sans font-semibold text-neutral-700">Industrials</div>
-            </div>
+          <p className="text-center text-body-xs uppercase tracking-widest text-neutral-500 mb-10">
+            Select Sectors
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center">
+            {[
+              { name: 'Financial Services', icon: '💼' },
+              { name: 'Technology', icon: '⚡' },
+              { name: 'Healthcare', icon: '🏥' },
+              { name: 'Industrials', icon: '🏭' }
+            ].map((sector, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="text-center group"
+              >
+                <div className="text-4xl mb-3 opacity-40 group-hover:opacity-60 transition-opacity duration-220">{sector.icon}</div>
+                <div className="text-body-md font-sans font-semibold text-neutral-700 group-hover:text-navy-900 transition-colors duration-220">{sector.name}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -188,8 +197,11 @@ export function Home() {
           <SectionHeader
             eyebrow="WHAT WE DO"
             title="Advisory for Critical Moments"
-            deck="We engage at inflection points—when the stakes are high, the timeline is tight, and the outcome matters for years to come."
+            deck="We engage at the moments that define companies—transactions, restructurings, and capital events."
           />
+          <p className="text-body-lg text-neutral-600 text-center max-w-3xl mx-auto mb-16" style={{ lineHeight: '1.7' }}>
+            When the stakes are high, the timeline is tight, and the outcome matters for years to come.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {situations.map((situation, index) => {
@@ -373,7 +385,7 @@ export function Home() {
           </div>
 
           {/* Key Metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {[
               { label: "Years Experience", value: "15+", description: "Combined team expertise" },
               { label: "Jurisdictions", value: "20+", description: "Global reach" },
@@ -386,12 +398,13 @@ export function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-center"
+                className="text-center relative"
               >
-                <div className="text-display-lg font-display text-gold-500 mb-2 font-semibold">
+                <div className="absolute inset-0 bg-gold-500/5 blur-2xl rounded-full" />
+                <div className="relative text-[72px] leading-none font-display text-gold-500 mb-3 font-bold">
                   {metric.value}
                 </div>
-                <div className="text-body-md font-sans font-medium text-white mb-1">
+                <div className="text-body-md font-sans font-semibold text-white mb-1">
                   {metric.label}
                 </div>
                 <div className="text-body-sm text-navy-200">
@@ -400,6 +413,9 @@ export function Home() {
               </motion.div>
             ))}
           </div>
+          <p className="text-center text-body-md text-navy-200 mt-12 max-w-3xl mx-auto" style={{ lineHeight: '1.7' }}>
+            Our track record reflects the discipline and senior oversight we bring to every engagement.
+          </p>
         </div>
       </section>
 
@@ -607,22 +623,25 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-28 bg-neutral-950 text-white">
+      <section className="py-32 bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 text-white border-t border-neutral-800">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="max-w-3xl">
-            <h2 className="font-display text-display-lg mb-6 leading-tight">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-display text-display-xl mb-6 leading-tight">
               First conversation
             </h2>
-            <p className="text-body-lg text-neutral-400 mb-10 leading-relaxed">
+            <p className="text-body-xl text-neutral-300 mb-4" style={{ lineHeight: '1.7' }}>
               Share your context, constraints, and objectives. We'll suggest a pragmatic next step.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <p className="text-body-sm text-neutral-400 mb-10 italic">
+              We respond within 24 hours—your information remains strictly confidential.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-220 hover:shadow-elevation"
+                className="group inline-flex items-center justify-center px-10 py-5 bg-gold-600 text-navy-900 text-body-lg font-sans font-bold rounded-sm hover:bg-gold-500 transition-all duration-220 hover:shadow-elevation-lg hover:scale-[1.02] shadow-lg"
               >
-                Start a confidential conversation
-                <ArrowRight className="ml-2" size={18} />
+                Start a Confidential Conversation
+                <ArrowRight className="ml-2 transition-transform duration-220 group-hover:translate-x-1" size={20} />
               </Link>
             </div>
           </div>
