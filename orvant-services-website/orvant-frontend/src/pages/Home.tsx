@@ -10,20 +10,6 @@ import { InsightsCarousel } from '../components/InsightsCarousel'
 import { ServiceIcon } from '../components/ServiceIcon'
 
 export function Home() {
-  const situations = [
-    'Mergers & Acquisitions',
-    'Business Sales',
-    'Strategic Acquisitions',
-    'Corporate Restructuring',
-  ]
-
-  const sectors = [
-    'Industrials',
-    'Technology',
-    'Healthcare',
-    'Financial Services',
-  ]
-
   const mandates = [
     { 
       title: 'Carve-out of software division',
@@ -248,70 +234,106 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-40 bg-white border-b border-neutral-200">
+      {/* What We Do - Services Overview */}
+      <section className="py-24 md:py-32 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <SectionHeader
-            eyebrow="WHAT WE DO"
-            title="Advisory for Critical Moments"
-            deck="We engage at the moments that define companies—transactions, restructurings, and capital events."
-          />
-          <p className="text-body-lg text-neutral-600 text-center max-w-3xl mx-auto mb-16" style={{ lineHeight: '1.7' }}>
-            When the stakes are high, the timeline is tight, and the outcome matters for years to come.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {situations.map((situation, index) => {
-              const serviceIds = ['ma-advisory', 'buy-sell', 'ma-advisory', 'restructuring']
-              return (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
+            {/* Left: Narrative */}
+            <div>
+              <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">WHAT WE DO</p>
+              <h2 className="font-display text-display-lg text-neutral-950 mb-6">
+                Advisory for Complex Transitions
+              </h2>
+              <p className="text-body-lg text-neutral-600 mb-6" style={{ lineHeight: '1.8' }}>
+                We engage at the moments that define companies—transactions, restructurings, and capital events. When the stakes are high, the timeline is tight, and the outcome matters for years to come.
+              </p>
+              <p className="text-body-md text-neutral-600" style={{ lineHeight: '1.7' }}>
+                Our services span M&A advisory, restructuring, public markets, and strategic counsel—delivered with senior partner oversight and board-ready outcomes.
+              </p>
+            </div>
+
+            {/* Right: Service Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                {
+                  title: "M&A Advisory",
+                  benefit: "Strategic guidance from preparation through closing with board-ready materials.",
+                  serviceId: "ma-advisory"
+                },
+                {
+                  title: "Restructuring",
+                  benefit: "Stabilise performance, optimise capital structure and position for value recovery.",
+                  serviceId: "restructuring"
+                },
+                {
+                  title: "Public Markets",
+                  benefit: "Navigate IPOs, secondary offerings, and capital raises with institutional credibility.",
+                  serviceId: "public-markets"
+                },
+                {
+                  title: "Strategic Counsel",
+                  benefit: "Board-level advice on critical decisions, governance, and stakeholder alignment.",
+                  serviceId: "strategic-counsel"
+                }
+              ].map((service, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="group relative bg-neutral-50 p-6 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:bg-white hover:shadow-elevation transition-all duration-220 card-premium"
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="group bg-neutral-50 p-6 rounded-sm border border-neutral-200 hover:border-gold-500/30 hover:bg-white hover:shadow-elevation transition-all duration-300"
                 >
-                  <div className="w-12 h-12 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4 group-hover:bg-navy-900 transition-colors duration-220">
-                    <ServiceIcon serviceId={serviceIds[index]} className="w-6 h-6 text-navy-900 group-hover:text-gold-500 transition-colors duration-220" />
+                  <div className="w-12 h-12 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4 group-hover:bg-navy-900 transition-colors duration-300">
+                    <ServiceIcon serviceId={service.serviceId} className="w-6 h-6 text-navy-900 group-hover:text-gold-500 transition-colors duration-300" />
                   </div>
-                  <h3 className="font-sans font-semibold text-body-md text-neutral-950 mb-2 group-hover:text-navy-900 transition-colors duration-220">
-                    {situation}
+                  <h3 className="font-sans font-bold text-body-lg text-neutral-950 mb-2">
+                    {service.title}
                   </h3>
                   <p className="text-body-sm text-neutral-600 leading-relaxed">
-                    {index === 0 && "Strategic guidance from preparation through closing"}
-                    {index === 1 && "Confidential processes for ownership transitions"}
-                    {index === 2 && "Platform consolidation and market expansion"}
-                    {index === 3 && "Operational and financial stabilization"}
+                    {service.benefit}
                   </p>
                 </motion.div>
-              )
-            })}
-          </div>
-
-          <div className="mb-12">
-            <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Sectors we serve</p>
-            <div className="flex flex-wrap items-center gap-3">
-              {sectors.map((sector, index) => (
-                <span key={index} className="inline-block px-4 py-2 bg-neutral-100 text-neutral-700 text-body-sm rounded-sm hover:bg-navy-900 hover:text-white transition-all duration-220 cursor-pointer">
-                  {sector}
-                </span>
               ))}
             </div>
           </div>
 
-          <div className="mt-12">
+          <div className="text-center">
             <Link
               to="/services"
-              className="inline-flex items-center text-body-md text-navy-900 hover:text-navy-800 font-medium transition-colors duration-200"
+              className="inline-flex items-center justify-center px-10 py-5 border-2 border-navy-900 text-navy-900 text-body-lg font-sans font-medium rounded-sm hover:bg-navy-900 hover:text-white transition-all duration-300"
             >
-              View all capabilities
-              <ArrowRight className="ml-2" size={18} />
+              View All Capabilities
+              <ArrowRight className="ml-2" size={20} />
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-40 bg-neutral-50 border-b border-neutral-200">
+      {/* Hero-level Visual Section */}
+      <section className="relative py-48 bg-navy-900 border-b border-navy-800 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 opacity-90" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDOUEyNTkiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItMnptMC0ydjJoLTJ2LTJoMnptLTItMmgydjJoLTJ2LTJ6bTItMmgydjJoLTJ2LTJ6bTAtMmgydjJoLTJ2LTJ6bS0yLTJoMnYyaC0ydi0yem0yLTJoMnYyaC0ydi0yem0wLTJoMnYyaC0ydi0yem0tMi0yaDF2Mmgtdi0yem0yLTJoMnYyaC0ydi0yem0wLTJoMnYyaC0ydi0yeiIvPjwvZz48L2c+PC9zdmc+')] opacity-20" />
+        
+        <div className="relative max-w-container mx-auto px-6 lg:px-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="font-display text-display-xl text-white mb-6">
+              Partnering with Leaders Across Global Industries
+            </h2>
+            <p className="text-body-xl text-white/80 max-w-3xl mx-auto" style={{ lineHeight: '1.8' }}>
+              Focused on high-stakes transitions in technology, healthcare, industrials and financial services.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Old duplicate section removed - replaced with sections above */}
+      <section className="py-40 bg-neutral-50 border-b border-neutral-200" style={{ display: 'none' }}>
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             eyebrow="WHY CHOOSE US"
@@ -412,58 +434,12 @@ export function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 border-y border-navy-800">
-        <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="relative"
-            >
-              <div className="absolute inset-0 bg-gold-500/10 blur-3xl rounded-full" />
-              <p className="relative font-display text-display-md text-white font-normal leading-tight tracking-tight">
-                Clear materials. Clean process. Credible outcomes.
-              </p>
-            </motion.div>
+          
+          <div className="mt-16 text-center">
+            <p className="font-display text-display-sm text-neutral-600 font-normal leading-tight tracking-tight">
+              Clear materials. Clean process. Credible outcomes.
+            </p>
           </div>
-
-          {/* Key Metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-            {[
-              { label: "Years Experience", value: "15+", description: "Combined team expertise" },
-              { label: "Jurisdictions", value: "20+", description: "Global reach" },
-              { label: "Industries", value: "12+", description: "Sector coverage" },
-              { label: "Success Rate", value: "95%+", description: "Completed mandates" }
-            ].map((metric, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-center relative"
-              >
-                <div className="absolute inset-0 bg-gold-500/5 blur-2xl rounded-full" />
-                <div className="relative text-[72px] leading-none font-display text-gold-500 mb-3 font-bold">
-                  {metric.value}
-                </div>
-                <div className="text-body-md font-sans font-semibold text-white mb-1">
-                  {metric.label}
-                </div>
-                <div className="text-body-sm text-navy-200">
-                  {metric.description}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          <p className="text-center text-body-md text-navy-200 mt-12 max-w-3xl mx-auto" style={{ lineHeight: '1.7' }}>
-            Our track record reflects the discipline and senior oversight we bring to every engagement.
-          </p>
         </div>
       </section>
 
