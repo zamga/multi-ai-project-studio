@@ -280,7 +280,7 @@ export function Navigation() {
 
             <Link
               to="/contact"
-              className="px-6 py-2.5 bg-gold-600 text-white text-body-sm font-sans font-medium rounded-sm hover:bg-gold-500 transition-all duration-220 hover:shadow-elevation"
+              className="px-6 py-2.5 bg-gold-500 text-navy-900 text-body-sm font-sans font-bold rounded-sm hover:bg-gold-400 transition-all duration-300 hover:shadow-premium hover:scale-[1.02]"
             >
               Contact
             </Link>
@@ -359,7 +359,7 @@ export function Navigation() {
 
               <Link
                 to="/contact"
-                className="block px-4 py-3 bg-gold-600 text-white text-body-md font-sans font-medium rounded-sm text-center"
+                className="block px-4 py-3 bg-gold-500 text-navy-900 text-body-md font-sans font-bold rounded-sm text-center hover:bg-gold-400 transition-all duration-300"
               >
                 Contact
               </Link>
