@@ -211,7 +211,7 @@ export function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-5xl mx-auto">
             {[
               {
-                title: "Senior Partner-Led Throughout",
+                title: "Partners Personally Engaged",
                 description: "Partners take personal ownership of your mandate from day one, ensuring accountability and continuity."
               },
               {
@@ -248,7 +248,7 @@ export function Home() {
       </section>
 
       {/* What We Do - Services Overview */}
-      <section className="py-[100px] sm:py-[60px] bg-white border-b border-neutral-200">
+      <section className="py-[100px] sm:py-[60px] bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
             {/* Left: Narrative */}
@@ -405,7 +405,7 @@ export function Home() {
       </section>
 
       {/* Awards & Recognition */}
-      <section className="py-[100px] sm:py-[60px] bg-white border-y border-neutral-200">
+      <section className="py-[100px] sm:py-[60px] bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="font-display text-display-xl text-neutral-950 mb-6">
