@@ -149,37 +149,39 @@ export function Navigation() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-80 bg-white border border-neutral-200 rounded-sm shadow-elevation py-3"
+                    className="absolute top-full left-0 mt-2 w-[600px] bg-white border border-neutral-200 rounded-sm shadow-2xl py-6 px-4"
                     onKeyDown={(e) => handleDropdownKeyDown(e, 'capabilities', capabilities)}
                   >
-                    {capabilities.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        role="menuitem"
-                        className={`block px-5 py-3 text-body-sm hover:bg-neutral-50 transition-colors duration-150 ${
-                          item.isOverview 
-                            ? 'text-navy-900 font-semibold border-b border-neutral-200 mb-2' 
-                            : 'text-neutral-700 hover:text-neutral-950'
-                        }`}
-                      >
-                        <div className="flex items-start gap-3">
-                          {!item.isOverview && (
-                            <span className="text-gold-500 mt-0.5">•</span>
-                          )}
-                          <div className="flex-1">
-                            <div className={item.isOverview ? 'text-body-md' : 'text-body-sm font-medium mb-0.5'}>
-                              {item.name}
-                            </div>
-                            {item.description && (
-                              <div className="text-body-xs text-neutral-500 leading-snug">
-                                {item.description}
-                              </div>
+                    <div className="grid grid-cols-2 gap-6">
+                      {capabilities.map((item) => (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          role="menuitem"
+                          className={`block px-4 py-3 rounded-sm hover:bg-neutral-50 transition-all duration-200 group ${
+                            item.isOverview 
+                              ? 'col-span-2 text-navy-900 font-semibold border-b border-neutral-200 pb-4 mb-2 hover:bg-transparent' 
+                              : 'text-neutral-700 hover:text-neutral-950 hover:shadow-sm'
+                          }`}
+                        >
+                          <div className="flex items-start gap-3">
+                            {!item.isOverview && (
+                              <span className="text-gold-500 mt-1 text-lg group-hover:text-gold-600 transition-colors">→</span>
                             )}
+                            <div className="flex-1">
+                              <div className={item.isOverview ? 'text-body-lg' : 'text-body-md font-semibold mb-1 group-hover:text-navy-900 transition-colors'}>
+                                {item.name}
+                              </div>
+                              {item.description && (
+                                <div className="text-body-xs text-neutral-500 leading-relaxed">
+                                  {item.description}
+                                </div>
+                              )}
+                            </div>
                           </div>
-                        </div>
-                      </Link>
-                    ))}
+                        </Link>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
