@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FileText, Download } from 'lucide-react'
 import { SEO } from '../components/SEO'
+import Breadcrumb from '../components/Breadcrumb'
 import { BreadcrumbSchema } from '../components/StructuredData'
 
 export function Downloads() {
@@ -11,6 +13,7 @@ export function Downloads() {
       type: 'PDF',
       size: 'Available upon request',
       placeholder: true,
+      category: 'Firm Materials',
     },
     {
       title: 'Capabilities Deck',
@@ -18,6 +21,39 @@ export function Downloads() {
       type: 'PDF',
       size: 'Available upon request',
       placeholder: true,
+      category: 'Firm Materials',
+    },
+    {
+      title: 'M&A Advisory Guide',
+      description: 'Comprehensive guide to preparing for a sale, including readiness assessment, process management, and stakeholder alignment.',
+      type: 'PDF',
+      size: 'Available upon request',
+      placeholder: true,
+      category: 'Whitepapers',
+    },
+    {
+      title: 'Restructuring Playbook',
+      description: 'Practical framework for stabilizing operations, managing liquidity, and executing credible turnaround plans under pressure.',
+      type: 'PDF',
+      size: 'Available upon request',
+      placeholder: true,
+      category: 'Whitepapers',
+    },
+    {
+      title: 'IPO Readiness Checklist',
+      description: 'Detailed checklist covering governance, controls, disclosure frameworks, and investor messaging for public market preparation.',
+      type: 'PDF',
+      size: 'Available upon request',
+      placeholder: true,
+      category: 'Whitepapers',
+    },
+    {
+      title: 'Cross-Border Transaction Guide',
+      description: 'Key considerations for multi-jurisdictional deals, including regulatory frameworks, tax structuring, and cultural dynamics.',
+      type: 'PDF',
+      size: 'Available upon request',
+      placeholder: true,
+      category: 'Whitepapers',
     },
     {
       title: 'Industry Insights Report',
@@ -25,8 +61,24 @@ export function Downloads() {
       type: 'PDF',
       size: 'Available upon request',
       placeholder: true,
+      category: 'Research',
+    },
+    {
+      title: 'Market Outlook 2025',
+      description: 'Forward-looking analysis of M&A activity, restructuring trends, and public market conditions across key sectors.',
+      type: 'PDF',
+      size: 'Available upon request',
+      placeholder: true,
+      category: 'Research',
     },
   ]
+
+  const categories = ['All', 'Firm Materials', 'Whitepapers', 'Research']
+  const [selectedCategory, setSelectedCategory] = useState('All')
+
+  const filteredDocuments = selectedCategory === 'All' 
+    ? documents 
+    : documents.filter(doc => doc.category === selectedCategory)
 
   return (
     <>
@@ -39,6 +91,7 @@ export function Downloads() {
         { name: 'Home', url: '/' },
         { name: 'Downloads', url: '/downloads' },
       ]} />
+      <Breadcrumb items={[{ name: 'Downloads', path: '/downloads' }]} />
 
       <div className="bg-white">
         <section className="relative pt-32 pb-20 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 overflow-hidden">
@@ -78,8 +131,23 @@ export function Downloads() {
 
         <section className="py-24 bg-neutral-50">
           <div className="max-w-container mx-auto px-6 lg:px-12">
+            <div className="flex flex-wrap gap-3 mb-12 justify-center">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-6 py-3 text-body-sm font-medium rounded-sm transition-all duration-220 ${
+                    selectedCategory === category
+                      ? 'bg-navy-900 text-white shadow-md'
+                      : 'bg-white text-neutral-700 border border-neutral-200 hover:border-navy-900 hover:bg-navy-900/5'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {documents.map((doc, index) => (
+              {filteredDocuments.map((doc, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
