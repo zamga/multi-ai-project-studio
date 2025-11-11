@@ -437,6 +437,70 @@ export function Contact() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <section className="py-28 bg-neutral-50 border-t border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display text-display-lg text-neutral-950 mb-12 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  question: "What types of situations do you typically handle?",
+                  answer: "We engage at inflection points: M&A transactions (buy-side and sell-side), operational and financial restructurings, public market preparation (IPO readiness, secondary offerings), and complex accounting/compliance matters. Most mandates involve time pressure, multiple stakeholders, and material implications for the business."
+                },
+                {
+                  question: "How quickly can you engage on a new mandate?",
+                  answer: "We can typically begin work within 48-72 hours of initial conversation. For urgent situations (covenant breaches, unsolicited offers, liquidity crises), we can mobilize same-day. Our senior-led model means no ramp-up time—experienced advisors are involved from day one."
+                },
+                {
+                  question: "What does a typical engagement look like?",
+                  answer: "Engagements vary by situation, but typically include: initial assessment and scoping (1-2 weeks), detailed analysis and materials preparation (2-4 weeks), stakeholder management and execution (4-12 weeks), and completion/transition support. We adapt to your timeline and constraints."
+                },
+                {
+                  question: "How do you maintain confidentiality?",
+                  answer: "Confidentiality is built into our process: controlled distribution lists, secure data rooms, careful stakeholder mapping, and discretion in all communications. We use code names when appropriate and limit information sharing to those with legitimate need-to-know. NDAs are standard."
+                },
+                {
+                  question: "Do you work across borders and jurisdictions?",
+                  answer: "Yes. We have experience across Americas, EMEA, and APAC, with deep understanding of cross-border regulatory frameworks, tax structures, and cultural considerations. We coordinate with local counsel and advisors as needed to navigate multi-jurisdictional complexity."
+                },
+                {
+                  question: "What makes your approach different?",
+                  answer: "Three things: senior attention throughout (no delegation to junior teams), independence (no lending relationships or cross-sell pressure), and board-ready deliverables (materials built to withstand scrutiny). We focus on outcomes that hold up, not just getting to close."
+                },
+                {
+                  question: "How are fees typically structured?",
+                  answer: "Fee structures vary by engagement type and complexity. We discuss compensation openly during initial conversations and tailor arrangements to align with your situation. Options include monthly retainers, success-based fees, or hybrid structures. We're transparent about costs upfront."
+                },
+                {
+                  question: "Can you provide references?",
+                  answer: "Yes. We can provide references from similar situations under NDA. Given the confidential nature of our work, we're selective about what we share publicly, but we're happy to connect you with former clients who can speak to our work and approach."
+                }
+              ].map((faq, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="bg-white p-6 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-sm transition-all duration-220"
+                >
+                  <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">
+                    {faq.question}
+                  </h3>
+                  <p className="text-body-md text-neutral-700 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+            <p className="text-body-sm text-neutral-500 text-center mt-8 italic">
+              Have a different question? Reach out directly and we'll respond promptly.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
     </>
   )
