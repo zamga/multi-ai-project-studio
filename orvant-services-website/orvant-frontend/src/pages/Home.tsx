@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { SectionHeader } from '../components/SectionHeader'
-import { SplitSection } from '../components/SplitSection'
 import { SEO } from '../components/SEO'
 import { HeroVideo } from '../components/HeroVideo'
 import { OrganizationSchema, WebsiteSchema } from '../components/StructuredData'
@@ -118,6 +117,25 @@ export function Home() {
                   <ArrowRight className="ml-2 opacity-0 -translate-x-2 transition-all duration-220 group-hover:opacity-100 group-hover:translate-x-0" size={18} />
                 </Link>
               </div>
+              
+              {/* Trust cues */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="mt-12 pt-8 border-t border-white/10"
+              >
+                <p className="text-body-xs uppercase tracking-widest text-white/60 mb-4">Trusted by</p>
+                <div className="flex flex-wrap items-center gap-8 opacity-60">
+                  <div className="text-white/80 text-body-sm font-medium">Financial Services</div>
+                  <span className="text-white/40">·</span>
+                  <div className="text-white/80 text-body-sm font-medium">Technology</div>
+                  <span className="text-white/40">·</span>
+                  <div className="text-white/80 text-body-sm font-medium">Healthcare</div>
+                  <span className="text-white/40">·</span>
+                  <div className="text-white/80 text-body-sm font-medium">Industrials</div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
@@ -131,29 +149,40 @@ export function Home() {
             deck="We engage at inflection points—when the stakes are high, the timeline is tight, and the outcome matters for years to come."
           />
           
-          <div className="space-y-12">
-            <div>
-              <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Situations</p>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                {situations.map((situation, index) => (
-                  <span key={index} className="text-body-sm text-neutral-700">
-                    {situation}
-                    {index < situations.length - 1 && <span className="ml-4 text-neutral-300">|</span>}
-                  </span>
-                ))}
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {situations.map((situation, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="group relative bg-neutral-50 p-6 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:bg-white hover:shadow-elevation transition-all duration-220 card-premium"
+              >
+                <div className="w-12 h-12 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4 group-hover:bg-navy-900 transition-colors duration-220">
+                  <div className="w-6 h-6 border-2 border-navy-900 group-hover:border-gold-500 rounded-sm transition-colors duration-220" />
+                </div>
+                <h3 className="font-sans font-semibold text-body-md text-neutral-950 mb-2 group-hover:text-navy-900 transition-colors duration-220">
+                  {situation}
+                </h3>
+                <p className="text-body-sm text-neutral-600 leading-relaxed">
+                  {index === 0 && "Strategic guidance from preparation through closing"}
+                  {index === 1 && "Confidential processes for ownership transitions"}
+                  {index === 2 && "Platform consolidation and market expansion"}
+                  {index === 3 && "Operational and financial stabilization"}
+                </p>
+              </motion.div>
+            ))}
+          </div>
 
-            <div>
-              <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Sectors</p>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                {sectors.map((sector, index) => (
-                  <span key={index} className="text-body-sm text-neutral-700">
-                    {sector}
-                    {index < sectors.length - 1 && <span className="ml-4 text-neutral-300">|</span>}
-                  </span>
-                ))}
-              </div>
+          <div className="mb-12">
+            <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Sectors we serve</p>
+            <div className="flex flex-wrap items-center gap-3">
+              {sectors.map((sector, index) => (
+                <span key={index} className="inline-block px-4 py-2 bg-neutral-100 text-neutral-700 text-body-sm rounded-sm hover:bg-navy-900 hover:text-white transition-all duration-220 cursor-pointer">
+                  {sector}
+                </span>
+              ))}
             </div>
           </div>
 
@@ -176,40 +205,42 @@ export function Home() {
             title="Structured Process, Senior Execution"
           />
           
-          <SplitSection
-            left="We join at inflection points. We structure the work, align stakeholders, and see it through."
-            right={
-              <div className="space-y-3">
-                <motion.p
-                  className="text-body-md text-neutral-700 leading-relaxed"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Senior attention on every mandate
-                </motion.p>
-                <motion.p
-                  className="text-body-md text-neutral-700 leading-relaxed"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.2, delay: 0.05 }}
-                >
-                  Clear materials that enable good decisions
-                </motion.p>
-                <motion.p
-                  className="text-body-md text-neutral-700 leading-relaxed"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.2, delay: 0.1 }}
-                >
-                  Calm execution, even under pressure
-                </motion.p>
+          <div className="max-w-4xl mx-auto">
+            <p className="text-body-lg text-neutral-600 mb-12 leading-relaxed text-center">
+              We join at inflection points. We structure the work, align stakeholders, and see it through.
+            </p>
+            
+            {/* Timeline graphic */}
+            <div className="relative">
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gold-500 via-gold-500 to-transparent" />
+              
+              <div className="space-y-8">
+                {[
+                  { title: "Engage", description: "Senior attention on every mandate from day one" },
+                  { title: "Structure", description: "Clear materials that enable good decisions" },
+                  { title: "Execute", description: "Calm execution, even under pressure" },
+                  { title: "Close", description: "See it through to completion with credible outcomes" }
+                ].map((step, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    className="relative flex items-start gap-6"
+                  >
+                    <div className="relative z-10 w-16 h-16 bg-navy-900 rounded-sm flex items-center justify-center flex-shrink-0">
+                      <span className="text-gold-500 text-xl font-display font-semibold">{index + 1}</span>
+                    </div>
+                    <div className="flex-1 pt-3">
+                      <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-2">{step.title}</h3>
+                      <p className="text-body-md text-neutral-600 leading-relaxed">{step.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            }
-          />
+            </div>
+          </div>
         </div>
       </section>
 

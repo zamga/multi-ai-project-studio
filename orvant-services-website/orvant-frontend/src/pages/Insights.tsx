@@ -16,6 +16,7 @@ export function Insights() {
       date: 'Recent',
       tags: ['M&A', 'Board Advisory'],
       slug: 'preparing-for-sale',
+      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop',
     },
     {
       title: 'Restructuring under pressure: A practical framework',
@@ -23,6 +24,7 @@ export function Insights() {
       date: 'Recent',
       tags: ['Restructuring', 'Turnaround'],
       slug: 'restructuring-framework',
+      coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
     },
     {
       title: 'IPO readiness: Beyond the financials',
@@ -30,6 +32,7 @@ export function Insights() {
       date: 'Recent',
       tags: ['Public Markets', 'Governance'],
       slug: 'ipo-readiness',
+      coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop',
     },
   ]
 
@@ -151,8 +154,18 @@ export function Insights() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="group bg-neutral-50 rounded-sm border border-neutral-200 overflow-hidden hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+                    className="group bg-white rounded-sm border border-neutral-200 overflow-hidden hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220 card-premium"
                   >
+                    {/* Cover image */}
+                    <div className="relative h-48 overflow-hidden bg-neutral-900">
+                      <img 
+                        src={article.coverImage} 
+                        alt={article.title}
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent" />
+                    </div>
+                    
                     <div className="p-6">
                       <div className="flex flex-wrap gap-2 mb-4">
                         {article.tags.map(tag => (

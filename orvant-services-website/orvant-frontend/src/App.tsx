@@ -73,13 +73,56 @@ function Footer() {
             </Link>
           </div>
         </div>
+        
+        {/* Newsletter signup */}
+        <div className="border-t border-neutral-900 mt-12 pt-12">
+          <div className="max-w-2xl">
+            <h3 className="text-white font-sans font-medium text-body-lg mb-2">Stay informed</h3>
+            <p className="text-body-sm text-neutral-400 mb-6">
+              Receive insights on M&A, restructuring, and public markets. Unsubscribe anytime.
+            </p>
+            <form className="flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 bg-neutral-900 border border-neutral-800 rounded-sm text-white placeholder-neutral-500 focus:outline-none focus:border-gold-500 transition-colors duration-220"
+                required
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 bg-gold-600 text-white text-body-sm font-sans font-medium rounded-sm hover:bg-gold-500 transition-all duration-220 hover:shadow-elevation whitespace-nowrap"
+              >
+                Subscribe
+              </button>
+            </form>
+            <p className="text-body-xs text-neutral-500 mt-3">
+              By subscribing, you agree to our Privacy Policy and consent to receive updates.
+            </p>
+          </div>
+        </div>
+        
         <div className="border-t border-neutral-900 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center text-body-sm text-neutral-500">
+          <div className="flex flex-col md:flex-row justify-between items-center text-body-sm text-neutral-500 mb-6">
             <p>&copy; {new Date().getFullYear()} Orvantt Services. All rights reserved.</p>
             <div className="flex items-center gap-6 mt-4 md:mt-0">
               <Link to="/privacy" className="hover:text-white transition-colors duration-220">Privacy Policy</Link>
               <Link to="/terms" className="hover:text-white transition-colors duration-220">Terms of Service</Link>
               <ManageCookies />
+            </div>
+          </div>
+          
+          {/* Regulatory badges */}
+          <div className="flex flex-wrap items-center justify-center gap-6 pt-6 border-t border-neutral-900">
+            <div className="text-neutral-600 text-body-xs">
+              Independent Advisory Firm
+            </div>
+            <span className="text-neutral-800">·</span>
+            <div className="text-neutral-600 text-body-xs">
+              Confidential Services
+            </div>
+            <span className="text-neutral-800">·</span>
+            <div className="text-neutral-600 text-body-xs">
+              Professional Standards
             </div>
           </div>
         </div>
