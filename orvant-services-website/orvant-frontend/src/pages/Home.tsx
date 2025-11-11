@@ -96,12 +96,12 @@ export function Home() {
                 </span>
               </motion.div>
               <h1 className="font-display text-display-2xl text-white mb-8 leading-[1.05] tracking-tight" style={{ letterSpacing: '-0.02em' }}>
-                Navigate Complex Business Transitions with Confidence
+                Strategic Advisory for High-Stakes Transitions
               </h1>
               <p className="text-body-xl text-white/90 mb-12 max-w-2xl leading-relaxed">
                 We advise owners and boards through M&A, restructurings, and public markets. Clear guidance, discreet execution, and outcomes that hold up in the boardroom.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <Link
                   to="/contact"
                   className="group inline-flex items-center justify-center px-8 py-4 bg-gold-600 text-navy-900 text-body-md font-sans font-semibold rounded-sm hover:bg-gold-500 transition-all duration-220 hover:shadow-elevation-lg hover:scale-[1.02]"
@@ -111,10 +111,10 @@ export function Home() {
                 </Link>
                 <Link
                   to="/services"
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white text-body-md font-sans font-medium rounded-sm border border-white/20 hover:bg-white/20 backdrop-blur-sm transition-all duration-220"
+                  className="inline-flex items-center text-white text-body-md font-sans font-medium hover:text-gold-400 transition-colors duration-220 pt-4"
                 >
-                  Our capabilities
-                  <ArrowRight className="ml-2 opacity-0 -translate-x-2 transition-all duration-220 group-hover:opacity-100 group-hover:translate-x-0" size={18} />
+                  View our capabilities
+                  <ArrowRight className="ml-2" size={18} />
                 </Link>
               </div>
               
