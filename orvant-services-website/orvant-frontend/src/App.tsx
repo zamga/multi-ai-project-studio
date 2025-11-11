@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { Navigation } from './components/Navigation'
 import { FloatingCTA } from './components/FloatingCTA'
 import { CookieConsent, ManageCookies } from './components/CookieConsent'
+import { trackNewsletterSubscribe } from './utils/analytics'
 import './App.css'
 
 const Home = lazy(() => import('./pages/Home').then(module => ({ default: module.Home })))
@@ -81,7 +82,14 @@ function Footer() {
             <p className="text-body-sm text-neutral-400 mb-6">
               Receive insights on M&A, restructuring, and public markets. Unsubscribe anytime.
             </p>
-            <form className="flex flex-col sm:flex-row gap-3">
+            <form 
+              className="flex flex-col sm:flex-row gap-3"
+              onSubmit={(e) => {
+                e.preventDefault()
+                trackNewsletterSubscribe('footer')
+                alert('Thank you for subscribing! Newsletter functionality coming soon.')
+              }}
+            >
               <input
                 type="email"
                 placeholder="Enter your email"

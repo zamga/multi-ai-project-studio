@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -7,7 +7,10 @@ export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [focusedIndex, setFocusedIndex] = useState<number>(-1)
   const location = useLocation()
+  const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const buttonRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({})
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,9 +23,52 @@ export function Navigation() {
   useEffect(() => {
     setIsMenuOpen(false)
     setActiveDropdown(null)
+    setFocusedIndex(-1)
   }, [location.pathname])
 
   const isActive = (path: string) => location.pathname === path
+
+  const handleDropdownKeyDown = (e: React.KeyboardEvent, dropdownName: string, items: any[]) => {
+    if (e.key === 'Escape') {
+      setActiveDropdown(null)
+      setFocusedIndex(-1)
+      buttonRefs.current[dropdownName]?.focus()
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      setFocusedIndex(prev => (prev + 1) % items.length)
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      setFocusedIndex(prev => (prev - 1 + items.length) % items.length)
+    } else if (e.key === 'Home') {
+      e.preventDefault()
+      setFocusedIndex(0)
+    } else if (e.key === 'End') {
+      e.preventDefault()
+      setFocusedIndex(items.length - 1)
+    }
+  }
+
+  const handleButtonKeyDown = (e: React.KeyboardEvent, dropdownName: string) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName)
+      setFocusedIndex(0)
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      setActiveDropdown(dropdownName)
+      setFocusedIndex(0)
+    }
+  }
+
+  useEffect(() => {
+    if (activeDropdown && focusedIndex >= 0) {
+      const dropdown = dropdownRefs.current[activeDropdown]
+      if (dropdown) {
+        const links = dropdown.querySelectorAll('a')
+        links[focusedIndex]?.focus()
+      }
+    }
+  }, [focusedIndex, activeDropdown])
 
   const capabilities = [
     { name: 'M&A Advisory', path: '/services#ma-advisory' },
@@ -86,9 +132,14 @@ export function Navigation() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
+                ref={el => buttonRefs.current['capabilities'] = el}
                 className={`flex items-center text-body-sm font-sans transition-colors duration-150 ${
                   location.pathname === '/services' ? 'text-neutral-950 font-medium' : 'text-neutral-600 hover:text-neutral-950'
                 }`}
+                aria-expanded={activeDropdown === 'capabilities'}
+                aria-haspopup="menu"
+                aria-controls="menu-capabilities"
+                onKeyDown={(e) => handleButtonKeyDown(e, 'capabilities')}
               >
                 Capabilities
                 <ChevronDown size={16} className="ml-1" />
@@ -96,16 +147,21 @@ export function Navigation() {
               <AnimatePresence>
                 {activeDropdown === 'capabilities' && (
                   <motion.div
+                    ref={el => dropdownRefs.current['capabilities'] = el}
+                    id="menu-capabilities"
+                    role="menu"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-56 bg-white border border-neutral-200 rounded-sm shadow-elevation py-2"
+                    onKeyDown={(e) => handleDropdownKeyDown(e, 'capabilities', capabilities)}
                   >
                     {capabilities.map((item) => (
                       <Link
                         key={item.path}
                         to={item.path}
+                        role="menuitem"
                         className="block px-4 py-2.5 text-body-sm text-neutral-700 hover:bg-neutral-50 hover:text-neutral-950 transition-colors duration-150"
                       >
                         {item.name}
@@ -123,7 +179,12 @@ export function Navigation() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
+                ref={el => buttonRefs.current['industries'] = el}
                 className="flex items-center text-body-sm font-sans text-neutral-600 hover:text-neutral-950 transition-colors duration-150"
+                aria-expanded={activeDropdown === 'industries'}
+                aria-haspopup="menu"
+                aria-controls="menu-industries"
+                onKeyDown={(e) => handleButtonKeyDown(e, 'industries')}
               >
                 Industries
                 <ChevronDown size={16} className="ml-1" />
@@ -131,16 +192,21 @@ export function Navigation() {
               <AnimatePresence>
                 {activeDropdown === 'industries' && (
                   <motion.div
+                    ref={el => dropdownRefs.current['industries'] = el}
+                    id="menu-industries"
+                    role="menu"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-56 bg-white border border-neutral-200 rounded-sm shadow-elevation py-2"
+                    onKeyDown={(e) => handleDropdownKeyDown(e, 'industries', industries)}
                   >
                     {industries.map((item) => (
                       <Link
                         key={item.name}
                         to={item.path}
+                        role="menuitem"
                         className="block px-4 py-2.5 text-body-sm text-neutral-700 hover:bg-neutral-50 hover:text-neutral-950 transition-colors duration-150"
                       >
                         {item.name}
@@ -158,9 +224,14 @@ export function Navigation() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
+                ref={el => buttonRefs.current['about'] = el}
                 className={`flex items-center text-body-sm font-sans transition-colors duration-150 ${
                   location.pathname === '/about' || location.pathname === '/leadership' ? 'text-neutral-950 font-medium' : 'text-neutral-600 hover:text-neutral-950'
                 }`}
+                aria-expanded={activeDropdown === 'about'}
+                aria-haspopup="menu"
+                aria-controls="menu-about"
+                onKeyDown={(e) => handleButtonKeyDown(e, 'about')}
               >
                 About
                 <ChevronDown size={16} className="ml-1" />
@@ -168,16 +239,21 @@ export function Navigation() {
               <AnimatePresence>
                 {activeDropdown === 'about' && (
                   <motion.div
+                    ref={el => dropdownRefs.current['about'] = el}
+                    id="menu-about"
+                    role="menu"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-56 bg-white border border-neutral-200 rounded-sm shadow-elevation py-2"
+                    onKeyDown={(e) => handleDropdownKeyDown(e, 'about', about)}
                   >
                     {about.map((item) => (
                       <Link
                         key={item.path}
                         to={item.path}
+                        role="menuitem"
                         className="block px-4 py-2.5 text-body-sm text-neutral-700 hover:bg-neutral-50 hover:text-neutral-950 transition-colors duration-150"
                       >
                         {item.name}
@@ -195,9 +271,14 @@ export function Navigation() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
+                ref={el => buttonRefs.current['insights'] = el}
                 className={`flex items-center text-body-sm font-sans transition-colors duration-150 ${
                   location.pathname === '/insights' || location.pathname === '/press' || location.pathname === '/downloads' ? 'text-neutral-950 font-medium' : 'text-neutral-600 hover:text-neutral-950'
                 }`}
+                aria-expanded={activeDropdown === 'insights'}
+                aria-haspopup="menu"
+                aria-controls="menu-insights"
+                onKeyDown={(e) => handleButtonKeyDown(e, 'insights')}
               >
                 Insights
                 <ChevronDown size={16} className="ml-1" />
@@ -205,16 +286,21 @@ export function Navigation() {
               <AnimatePresence>
                 {activeDropdown === 'insights' && (
                   <motion.div
+                    ref={el => dropdownRefs.current['insights'] = el}
+                    id="menu-insights"
+                    role="menu"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-56 bg-white border border-neutral-200 rounded-sm shadow-elevation py-2"
+                    onKeyDown={(e) => handleDropdownKeyDown(e, 'insights', insights)}
                   >
                     {insights.map((item) => (
                       <Link
                         key={item.path}
                         to={item.path}
+                        role="menuitem"
                         className="block px-4 py-2.5 text-body-sm text-neutral-700 hover:bg-neutral-50 hover:text-neutral-950 transition-colors duration-150"
                       >
                         {item.name}

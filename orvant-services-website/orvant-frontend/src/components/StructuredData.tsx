@@ -157,3 +157,53 @@ export function CollectionPageSchema() {
     </Helmet>
   )
 }
+
+export function ArticleSchema({ 
+  title, 
+  description, 
+  datePublished, 
+  dateModified,
+  imageUrl,
+  slug 
+}: { 
+  title: string
+  description: string
+  datePublished?: string
+  dateModified?: string
+  imageUrl?: string
+  slug: string
+}) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: imageUrl || `${SITE_URL}/og-image.jpg`,
+    datePublished: datePublished || new Date().toISOString(),
+    dateModified: dateModified || new Date().toISOString(),
+    author: {
+      '@type': 'Organization',
+      name: 'Orvantt Services',
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Orvantt Services',
+      url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/insights/${slug}`,
+    },
+  }
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}

@@ -51,6 +51,8 @@ export function HeroVideo({ videoSrc, posterSrc, children }: HeroVideoProps) {
             src={posterSrc}
             alt=""
             className="absolute inset-0 w-full h-full object-cover opacity-20"
+            fetchPriority="high"
+            loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-navy-900/80 via-navy-900/60 to-navy-900/80" />
         </div>
