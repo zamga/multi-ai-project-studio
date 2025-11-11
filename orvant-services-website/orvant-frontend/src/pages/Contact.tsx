@@ -7,7 +7,7 @@ import { useDropzone } from 'react-dropzone'
 import { useSearchParams } from 'react-router-dom'
 import * as z from 'zod'
 import { SEO } from '../components/SEO'
-import { BreadcrumbSchema } from '../components/StructuredData'
+import { BreadcrumbSchema, ContactPageSchema } from '../components/StructuredData'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
@@ -21,6 +21,7 @@ const contactSchema = z.object({
   consent: z.boolean().refine((val) => val === true, {
     message: 'You must agree to the privacy policy',
   }),
+  honeypot: z.string().max(0, 'Invalid submission'),
 })
 
 type ContactFormData = z.infer<typeof contactSchema>
@@ -42,6 +43,7 @@ export function Contact() {
     resolver: zodResolver(contactSchema),
     defaultValues: {
       consent: false,
+      honeypot: '',
     },
   })
 
@@ -72,6 +74,15 @@ export function Contact() {
     setErrorMessage('')
 
     try {
+      let recaptchaToken = ''
+      if (typeof window !== 'undefined' && (window as any).grecaptcha) {
+        try {
+          recaptchaToken = await (window as any).grecaptcha.execute('6LdXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', { action: 'submit' })
+        } catch (error) {
+          console.error('reCAPTCHA error:', error)
+        }
+      }
+
       const formDataToSend = new FormData()
       formDataToSend.append('name', data.name)
       formDataToSend.append('email', data.email)
@@ -79,6 +90,7 @@ export function Contact() {
       formDataToSend.append('phone', data.phone || '')
       formDataToSend.append('service', data.service || '')
       formDataToSend.append('message', data.message)
+      formDataToSend.append('recaptchaToken', recaptchaToken)
 
       files.forEach((file) => {
         formDataToSend.append('files', file)
@@ -159,6 +171,7 @@ export function Contact() {
         { name: 'Home', url: '/' },
         { name: 'Contact', url: '/contact' },
       ]} />
+      <ContactPageSchema />
       <div className="bg-white">
       <section className="py-24 md:py-32 bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
@@ -365,6 +378,18 @@ export function Contact() {
                       ))}
                     </div>
                   )}
+                </div>
+
+                {/* Honeypot field - hidden from users */}
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input
+                    id="website"
+                    type="text"
+                    {...register('honeypot')}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
                 </div>
 
                 <div className="flex items-start">

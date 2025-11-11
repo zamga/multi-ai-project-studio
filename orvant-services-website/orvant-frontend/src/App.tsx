@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { HelmetProvider } from 'react-helmet-async'
 import { Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { CookieConsent, ManageCookies } from './components/CookieConsent'
 import './App.css'
 
 const Home = lazy(() => import('./pages/Home').then(module => ({ default: module.Home })))
@@ -197,6 +198,7 @@ function Footer() {
             <div className="flex items-center gap-6 mt-4 md:mt-0">
               <Link to="/privacy" className="hover:text-white transition-colors duration-150">Privacy Policy</Link>
               <Link to="/terms" className="hover:text-white transition-colors duration-150">Terms of Service</Link>
+              <ManageCookies />
               <a href="https://www.linkedin.com/company/orvant-services" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-150">LinkedIn</a>
             </div>
           </div>
@@ -234,6 +236,7 @@ function App() {
             </Suspense>
           </main>
           <Footer />
+          <CookieConsent />
         </div>
       </Router>
     </HelmetProvider>

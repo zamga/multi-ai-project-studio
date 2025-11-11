@@ -92,3 +92,68 @@ export function ServiceSchema({ service }: { service: { name: string; descriptio
     </Helmet>
   )
 }
+
+export function ContactPageSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact Orvantt Services',
+    description: 'Share your context, constraints, and objectives. We\'ll suggest a pragmatic next step.',
+    url: `${SITE_URL}/contact`,
+    mainEntity: {
+      '@type': 'FinancialService',
+      name: 'Orvantt Services',
+      email: 'filipberg@orvanttservices.com',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'filipberg@orvanttservices.com',
+        contactType: 'Customer Service',
+        availableLanguage: 'English',
+      },
+    },
+  }
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
+export function AboutPageSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About Orvantt Services',
+    description: 'Advisory and capital for complex transitions. M&A, restructuring, and public markets advisory for growth and special situations.',
+    url: `${SITE_URL}/about`,
+    mainEntity: {
+      '@type': 'FinancialService',
+      name: 'Orvantt Services',
+      url: SITE_URL,
+      description: 'Expert financial advisory services for M&A, restructuring, and capital raising.',
+    },
+  }
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
+export function CollectionPageSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Resources',
+    description: 'Practical guidance drawn from mandates we\'ve worked on.',
+    url: `${SITE_URL}/resources`,
+  }
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}

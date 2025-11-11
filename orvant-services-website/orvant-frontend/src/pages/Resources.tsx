@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { SEO } from '../components/SEO'
+import { CollectionPageSchema } from '../components/StructuredData'
 
 export function Resources() {
   const articles = [
@@ -32,6 +33,7 @@ export function Resources() {
         description="Practical guidance drawn from mandates we've worked on. For decisions with consequences, get advice tailored to you."
         canonical="/resources"
       />
+      <CollectionPageSchema />
       <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-navy-900">

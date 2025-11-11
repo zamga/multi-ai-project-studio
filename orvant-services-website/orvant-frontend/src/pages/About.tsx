@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { SEO } from '../components/SEO'
-import { BreadcrumbSchema } from '../components/StructuredData'
+import { BreadcrumbSchema, AboutPageSchema } from '../components/StructuredData'
 
 export function About() {
   const team = [
@@ -52,6 +52,7 @@ export function About() {
         { name: 'Home', url: '/' },
         { name: 'About', url: '/about' },
       ]} />
+      <AboutPageSchema />
       <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-navy-900">
