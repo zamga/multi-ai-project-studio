@@ -97,47 +97,40 @@ export function Home() {
                   Independent Advisory
                 </span>
               </motion.div>
-              <h1 className="font-display text-display-2xl text-white mb-10 leading-[1.1]" style={{ letterSpacing: '-0.02em' }}>
+              <h1 className="font-display text-display-2xl text-white mb-8 leading-[1.1]" style={{ letterSpacing: '-0.02em' }}>
                 Independent Advisory for Complex Transitions
               </h1>
+              
+              {/* Brand narrative */}
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="text-body-lg text-white/70 mb-10 max-w-3xl font-light tracking-wide"
+                style={{ lineHeight: '1.8', letterSpacing: '0.01em' }}
+              >
+                We advise only at the decisive moments—when your business faces its next chapter.
+              </motion.p>
+              
               <p className="text-body-xl text-white/95 mb-12 max-w-3xl font-light" style={{ lineHeight: '1.8' }}>
                 We partner with a select roster of leaders at pivotal moments—delivering senior-led guidance, board-ready outcomes, and discreet execution across 20+ jurisdictions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <Link
                   to="/contact"
-                  className="group inline-flex items-center justify-center px-10 py-5 bg-gold-500 text-white text-body-lg font-sans font-bold rounded-sm hover:bg-gold-400 transition-all duration-300 hover:shadow-premium hover:scale-[1.05] shadow-xl"
+                  className="group inline-flex items-center justify-center px-12 py-6 bg-gold-500 text-white text-body-xl font-sans font-bold rounded-sm hover:bg-gold-400 transition-all duration-300 hover:shadow-premium hover:scale-[1.05] shadow-xl"
                 >
                   Begin a Confidential Conversation
-                  <ArrowRight className="ml-2 btn-arrow" size={20} />
+                  <ArrowRight className="ml-2 btn-arrow" size={22} />
                 </Link>
                 <Link
                   to="/services"
-                  className="inline-flex items-center justify-center px-10 py-5 border-2 border-white/30 text-white text-body-lg font-sans font-medium rounded-sm hover:border-gold-400 hover:text-gold-400 transition-all duration-300"
+                  className="inline-flex items-center text-white/70 text-body-md font-sans font-medium hover:text-gold-400 transition-all duration-300 mt-4 sm:mt-8"
                 >
                   Explore Our Capabilities
-                  <ArrowRight className="ml-2" size={20} />
+                  <ArrowRight className="ml-2" size={18} />
                 </Link>
               </div>
-              
-              {/* Trust cues */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-12 pt-8 border-t border-white/10"
-              >
-                <p className="text-body-xs uppercase tracking-widest text-white/60 mb-4">Trusted by</p>
-                <div className="flex flex-wrap items-center gap-8 opacity-60">
-                  <div className="text-white/80 text-body-sm font-medium">Financial Services</div>
-                  <span className="text-white/40">·</span>
-                  <div className="text-white/80 text-body-sm font-medium">Technology</div>
-                  <span className="text-white/40">·</span>
-                  <div className="text-white/80 text-body-sm font-medium">Healthcare</div>
-                  <span className="text-white/40">·</span>
-                  <div className="text-white/80 text-body-sm font-medium">Industrials</div>
-                </div>
-              </motion.div>
             </motion.div>
           </div>
         </section>
