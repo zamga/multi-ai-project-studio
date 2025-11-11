@@ -31,6 +31,7 @@ export function Services() {
       id: 'ma-advisory',
       title: 'M&A Advisory',
       description: 'Preparation to close for buy- and sell-side mandates. We structure the process, align stakeholders, and execute discreetly.',
+      differentiator: 'We combine transaction structuring expertise with senior-led execution to deliver outcomes that hold up under board scrutiny.',
       approach: 'We coordinate every stage from deal preparation through closing, managing diligence, negotiating terms, and keeping stakeholders aligned. Board-ready materials at each milestone ensure informed decisions.',
       outcomes: [
         'Deal preparation and positioning',
@@ -66,6 +67,7 @@ export function Services() {
       id: 'restructuring',
       title: 'Restructuring',
       description: 'Stabilize the business, align stakeholders, and execute a credible path forward—operational and financial.',
+      differentiator: 'We combine operational turnaround expertise with capital-structure insight to stabilize performance and restore lender confidence.',
       approach: 'We build cash and liquidity plans, map stakeholder positions, and develop turnaround plans with clear milestones. Our focus is on executable solutions that restore confidence and create breathing room.',
       outcomes: [
         'Cash and liquidity planning',
@@ -101,6 +103,7 @@ export function Services() {
       id: 'public-markets',
       title: 'Public Markets',
       description: 'Prepare to meet the market. Readiness across governance, disclosure, and investor messaging.',
+      differentiator: 'We advise boards on IPO readiness, secondary offerings, and investor communication strategies that sustain long-term valuation.',
       approach: 'We assess readiness gaps, build the equity story, and coordinate with underwriters and advisors. Our work ensures you enter the market with credible disclosure, strong controls, and a clear investor narrative.',
       outcomes: [
         'Readiness assessment and gap closure',
@@ -136,6 +139,7 @@ export function Services() {
       id: 'accounting',
       title: 'Accounting & Compliance',
       description: 'Accurate, timely reporting and well-run processes—so decisions are made on dependable numbers.',
+      differentiator: 'We ensure your financial reporting is audit-ready, controls are documented, and board materials reflect reliable numbers.',
       approach: 'We improve close and reporting processes, resolve technical accounting issues, and prepare for audits. Our work ensures your numbers are reliable, your controls are documented, and your board reporting is clear.',
       outcomes: [
         'Close and reporting improvements',
@@ -171,6 +175,7 @@ export function Services() {
       id: 'buy-sell',
       title: 'Buy/Sell Company',
       description: 'Confidential, disciplined processes to buy or sell a business—preparation, outreach, diligence, and close.',
+      differentiator: 'We execute discreet, disciplined processes that minimize disruption while positioning you for optimal outcomes.',
       approach: 'We assess readiness, identify and engage buyers or targets, manage diligence, and coordinate closing. Our process is discreet, thorough, and designed to minimize disruption while maximizing outcomes.',
       outcomes: [
         'Valuation and readiness assessment',
@@ -310,8 +315,11 @@ export function Services() {
                       </h2>
                     </div>
                   </div>
-                  <p className="text-body-lg text-neutral-600 leading-relaxed">
+                  <p className="text-body-lg text-neutral-600 leading-relaxed mb-4">
                     {currentService.description}
+                  </p>
+                  <p className="text-body-md text-neutral-700 leading-relaxed italic border-l-2 border-gold-500 pl-4">
+                    {currentService.differentiator}
                   </p>
                 </div>
 
@@ -389,6 +397,12 @@ export function Services() {
                     </div>
                   )}
 
+                  <div className="pt-6 mt-6 border-t border-neutral-200">
+                    <p className="text-body-sm text-neutral-600 mb-6 leading-relaxed italic">
+                      Every engagement follows our core principles: independence, senior attention, and disciplined execution.
+                    </p>
+                  </div>
+
                   <div className="pt-4">
                     <p className="text-body-md text-neutral-600 mb-6 leading-relaxed">
                       Share your context and objectives. We'll suggest a pragmatic next step.
@@ -421,11 +435,19 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white p-8 rounded-sm border border-neutral-200"
+              className="bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
             >
+              <div className="w-12 h-12 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
               <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Retainer</h3>
-              <p className="text-body-md text-neutral-600 leading-relaxed">
+              <p className="text-body-md text-neutral-600 leading-relaxed mb-3">
                 Ongoing advisory services with dedicated expert attention for complex situations requiring sustained strategic guidance.
+              </p>
+              <p className="text-body-sm text-neutral-500 italic">
+                Continuous senior access for evolving strategic needs.
               </p>
             </motion.div>
 
@@ -434,11 +456,19 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.22, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white p-8 rounded-sm border border-neutral-200"
+              className="bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
             >
+              <div className="w-12 h-12 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+              </div>
               <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Success-Based</h3>
-              <p className="text-body-md text-neutral-600 leading-relaxed">
+              <p className="text-body-md text-neutral-600 leading-relaxed mb-3">
                 Performance-based compensation tied to successful transaction completion or achievement of key milestones.
+              </p>
+              <p className="text-body-sm text-neutral-500 italic">
+                Aligned incentives focused on measurable outcomes.
               </p>
             </motion.div>
 
@@ -447,11 +477,19 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.22, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white p-8 rounded-sm border border-neutral-200"
+              className="bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
             >
+              <div className="w-12 h-12 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+              </div>
               <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3">Fixed-Scope</h3>
-              <p className="text-body-md text-neutral-600 leading-relaxed">
+              <p className="text-body-md text-neutral-600 leading-relaxed mb-3">
                 Clearly defined deliverables and timeline for specific projects, providing cost certainty and predictable outcomes.
+              </p>
+              <p className="text-body-sm text-neutral-500 italic">
+                Defined scope, predictable delivery.
               </p>
             </motion.div>
           </div>
@@ -499,22 +537,27 @@ export function Services() {
         </div>
       </section>
 
-      <section className="py-28 bg-neutral-950 text-white">
+      <section className="py-32 bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 text-white border-t border-neutral-800">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="max-w-3xl">
-            <h2 className="font-display text-display-lg mb-6 leading-tight">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-display text-display-xl mb-6 leading-tight">
               First conversation
             </h2>
-            <p className="text-body-lg text-neutral-400 mb-10 leading-relaxed">
+            <p className="text-body-xl text-neutral-300 mb-4" style={{ lineHeight: '1.7' }}>
               Share your context, constraints, and objectives. We'll suggest a pragmatic next step.
             </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-220 hover:shadow-elevation"
-            >
-              Start a confidential conversation
-              <ArrowRight className="ml-2" size={18} />
-            </Link>
+            <p className="text-body-sm text-neutral-400 mb-10 italic">
+              We respond within one business day. Your information remains private.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/contact"
+                className="group inline-flex items-center justify-center px-10 py-5 bg-gold-600 text-navy-900 text-body-lg font-sans font-bold rounded-sm hover:bg-gold-500 transition-all duration-220 hover:shadow-elevation-lg hover:scale-[1.02] shadow-lg"
+              >
+                Start a Confidential Conversation
+                <ArrowRight className="ml-2 transition-transform duration-220 group-hover:translate-x-1" size={20} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
