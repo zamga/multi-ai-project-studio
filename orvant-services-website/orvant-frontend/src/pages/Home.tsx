@@ -111,28 +111,25 @@ export function Home() {
                   Independent Advisory
                 </span>
               </motion.div>
-              <h1 className="font-display text-display-2xl text-white mb-8 leading-[1.05] tracking-tight" style={{ letterSpacing: '-0.02em' }}>
+              <h1 className="font-display text-display-2xl text-white mb-10 leading-[1.1]" style={{ letterSpacing: '-0.02em' }}>
                 Independent Advisory for Complex Transitions
               </h1>
-              <p className="text-body-xl text-white/95 mb-6 max-w-2xl font-light" style={{ lineHeight: '1.7' }}>
-                We help leaders navigate inflection points with clarity, discretion, and strategic precision.
-              </p>
-              <p className="text-body-lg text-white/85 mb-10 max-w-2xl" style={{ lineHeight: '1.7' }}>
-                At Orvantt Services, we partner with leaders navigating pivotal transitions—combining independent thinking, senior execution, and cross-border expertise to help organizations achieve enduring outcomes.
+              <p className="text-body-xl text-white/95 mb-12 max-w-3xl font-light" style={{ lineHeight: '1.8' }}>
+                We partner with a select roster of leaders at pivotal moments—delivering senior-led guidance, board-ready outcomes, and discreet execution across 20+ jurisdictions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <Link
                   to="/contact"
-                  className="group inline-flex items-center justify-center px-10 py-5 bg-gold-600 text-navy-900 text-body-lg font-sans font-bold rounded-sm hover:bg-gold-500 transition-all duration-220 hover:shadow-elevation-lg hover:scale-[1.02] shadow-lg"
+                  className="group inline-flex items-center justify-center px-10 py-5 bg-gold-500 text-navy-900 text-body-lg font-sans font-bold rounded-sm hover:bg-gold-400 transition-all duration-300 hover:shadow-premium hover:scale-[1.05] shadow-xl"
                 >
-                  Start a Conversation
+                  Begin a Confidential Conversation
                   <ArrowRight className="ml-2 btn-arrow" size={20} />
                 </Link>
                 <Link
                   to="/services"
                   className="inline-flex items-center text-white/80 text-body-sm font-sans font-medium hover:text-gold-400 transition-colors duration-220 pt-5 underline underline-offset-4"
                 >
-                  Our Capabilities
+                  Explore Our Capabilities
                   <ArrowRight className="ml-2" size={16} />
                 </Link>
               </div>
@@ -161,20 +158,32 @@ export function Home() {
       </HeroVideo>
 
       {/* Client Logos / Trust Signals */}
-      <section className="py-20 bg-neutral-50 border-b border-neutral-200">
+      <section className="py-24 bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
-          <p className="text-center text-body-md text-neutral-700 mb-3 font-medium">
-            Trusted by organizations shaping global industries
+          <p className="text-center text-body-lg text-neutral-800 mb-3 font-semibold">
+            Trusted by boards and owners across high-stakes global industries
           </p>
-          <p className="text-center text-body-xs uppercase tracking-widest text-neutral-500 mb-10">
+          <p className="text-center text-body-xs uppercase tracking-widest text-neutral-500 mb-12">
             Select Sectors
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center">
             {[
-              { name: 'Financial Services', icon: '💼' },
-              { name: 'Technology', icon: '⚡' },
-              { name: 'Healthcare', icon: '🏥' },
-              { name: 'Industrials', icon: '🏭' }
+              { 
+                name: 'Financial Services',
+                icon: <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              },
+              { 
+                name: 'Technology',
+                icon: <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              },
+              { 
+                name: 'Healthcare',
+                icon: <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+              },
+              { 
+                name: 'Industrials',
+                icon: <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+              }
             ].map((sector, index) => (
               <motion.div
                 key={index}
@@ -184,7 +193,7 @@ export function Home() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="text-center group"
               >
-                <div className="text-4xl mb-3 opacity-40 group-hover:opacity-60 transition-opacity duration-220">{sector.icon}</div>
+                <div className="mb-4 text-gold-500 group-hover:text-gold-400 transition-colors duration-300 flex justify-center">{sector.icon}</div>
                 <div className="text-body-md font-sans font-semibold text-neutral-700 group-hover:text-navy-900 transition-colors duration-220">{sector.name}</div>
               </motion.div>
             ))}
@@ -192,7 +201,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-32 bg-white border-b border-neutral-200">
+      <section className="py-40 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             eyebrow="WHAT WE DO"
@@ -255,45 +264,30 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-32 bg-neutral-50 border-b border-neutral-200">
+      <section className="py-40 bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             eyebrow="WHY CHOOSE US"
             title="What Sets Us Apart"
-            deck="Independent thinking, senior execution, and outcomes that hold up under scrutiny."
+            deck="Senior partner-led from start to finish. Independent thinking. Outcomes that hold up in the boardroom."
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               {
-                title: "Senior Attention Throughout",
-                description: "Partners lead every engagement from initial conversation through completion. No delegation to junior teams—you work directly with experienced advisors who have seen complex situations before.",
-                icon: "1"
+                title: "Senior Partner-Led Throughout",
+                description: "Partners lead every engagement from initial conversation through completion. You work directly with experienced advisors who have navigated complex situations across multiple jurisdictions and industries.",
+                icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
               },
               {
                 title: "Independence & Objectivity",
-                description: "We have no lending relationships, no investment banking conflicts, and no pressure to cross-sell. Our only obligation is to provide clear-eyed advice aligned with your interests.",
-                icon: "2"
-              },
-              {
-                title: "Board-Ready Materials",
-                description: "Every deliverable is built to withstand board scrutiny. We anticipate questions, document assumptions, and present options with clarity—so decisions can be made with confidence.",
-                icon: "3"
+                description: "No lending relationships, no investment banking conflicts, no pressure to cross-sell. Our only obligation is to provide clear-eyed advice aligned with your interests and board-level outcomes.",
+                icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
               },
               {
                 title: "Discretion by Design",
-                description: "Confidentiality isn't just a promise—it's how we operate. Controlled processes, limited distribution lists, and careful stakeholder management protect sensitive information throughout.",
-                icon: "4"
-              },
-              {
-                title: "Cross-Border Expertise",
-                description: "We navigate multi-jurisdictional transactions across Americas, EMEA, and APAC. Deep understanding of regulatory frameworks, tax structures, and cultural nuances that impact deal execution.",
-                icon: "5"
-              },
-              {
-                title: "Calm Under Pressure",
-                description: "When timelines compress and stakes escalate, we maintain composure. Clean processes, clear communication, and steady execution—even when circumstances are difficult.",
-                icon: "6"
+                description: "Confidentiality isn't just a promise—it's how we operate. Controlled processes, limited distribution lists, and careful stakeholder management protect sensitive information at every stage.",
+                icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
               }
             ].map((item, index) => (
               <motion.div
@@ -301,18 +295,18 @@ export function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="group bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="group bg-white p-10 rounded-sm border border-neutral-200 hover:border-gold-500/30 hover:shadow-premium transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-navy-900/5 rounded-sm flex items-center justify-center mb-4 group-hover:bg-navy-900 transition-colors duration-220">
-                  <span className="text-navy-900 group-hover:text-gold-500 text-xl font-display font-semibold transition-colors duration-220">
+                <div className="w-16 h-16 bg-navy-900/5 rounded-sm flex items-center justify-center mb-6 group-hover:bg-navy-900 transition-colors duration-300">
+                  <div className="text-navy-900 group-hover:text-gold-500 transition-colors duration-300">
                     {item.icon}
-                  </span>
+                  </div>
                 </div>
-                <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-3 group-hover:text-navy-900 transition-colors duration-220">
+                <h3 className="font-sans font-bold text-body-xl text-neutral-950 mb-4 group-hover:text-navy-900 transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-body-md text-neutral-600 leading-relaxed">
+                <p className="text-body-md text-neutral-600 leading-relaxed" style={{ lineHeight: '1.7' }}>
                   {item.description}
                 </p>
               </motion.div>
@@ -321,7 +315,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-32 bg-white border-b border-neutral-200">
+      <section className="py-40 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             eyebrow="HOW WE WORK"
