@@ -5,6 +5,7 @@ import { Navigation } from './components/Navigation'
 import { FloatingCTA } from './components/FloatingCTA'
 import { FloatingCTAButton } from './components/FloatingCTAButton'
 import { StickyFooter } from './components/StickyFooter'
+import { ScrollProgress, BackToTop } from './components/ScrollProgress'
 import { CookieConsent, ManageCookies } from './components/CookieConsent'
 import { trackNewsletterSubscribe } from './utils/analytics'
 import './App.css'
@@ -146,6 +147,7 @@ function App() {
     <HelmetProvider>
       <Router>
         <div className="min-h-screen flex flex-col bg-white">
+          <ScrollProgress />
           <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-navy-900 focus:text-white focus:rounded-sm">
             Skip to main content
           </a>
@@ -178,6 +180,7 @@ function App() {
           <FloatingCTA />
           <FloatingCTAButton />
           <StickyFooter />
+          <BackToTop />
           <CookieConsent />
         </div>
       </Router>
