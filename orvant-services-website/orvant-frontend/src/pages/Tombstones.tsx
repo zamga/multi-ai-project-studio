@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Lock, Filter } from 'lucide-react'
 import { SEO } from '../components/SEO'
+import Breadcrumb from '../components/Breadcrumb'
 import { BreadcrumbSchema } from '../components/StructuredData'
 
 type FilterType = 'all' | 'M&A' | 'Restructuring' | 'Public Markets'
@@ -106,6 +107,7 @@ export function Tombstones() {
         { name: 'Home', url: '/' },
         { name: 'Track Record', url: '/tombstones' },
       ]} />
+      <Breadcrumb items={[{ name: 'Track Record', path: '/tombstones' }]} />
 
       <div className="bg-white">
         <section className="relative pt-32 pb-20 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 overflow-hidden">

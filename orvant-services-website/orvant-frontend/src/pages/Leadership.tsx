@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Mail, Linkedin } from 'lucide-react'
 import { SEO } from '../components/SEO'
+import Breadcrumb from '../components/Breadcrumb'
 import { BreadcrumbSchema } from '../components/StructuredData'
 
 export function Leadership() {
@@ -95,6 +96,7 @@ export function Leadership() {
         { name: 'About', url: '/about' },
         { name: 'Leadership', url: '/leadership' },
       ]} />
+      <Breadcrumb items={[{ name: 'About', path: '/about' }, { name: 'Leadership', path: '/leadership' }]} />
 
       <div className="bg-white">
         <section className="relative pt-32 pb-20 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 overflow-hidden">

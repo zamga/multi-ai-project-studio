@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Search, ArrowRight } from 'lucide-react'
 import { SEO } from '../components/SEO'
+import Breadcrumb from '../components/Breadcrumb'
 import { BreadcrumbSchema } from '../components/StructuredData'
 
 export function Insights() {
@@ -57,6 +58,7 @@ export function Insights() {
         { name: 'Home', url: '/' },
         { name: 'Insights', url: '/insights' },
       ]} />
+      <Breadcrumb items={[{ name: 'Insights', path: '/insights' }]} />
 
       <div className="bg-white">
         <section className="relative pt-32 pb-20 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 overflow-hidden">

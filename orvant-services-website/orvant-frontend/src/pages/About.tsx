@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { SEO } from '../components/SEO'
+import Breadcrumb from '../components/Breadcrumb'
 import { BreadcrumbSchema, AboutPageSchema } from '../components/StructuredData'
 
 export function About() {
@@ -53,6 +54,7 @@ export function About() {
         { name: 'About', url: '/about' },
       ]} />
       <AboutPageSchema />
+      <Breadcrumb items={[{ name: 'About', path: '/about' }]} />
       <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 overflow-hidden">

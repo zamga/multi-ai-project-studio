@@ -7,6 +7,7 @@ import { useDropzone } from 'react-dropzone'
 import { useSearchParams } from 'react-router-dom'
 import * as z from 'zod'
 import { SEO } from '../components/SEO'
+import Breadcrumb from '../components/Breadcrumb'
 import { BreadcrumbSchema, ContactPageSchema } from '../components/StructuredData'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
@@ -172,6 +173,7 @@ export function Contact() {
         { name: 'Contact', url: '/contact' },
       ]} />
       <ContactPageSchema />
+      <Breadcrumb items={[{ name: 'Contact', path: '/contact' }]} />
       <div className="bg-white">
       <section className="py-24 md:py-32 bg-neutral-50 border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
