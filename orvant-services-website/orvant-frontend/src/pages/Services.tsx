@@ -51,6 +51,16 @@ export function Services() {
         'Data room and diligence tracker',
         'Process letter and timeline',
       ],
+      examples: [
+        {
+          title: 'Technology Carve-Out',
+          description: 'Advised software division on separation from parent company, coordinating diligence and negotiating terms with strategic buyer.',
+        },
+        {
+          title: 'Cross-Border Acquisition',
+          description: 'Supported buyer in acquiring European manufacturing business, managing regulatory approvals and integration planning.',
+        },
+      ],
     },
     {
       id: 'restructuring',
@@ -75,6 +85,16 @@ export function Services() {
         'KPI pack and operating cadence',
         'Restructuring plan and workplan',
         'Stakeholder materials and scripts',
+      ],
+      examples: [
+        {
+          title: 'Retail Turnaround',
+          description: 'Developed 13-week cash flow model and stakeholder communication plan for specialty retailer facing covenant breach.',
+        },
+        {
+          title: 'Manufacturing Reset',
+          description: 'Built operational turnaround plan with monthly milestones, restoring lender confidence and securing covenant relief.',
+        },
       ],
     },
     {
@@ -101,6 +121,16 @@ export function Services() {
         'Draft timetable and responsibility matrix',
         'Analyst/underwriter Q&A preparation',
       ],
+      examples: [
+        {
+          title: 'SaaS IPO Readiness',
+          description: 'Assessed governance gaps and built equity story for technology company preparing for public markets debut.',
+        },
+        {
+          title: 'Dual-Track Process',
+          description: 'Coordinated IPO preparation alongside M&A process, ensuring disclosure readiness for both paths.',
+        },
+      ],
     },
     {
       id: 'accounting',
@@ -126,6 +156,16 @@ export function Services() {
         'Controls matrices and narratives',
         'Audit request tracker and data room',
       ],
+      examples: [
+        {
+          title: 'Revenue Recognition Review',
+          description: 'Prepared technical accounting memos and controls documentation for SaaS company transitioning to new revenue standard.',
+        },
+        {
+          title: 'Audit Readiness',
+          description: 'Built audit request tracker and data room for healthcare company preparing for first external audit.',
+        },
+      ],
     },
     {
       id: 'buy-sell',
@@ -150,6 +190,16 @@ export function Services() {
         'Valuation analysis and rationale',
         'Diligence checklist and tracker',
         'Process letters and timeline',
+      ],
+      examples: [
+        {
+          title: 'Founder Succession',
+          description: 'Managed confidential sale process for family-owned distribution business, coordinating buyer outreach and diligence.',
+        },
+        {
+          title: 'Strategic Acquisition',
+          description: 'Identified and evaluated acquisition targets for industrial company seeking geographic expansion.',
+        },
       ],
     },
   ]
@@ -314,6 +364,30 @@ export function Services() {
                       </AccordionItem>
                     </Accordion>
                   </div>
+
+                  {currentService.examples && currentService.examples.length > 0 && (
+                    <div className="pt-6">
+                      <p className="font-sans text-body-xs uppercase tracking-widest text-neutral-500 mb-4">Representative Engagements</p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {currentService.examples.map((example, index) => (
+                          <div
+                            key={index}
+                            className="p-5 bg-neutral-50 border border-neutral-200 rounded-sm hover:border-navy-900/20 hover:bg-white transition-all duration-220"
+                          >
+                            <h4 className="font-sans font-medium text-body-md text-neutral-950 mb-2">
+                              {example.title}
+                            </h4>
+                            <p className="text-body-sm text-neutral-600 leading-relaxed">
+                              {example.description}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                      <p className="text-body-xs text-neutral-500 italic mt-3">
+                        Additional case studies available under NDA
+                      </p>
+                    </div>
+                  )}
 
                   <div className="pt-4">
                     <p className="text-body-md text-neutral-600 mb-6 leading-relaxed">
