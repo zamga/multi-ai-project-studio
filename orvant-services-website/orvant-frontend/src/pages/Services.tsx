@@ -187,7 +187,7 @@ export function Services() {
               Our Services
             </h1>
             <p className="text-body-lg text-neutral-600 leading-relaxed">
-              Comprehensive financial services tailored to your business needs. From M&A advisory to restructuring and capital raising, we deliver exceptional results with personalized attention.
+              We advise at inflection points—when the stakes are high, the timeline is tight, and the outcome matters for years to come.
             </p>
           </motion.div>
         </div>
@@ -358,7 +358,7 @@ export function Services() {
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
             <h2 className="font-display text-display-lg mb-6 leading-tight">
-              Ready to Get Started?
+              First conversation
             </h2>
             <p className="text-body-lg text-neutral-400 mb-10 leading-relaxed">
               Share your context, constraints, and objectives. We'll suggest a pragmatic next step.

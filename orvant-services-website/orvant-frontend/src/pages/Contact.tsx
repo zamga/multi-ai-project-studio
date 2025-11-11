@@ -189,13 +189,24 @@ export function Contact() {
               <p className="text-body-md text-neutral-600 mb-8">
                 Reach out to discuss your specific situation.
               </p>
-              <div className="mb-8 p-4 bg-neutral-50 border border-neutral-200 rounded-sm">
-                <h3 className="font-sans font-medium text-body-sm text-neutral-950 mb-2">What to prepare (optional)</h3>
-                <ul className="space-y-1 text-body-sm text-neutral-600">
-                  <li>• One-paragraph background and objective</li>
-                  <li>• Recent management pack or summary financials</li>
-                  <li>• Timing window and key stakeholders</li>
-                </ul>
+              <div className="mb-8 space-y-4">
+                <div className="p-4 bg-neutral-50 border border-neutral-200 rounded-sm">
+                  <h3 className="font-sans font-medium text-body-sm text-neutral-950 mb-2">When to contact us</h3>
+                  <ul className="space-y-1 text-body-sm text-neutral-600">
+                    <li>• Liquidity pressure or covenant concerns</li>
+                    <li>• Sale readiness and timing decisions</li>
+                    <li>• Public market preparation or timeline</li>
+                    <li>• Board mandate requiring external counsel</li>
+                  </ul>
+                </div>
+                <div className="p-4 bg-neutral-50 border border-neutral-200 rounded-sm">
+                  <h3 className="font-sans font-medium text-body-sm text-neutral-950 mb-2">What to prepare (optional)</h3>
+                  <ul className="space-y-1 text-body-sm text-neutral-600">
+                    <li>• One-paragraph background and objective</li>
+                    <li>• Recent management pack or summary financials</li>
+                    <li>• Timing window and key stakeholders</li>
+                  </ul>
+                </div>
               </div>
 
               <div className="space-y-6">

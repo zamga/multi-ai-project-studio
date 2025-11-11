@@ -165,11 +165,6 @@ export function About() {
               </motion.div>
             ))}
           </div>
-          <div className="mt-12 text-center">
-            <p className="text-body-sm text-neutral-600">
-              Additional case studies and references available under NDA
-            </p>
-          </div>
         </div>
       </section>
 
@@ -177,7 +172,7 @@ export function About() {
       <section className="py-28 bg-navy-900">
         <div className="max-w-container mx-auto px-6 lg:px-12 text-center">
           <h2 className="font-display text-display-lg text-white mb-6">
-            Ready to Get Started?
+            First conversation
           </h2>
           <p className="text-body-lg text-navy-100 mb-8 max-w-2xl mx-auto">
             Share your context and objectives. We'll suggest a pragmatic next step.

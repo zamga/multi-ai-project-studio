@@ -7,13 +7,6 @@ import { SEO } from '../components/SEO'
 import { OrganizationSchema, WebsiteSchema } from '../components/StructuredData'
 
 export function Home() {
-  const principles = [
-    'Trusted expertise',
-    'Proven results',
-    'Client-focused approach',
-    'Personalized service',
-  ]
-
   const situations = [
     'Mergers & Acquisitions',
     'Business Sales',
@@ -98,7 +91,7 @@ export function Home() {
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-200 hover:shadow-elevation"
               >
-                Get Started
+                Start a confidential conversation
                 <ArrowRight className="ml-2" size={18} />
               </Link>
               <Link
@@ -116,8 +109,8 @@ export function Home() {
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <SectionHeader
             eyebrow="WHAT WE DO"
-            title="Comprehensive Financial Services"
-            deck="From mergers and acquisitions to restructuring and capital raising, we provide end-to-end solutions tailored to your business needs."
+            title="Advisory for Critical Moments"
+            deck="We engage at inflection points—when the stakes are high, the timeline is tight, and the outcome matters for years to come."
           />
           
           <div className="space-y-12">
@@ -166,21 +159,36 @@ export function Home() {
           />
           
           <SplitSection
-            left="Decades of experience delivering exceptional value and strategic outcomes for businesses across industries."
+            left="We join at inflection points. We structure the work, align stakeholders, and see it through."
             right={
               <div className="space-y-3">
-                {principles.map((principle, index) => (
-                  <motion.p
-                    key={index}
-                    className="text-body-md text-neutral-700 leading-relaxed"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.2, delay: index * 0.05 }}
-                  >
-                    {principle}
-                  </motion.p>
-                ))}
+                <motion.p
+                  className="text-body-md text-neutral-700 leading-relaxed"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.2 }}
+                >
+                  Senior attention on every mandate
+                </motion.p>
+                <motion.p
+                  className="text-body-md text-neutral-700 leading-relaxed"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.2, delay: 0.05 }}
+                >
+                  Clear materials that enable good decisions
+                </motion.p>
+                <motion.p
+                  className="text-body-md text-neutral-700 leading-relaxed"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.2, delay: 0.1 }}
+                >
+                  Calm execution, even under pressure
+                </motion.p>
               </div>
             }
           />
@@ -190,15 +198,15 @@ export function Home() {
       <section className="py-24 bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.blockquote
-              className="font-display text-display-md text-neutral-950 mb-4 leading-tight"
+            <motion.p
+              className="font-sans text-body-lg text-neutral-950 font-medium leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3 }}
             >
-              "Delivering exceptional results through personalized service and unwavering commitment to your success."
-            </motion.blockquote>
+              Clear materials. Clean process. Credible outcomes.
+            </motion.p>
           </div>
         </div>
       </section>
@@ -295,13 +303,10 @@ export function Home() {
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
             <h2 className="font-display text-display-lg mb-6 leading-tight">
-              Ready to Transform Your Business?
+              First conversation
             </h2>
-            <p className="text-body-lg text-neutral-400 mb-4 leading-relaxed">
+            <p className="text-body-lg text-neutral-400 mb-10 leading-relaxed">
               Share your context, constraints, and objectives. We'll suggest a pragmatic next step.
-            </p>
-            <p className="text-body-sm text-neutral-500 mb-10 leading-relaxed">
-              References and detailed case studies available under NDA.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -309,13 +314,6 @@ export function Home() {
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:bg-neutral-100 transition-all duration-220 hover:shadow-elevation"
               >
                 Start a confidential conversation
-                <ArrowRight className="ml-2" size={18} />
-              </Link>
-              <Link
-                to="/contact?subject=NDA case studies"
-                className="inline-flex items-center justify-center px-8 py-4 border border-neutral-700 text-white text-body-md font-sans font-medium rounded-sm hover:bg-neutral-900 transition-all duration-220"
-              >
-                Learn More
                 <ArrowRight className="ml-2" size={18} />
               </Link>
             </div>
