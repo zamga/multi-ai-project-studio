@@ -380,6 +380,43 @@ export function Services() {
         </div>
       </section>
 
+      <section className="py-28 bg-neutral-50 border-t border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display text-display-lg text-neutral-950 mb-6 leading-tight">
+              Related resources
+            </h2>
+            <p className="text-body-lg text-neutral-600 mb-8 leading-relaxed">
+              Explore insights and perspectives on navigating complex business transitions.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <Link
+                to="/insights"
+                className="group p-6 bg-white border border-neutral-200 rounded-sm hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+              >
+                <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-2 group-hover:text-navy-900 transition-colors duration-220">
+                  Insights & Perspectives
+                </h3>
+                <p className="text-body-md text-neutral-600 leading-relaxed">
+                  Practical guidance drawn from mandates we've worked on
+                </p>
+              </Link>
+              <Link
+                to="/tombstones"
+                className="group p-6 bg-white border border-neutral-200 rounded-sm hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+              >
+                <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-2 group-hover:text-navy-900 transition-colors duration-220">
+                  Track Record
+                </h3>
+                <p className="text-body-md text-neutral-600 leading-relaxed">
+                  Representative transactions across M&A, restructuring, and public markets
+                </p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-28 bg-neutral-950 text-white">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">

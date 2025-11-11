@@ -204,20 +204,52 @@ export function Insights() {
 
         <section className="py-24 bg-neutral-50 border-t border-neutral-200">
           <div className="max-w-container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-3xl mx-auto">
               <h2 className="font-display text-display-lg text-neutral-950 mb-6 leading-tight">
-                Tailored guidance for your situation
+                Related resources
               </h2>
-              <p className="text-body-lg text-neutral-600 mb-10 leading-relaxed">
-                These insights are general in nature. For tailored guidance on your circumstances, let's have a confidential conversation.
+              <p className="text-body-lg text-neutral-600 mb-8 leading-relaxed">
+                Explore our services and track record to understand how we work.
               </p>
-              <Link
-                to="/contact"
-                className="inline-flex items-center px-8 py-4 bg-gold-500 text-navy-900 text-body-md font-sans font-medium rounded-sm hover:bg-gold-400 transition-all duration-220 hover:shadow-elevation-lg hover:scale-[1.02]"
-              >
-                Start a confidential conversation
-                <ArrowRight className="ml-2 transition-transform duration-220 group-hover:translate-x-1" size={18} />
-              </Link>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <Link
+                  to="/services"
+                  className="group p-6 bg-white border border-neutral-200 rounded-sm hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+                >
+                  <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-2 group-hover:text-navy-900 transition-colors duration-220">
+                    Our Services
+                  </h3>
+                  <p className="text-body-md text-neutral-600 leading-relaxed">
+                    M&A advisory, restructuring, public markets, and more
+                  </p>
+                </Link>
+                <Link
+                  to="/tombstones"
+                  className="group p-6 bg-white border border-neutral-200 rounded-sm hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
+                >
+                  <h3 className="font-sans font-semibold text-body-lg text-neutral-950 mb-2 group-hover:text-navy-900 transition-colors duration-220">
+                    Track Record
+                  </h3>
+                  <p className="text-body-md text-neutral-600 leading-relaxed">
+                    Representative transactions and case studies
+                  </p>
+                </Link>
+              </div>
+              <div className="text-center pt-8 border-t border-neutral-200">
+                <h3 className="font-display text-display-md text-neutral-950 mb-4 leading-tight">
+                  Tailored guidance for your situation
+                </h3>
+                <p className="text-body-lg text-neutral-600 mb-8 leading-relaxed">
+                  These insights are general in nature. For tailored guidance on your circumstances, let's have a confidential conversation.
+                </p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center px-8 py-4 bg-gold-500 text-navy-900 text-body-md font-sans font-medium rounded-sm hover:bg-gold-400 transition-all duration-220 hover:shadow-elevation-lg hover:scale-[1.02]"
+                >
+                  Start a confidential conversation
+                  <ArrowRight className="ml-2 transition-transform duration-220 group-hover:translate-x-1" size={18} />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
