@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 import { SectionHeader } from '../components/SectionHeader'
 import { SEO } from '../components/SEO'
 import { HeroVideo } from '../components/HeroVideo'
@@ -8,6 +9,30 @@ import { OrganizationSchema, WebsiteSchema } from '../components/StructuredData'
 import { GlobalMap } from '../components/GlobalMap'
 import { InsightsCarousel } from '../components/InsightsCarousel'
 import { ServiceIcon } from '../components/ServiceIcon'
+
+function CountUpNumber({ target, suffix = '', duration = 1 }: { target: number; suffix?: string; duration?: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true })
+  const count = useMotionValue(0)
+  const rounded = useTransform(count, (v) => Math.floor(v))
+  
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(count, target, {
+        duration,
+        ease: [0.22, 1, 0.36, 1]
+      })
+      return controls.stop
+    }
+  }, [isInView, count, target, duration])
+  
+  return (
+    <div ref={ref}>
+      <motion.span>{rounded}</motion.span>
+      {suffix}
+    </div>
+  )
+}
 
 export function Home() {
   const mandates = [
@@ -143,41 +168,85 @@ export function Home() {
         </section>
       </HeroVideo>
 
-      {/* Proof / Credibility Strip */}
-      <section className="py-20 bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 border-y border-navy-800">
-        <div className="max-w-container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-            {[
-              { label: "Years Experience", value: "15+", description: "Combined team expertise" },
-              { label: "Jurisdictions", value: "20+", description: "Global reach" },
-              { label: "Industries", value: "12+", description: "Sector coverage" },
-              { label: "Success Rate", value: "95%+", description: "Completed mandates" }
-            ].map((metric, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-center relative"
-              >
-                <div className="absolute inset-0 bg-gold-500/5 blur-2xl rounded-full" />
-                <div className="relative text-[72px] leading-none font-display text-gold-500 mb-3 font-bold">
-                  {metric.value}
-                </div>
-                <div className="text-body-md font-sans font-semibold text-white mb-1">
-                  {metric.label}
-                </div>
-                <div className="text-body-sm text-navy-200">
-                  {metric.description}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          <p className="text-center text-body-md text-navy-200 mt-12 max-w-3xl mx-auto" style={{ lineHeight: '1.7' }}>
-            Our track record reflects the discipline and senior oversight we bring to every engagement.
-          </p>
+      {/* Proof / Credibility Strip - Premium Redesign */}
+      <section 
+        aria-label="Key performance statistics" 
+        className="relative py-[100px] sm:py-[60px] bg-[#0D1A2A] border-y border-navy-800 overflow-hidden"
+      >
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDOUEyNTkiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItMnptMC0ydjJoLTJ2LTJoMnptLTItMmgydjJoLTJ2LTJ6bTItMmgydjJoLTJ2LTJ6bTAtMmgydjJoLTJ2LTJ6bS0yLTJoMnYyaC0ydi0yem0yLTJoMnYyaC0ydi0yem0wLTJoMnYyaC0ydi0yem0tMi0yaDF2Mmgtdi0yem0yLTJoMnYyaC0ydi0yem0wLTJoMnYyaC0ydi0yeiIvPjwvZz48L2c+PC9zdmc+')] opacity-20" />
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="relative max-w-container mx-auto px-6 lg:px-12"
+        >
+          {/* Two-column grid: Hero stat left, Supporting stats right */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            {/* Left: Hero Stat - 95%+ Success Rate */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="group flex flex-col items-center lg:items-start justify-center text-center lg:text-left hover:scale-[1.03] transition-transform duration-300"
+            >
+              <div className="text-[80px] sm:text-[96px] leading-none font-display font-bold text-[#C9A259] mb-4" style={{ letterSpacing: '-0.02em' }}>
+                <CountUpNumber target={95} suffix="%+" duration={1.2} />
+              </div>
+              <div className="text-[24px] font-sans font-medium text-white/90 uppercase mb-2" style={{ letterSpacing: '0.12em' }}>
+                Success Rate
+              </div>
+              <div className="text-[16px] font-sans font-normal text-white/60">
+                Completed mandates
+              </div>
+            </motion.div>
+
+            {/* Right: Supporting Stats Grid (2x2 for 3 items) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-16">
+              {[
+                { target: 20, suffix: '+', label: 'Jurisdictions', description: 'Global reach' },
+                { target: 15, suffix: '+', label: 'Years Experience', description: 'Combined team expertise' },
+                { target: 12, suffix: '+', label: 'Industries', description: 'Sector coverage' }
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                  className="group flex flex-col items-center sm:items-start text-center sm:text-left hover:scale-[1.05] transition-transform duration-300"
+                >
+                  <div className="text-[56px] sm:text-[64px] leading-none font-display font-bold text-[#C9A259] mb-3" style={{ letterSpacing: '-0.02em' }}>
+                    <CountUpNumber target={stat.target} suffix={stat.suffix} duration={1} />
+                  </div>
+                  <div className="text-[20px] font-sans font-medium text-white/90 uppercase mb-1" style={{ letterSpacing: '0.12em' }}>
+                    {stat.label}
+                  </div>
+                  <div className="text-[14px] font-sans font-normal text-white/60">
+                    {stat.description}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Supporting copy below */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.6 }}
+            className="text-center text-[18px] font-sans font-normal text-[#A3B0C0] mt-16 max-w-4xl mx-auto"
+            style={{ lineHeight: '1.7' }}
+          >
+            Decades of senior execution. Global reach. Outcomes that stand the test of the boardroom.
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* Distinctive Value Section - Why Choose Us */}
