@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { SectionHeader } from '../components/SectionHeader'
 import { SplitSection } from '../components/SplitSection'
 import { SEO } from '../components/SEO'
+import { HeroVideo } from '../components/HeroVideo'
 import { OrganizationSchema, WebsiteSchema } from '../components/StructuredData'
 
 export function Home() {
@@ -66,57 +67,61 @@ export function Home() {
       <OrganizationSchema />
       <WebsiteSchema />
       <div className="bg-white">
-      <section className="relative py-32 md:py-40 bg-gradient-to-br from-neutral-50 via-white to-neutral-50 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(to right, #001F3F 1px, transparent 1px), linear-gradient(to bottom, #001F3F 1px, transparent 1px)',
-            backgroundSize: '80px 80px'
-          }} />
-        </div>
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gold-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-navy-900/5 rounded-full blur-3xl" />
-        <div className="max-w-container mx-auto px-6 lg:px-12 relative">
-          <motion.div
-            className="max-w-4xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
+      <HeroVideo posterSrc="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop">
+        <section className="relative py-32 md:py-40 overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900">
+          <div className="grain-overlay" />
+          <div className="radial-vignette" />
+          <div className="absolute inset-0 opacity-[0.03]">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'linear-gradient(to right, #D4AF37 1px, transparent 1px), linear-gradient(to bottom, #D4AF37 1px, transparent 1px)',
+              backgroundSize: '80px 80px'
+            }} />
+          </div>
+          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gold-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gold-500/5 rounded-full blur-3xl" />
+          <div className="max-w-container mx-auto px-6 lg:px-12 relative">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              className="max-w-4xl"
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-block mb-6"
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="inline-flex items-center px-4 py-2 bg-navy-900/5 border border-navy-900/10 rounded-full text-body-sm font-medium text-navy-900">
-                Independent Advisory
-              </span>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="inline-block mb-6"
+              >
+                <span className="inline-flex items-center px-4 py-2 bg-white/10 border border-white/20 rounded-full text-body-sm font-medium text-white backdrop-blur-sm">
+                  Independent Advisory
+                </span>
+              </motion.div>
+              <h1 className="font-display text-display-2xl text-white mb-8 leading-[1.05] tracking-tight" style={{ letterSpacing: '-0.02em' }}>
+                Navigate Complex Business Transitions with Confidence
+              </h1>
+              <p className="text-body-xl text-white/90 mb-12 max-w-2xl leading-relaxed">
+                We advise owners and boards through M&A, restructurings, and public markets. Clear guidance, discreet execution, and outcomes that hold up in the boardroom.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center justify-center px-8 py-4 bg-gold-600 text-navy-900 text-body-md font-sans font-semibold rounded-sm hover:bg-gold-500 transition-all duration-220 hover:shadow-elevation-lg hover:scale-[1.02]"
+                >
+                  Start a confidential conversation
+                  <ArrowRight className="ml-2 btn-arrow" size={18} />
+                </Link>
+                <Link
+                  to="/services"
+                  className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white text-body-md font-sans font-medium rounded-sm border border-white/20 hover:bg-white/20 backdrop-blur-sm transition-all duration-220"
+                >
+                  Our capabilities
+                  <ArrowRight className="ml-2 opacity-0 -translate-x-2 transition-all duration-220 group-hover:opacity-100 group-hover:translate-x-0" size={18} />
+                </Link>
+              </div>
             </motion.div>
-            <h1 className="font-display text-display-xl text-neutral-950 mb-8 leading-[1.1] tracking-tight">
-              Navigate Complex Business Transitions with Confidence
-            </h1>
-            <p className="text-body-xl text-neutral-600 mb-12 max-w-2xl leading-relaxed">
-              We advise owners and boards through M&A, restructurings, and public markets. Clear guidance, discreet execution, and outcomes that hold up in the boardroom.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
-                className="group inline-flex items-center justify-center px-8 py-4 bg-navy-900 text-white text-body-md font-sans font-medium rounded-sm hover:bg-navy-800 transition-all duration-220 hover:shadow-elevation-lg hover:scale-[1.02]"
-              >
-                Start a confidential conversation
-                <ArrowRight className="ml-2 transition-transform duration-220 group-hover:translate-x-1" size={18} />
-              </Link>
-              <Link
-                to="/services"
-                className="group inline-flex items-center justify-center px-8 py-4 border-2 border-neutral-300 text-neutral-950 text-body-md font-sans font-medium rounded-sm hover:border-navy-900 hover:bg-navy-900/5 transition-all duration-220"
-              >
-                Our capabilities
-                <ArrowRight className="ml-2 opacity-0 -translate-x-2 transition-all duration-220 group-hover:opacity-100 group-hover:translate-x-0" size={18} />
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+      </HeroVideo>
 
       <section className="py-28 bg-white border-b border-neutral-200">
         <div className="max-w-container mx-auto px-6 lg:px-12">
@@ -267,7 +272,7 @@ export function Home() {
             {mandates.map((mandate, index) => (
               <motion.div
                 key={index}
-                className="group relative border-l-2 border-gold-500 pl-6 py-4 hover:bg-neutral-50 transition-all duration-220 cursor-pointer rounded-r-sm"
+                className="group relative border-l-2 border-gold-500 pl-6 py-4 hover:bg-neutral-50 transition-all duration-220 cursor-pointer rounded-r-sm card-premium"
                 initial={{ opacity: 0, y: 6 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -281,8 +286,23 @@ export function Home() {
                 <h3 className="font-sans font-medium text-body-lg text-neutral-950 mb-1 group-hover:text-navy-900 transition-colors duration-220">
                   {mandate.title}
                 </h3>
+                <div className="mt-3 flex items-center gap-2">
+                  <span className="inline-block px-2 py-1 bg-neutral-100 text-neutral-600 text-body-xs rounded-sm">
+                    Confidential
+                  </span>
+                </div>
               </motion.div>
             ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Link
+              to="/tombstones"
+              className="inline-flex items-center text-body-md text-navy-900 hover:text-navy-800 font-medium transition-colors duration-200 link-underline"
+            >
+              View all transactions
+              <ArrowRight className="ml-2" size={18} />
+            </Link>
           </div>
         </div>
       </section>

@@ -1,7 +1,11 @@
+/* Import brand tokens */
+@import './styles/tokens.css';
+
 /* Enhanced focus states for accessibility and polish */
 *:focus-visible {
-  outline: 2px solid #D4AF37;
+  outline: 2px solid var(--color-gold-600);
   outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 /* Smooth scrolling with reduced motion support */
@@ -11,24 +15,29 @@
   }
 }
 
-/* Enhanced button hover states */
+/* Enhanced button and link transitions */
 button, a {
-  transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all var(--duration-base) var(--ease-premium);
 }
 
 /* Subtle backdrop blur for modals and overlays */
 .backdrop-blur {
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-/* Enhanced shadow for elevation */
+/* Enhanced shadows for elevation */
+.shadow-elevation {
+  box-shadow: var(--shadow-elevation);
+}
+
 .shadow-elevation-lg {
-  box-shadow: 0 10px 40px rgba(0, 31, 63, 0.12), 0 2px 8px rgba(0, 31, 63, 0.08);
+  box-shadow: var(--shadow-elevation-lg);
 }
 
 /* Gradient text effect for premium feel */
 .gradient-text {
-  background: linear-gradient(135deg, #001F3F 0%, #003366 100%);
+  background: linear-gradient(135deg, var(--color-navy-900) 0%, var(--color-navy-700) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -46,10 +55,71 @@ button, a {
   left: 0;
   width: 0;
   height: 1px;
-  background: #D4AF37;
-  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  background: var(--color-gold-600);
+  transition: width var(--duration-slow) var(--ease-premium);
 }
 
 .link-underline:hover::after {
   width: 100%;
+}
+
+/* Cinematic grain overlay for hero sections */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Radial vignette for depth */
+.radial-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+}
+
+/* Premium card hover effect */
+.card-premium {
+  transition: all var(--duration-base) var(--ease-premium);
+}
+
+.card-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevation-lg);
+}
+
+/* Button arrow shift animation */
+.btn-arrow {
+  transition: transform var(--duration-base) var(--ease-premium);
+}
+
+.group:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Section entrance reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-slow) var(--ease-premium),
+              transform var(--duration-slow) var(--ease-premium);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reading progress bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold-600) 0%, var(--color-gold-500) 100%);
+  transform-origin: left;
+  z-index: var(--z-fixed);
+  transition: transform var(--duration-fast) linear;
 }
