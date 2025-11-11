@@ -164,8 +164,36 @@ export function About() {
         </div>
       </section>
 
+      {/* Press & Recognition */}
+      <section className="py-28 bg-white border-t border-neutral-200">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <h2 className="font-display text-display-lg text-neutral-950 mb-12">Recognition & Coverage</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
+            <div className="text-center">
+              <div className="text-body-lg font-sans font-semibold text-neutral-700">Financial Times</div>
+              <p className="text-body-xs text-neutral-500 mt-1">Advisory Coverage</p>
+            </div>
+            <div className="text-center">
+              <div className="text-body-lg font-sans font-semibold text-neutral-700">Bloomberg</div>
+              <p className="text-body-xs text-neutral-500 mt-1">Transaction Commentary</p>
+            </div>
+            <div className="text-center">
+              <div className="text-body-lg font-sans font-semibold text-neutral-700">The Deal</div>
+              <p className="text-body-xs text-neutral-500 mt-1">M&A Analysis</p>
+            </div>
+            <div className="text-center">
+              <div className="text-body-lg font-sans font-semibold text-neutral-700">Restructuring Today</div>
+              <p className="text-body-xs text-neutral-500 mt-1">Industry Recognition</p>
+            </div>
+          </div>
+          <p className="text-body-sm text-neutral-500 text-center mt-8 italic">
+            Media coverage and commentary available upon request
+          </p>
+        </div>
+      </section>
+
       {/* Testimonials */}
-      <section className="py-28 bg-white">
+      <section className="py-28 bg-neutral-50">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <h2 className="font-display text-display-lg text-neutral-950 mb-12">What clients say</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -176,15 +204,29 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="border-l-2 border-gold-500 pl-6 py-4"
+                className="bg-white p-8 rounded-sm border border-neutral-200 hover:border-navy-900/20 hover:shadow-elevation transition-all duration-220"
               >
-                <blockquote className="text-body-lg text-neutral-950 mb-4 leading-relaxed">
-                  "{testimonial.quote}"
-                </blockquote>
-                <p className="text-body-sm text-neutral-600">— {testimonial.attribution}</p>
+                <div className="mb-4">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="w-5 h-5 text-gold-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <blockquote className="text-body-lg text-neutral-950 mb-4 leading-relaxed font-medium">
+                    "{testimonial.quote}"
+                  </blockquote>
+                </div>
+                <div className="pt-4 border-t border-neutral-200">
+                  <p className="text-body-sm text-neutral-600 font-medium">— {testimonial.attribution}</p>
+                </div>
               </motion.div>
             ))}
           </div>
+          <p className="text-body-sm text-neutral-500 text-center mt-8 italic">
+            References and detailed case studies available under NDA
+          </p>
         </div>
       </section>
 
