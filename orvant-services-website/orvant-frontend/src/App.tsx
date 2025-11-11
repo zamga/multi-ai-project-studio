@@ -13,6 +13,8 @@ const About = lazy(() => import('./pages/About').then(module => ({ default: modu
 const Leadership = lazy(() => import('./pages/Leadership').then(module => ({ default: module.Leadership })))
 const Insights = lazy(() => import('./pages/Insights').then(module => ({ default: module.Insights })))
 const Tombstones = lazy(() => import('./pages/Tombstones').then(module => ({ default: module.Tombstones })))
+const Press = lazy(() => import('./pages/Press').then(module => ({ default: module.Press })))
+const Downloads = lazy(() => import('./pages/Downloads').then(module => ({ default: module.Downloads })))
 const Resources = lazy(() => import('./pages/Resources').then(module => ({ default: module.Resources })))
 const Privacy = lazy(() => import('./pages/Privacy').then(module => ({ default: module.Privacy })))
 const Terms = lazy(() => import('./pages/Terms').then(module => ({ default: module.Terms })))
@@ -109,8 +111,8 @@ function App() {
                 <Route path="/insights" element={<Insights />} />
                 <Route path="/insights/:slug" element={<Insights />} />
                 <Route path="/tombstones" element={<Tombstones />} />
-                <Route path="/press" element={<Resources />} />
-                <Route path="/downloads" element={<Resources />} />
+                <Route path="/press" element={<Press />} />
+                <Route path="/downloads" element={<Downloads />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy" element={<Privacy />} />
