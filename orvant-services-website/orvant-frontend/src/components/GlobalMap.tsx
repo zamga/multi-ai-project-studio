@@ -63,15 +63,21 @@ export function GlobalMap() {
       {/* SVG Map */}
       <svg
         viewBox="0 0 100 60"
-        className="w-full h-auto"
+        className="w-full h-auto ring-1 ring-gold-500/20 rounded-sm"
         role="img"
         aria-label="Interactive world map showing Orvantt Services global presence"
       >
-        {/* Background */}
-        <rect width="100" height="60" fill="#F5F5F5" />
+        {/* Navy background with subtle gradient */}
+        <defs>
+          <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#0D1A2A" />
+            <stop offset="100%" stopColor="#1E2A37" />
+          </linearGradient>
+        </defs>
+        <rect width="100" height="60" fill="url(#mapGradient)" />
         
-        {/* Simplified continents */}
-        <g opacity="0.3" fill="#001F3F">
+        {/* Simplified continents - subtle navy strokes */}
+        <g opacity="0.2" fill="none" stroke="#516370" strokeWidth="0.5">
           {/* Americas */}
           <path d="M 15 20 Q 20 15 25 20 L 30 40 Q 25 45 20 40 Z" />
           {/* Europe/Africa */}
@@ -80,8 +86,8 @@ export function GlobalMap() {
           <path d="M 70 25 Q 80 20 85 30 L 85 50 Q 75 55 70 45 Z" />
         </g>
 
-        {/* Connection lines */}
-        <g stroke="#D4AF37" strokeWidth="0.3" opacity="0.4" fill="none">
+        {/* Connection lines - brand gold */}
+        <g stroke="#C9A259" strokeWidth="0.3" opacity="0.4" fill="none">
           <path d="M 25 35 Q 37.5 25 50 30" strokeDasharray="1,1" />
           <path d="M 50 30 Q 62.5 35 75 50" strokeDasharray="1,1" />
         </g>
@@ -89,13 +95,13 @@ export function GlobalMap() {
         {/* Location markers */}
         {locations.map((location) => (
           <g key={location.id}>
-            {/* Pulse effect on hover */}
+            {/* Pulse effect on hover - with reduced-motion support */}
             {hoveredLocation === location.id && (
               <circle
                 cx={location.x}
                 cy={location.y}
                 r="3"
-                fill="#D4AF37"
+                fill="#C9A259"
                 opacity="0.3"
               >
                 <animate
@@ -115,12 +121,12 @@ export function GlobalMap() {
               </circle>
             )}
             
-            {/* Marker */}
+            {/* Marker - brand gold */}
             <circle
               cx={location.x}
               cy={location.y}
               r="1.5"
-              fill={hoveredLocation === location.id ? '#D4AF37' : '#001F3F'}
+              fill={hoveredLocation === location.id ? '#C9A259' : '#516370'}
               className="cursor-pointer transition-all duration-220"
               onMouseEnter={() => setHoveredLocation(location.id)}
               onMouseLeave={() => setHoveredLocation(null)}
@@ -136,15 +142,15 @@ export function GlobalMap() {
               }}
             />
             
-            {/* Label */}
+            {/* Label - white for legibility on navy */}
             <text
               x={location.x}
               y={location.y - 3}
               textAnchor="middle"
-              fontSize="2"
-              fill="#001F3F"
+              fontSize="2.2"
+              fill="#FFFFFF"
               className="pointer-events-none font-sans"
-              opacity={hoveredLocation === location.id ? 1 : 0.7}
+              opacity={hoveredLocation === location.id ? 1 : 0.75}
             >
               {location.name}
             </text>
@@ -196,9 +202,9 @@ export function GlobalMap() {
               <div className="bg-white rounded-sm shadow-2xl p-8 mx-4">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h3 id="modal-title" className="font-display text-display-md text-neutral-950 mb-2">
-                      {selectedLocation.region}
-                    </h3>
+                      <h3 id="modal-title" className="font-display text-h2 text-neutral-950 mb-2">
+                        {selectedLocation.region}
+                      </h3>
                     <p className="text-body-sm text-neutral-500 uppercase tracking-widest">
                       Regional Presence
                     </p>
