@@ -237,6 +237,30 @@ export function Contact() {
                     filipberg@orvanttservices.com
                   </a>
                 </div>
+
+                <div className="pt-6 border-t border-neutral-200">
+                  <h3 className="font-sans font-medium text-body-md text-neutral-950 mb-4">Office Locations</h3>
+                  <div className="space-y-3 text-body-sm text-neutral-600">
+                    <div>
+                      <p className="font-medium text-neutral-950">Americas</p>
+                      <p>New York, Toronto, São Paulo</p>
+                    </div>
+                    <div>
+                      <p className="font-medium text-neutral-950">EMEA</p>
+                      <p>London, Frankfurt, Dubai</p>
+                    </div>
+                    <div>
+                      <p className="font-medium text-neutral-950">APAC</p>
+                      <p>Singapore, Hong Kong, Sydney</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-6 border-t border-neutral-200">
+                  <p className="text-body-xs text-neutral-500 leading-relaxed">
+                    <strong className="text-neutral-700">Privacy Notice:</strong> Your information is handled in accordance with GDPR and other applicable privacy regulations. We will only use your contact details to respond to your inquiry.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -275,49 +299,34 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="company" className="block text-body-sm font-sans font-medium text-neutral-950 mb-2">
-                      Company
-                    </label>
-                    <input
-                      id="company"
-                      {...register('company')}
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150"
-                      placeholder="Company Name"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="block text-body-sm font-sans font-medium text-neutral-950 mb-2">
-                      Phone
-                    </label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      {...register('phone')}
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150"
-                      placeholder="+1 (555) 123-4567"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="company" className="block text-body-sm font-sans font-medium text-neutral-950 mb-2">
+                    Company
+                  </label>
+                  <input
+                    id="company"
+                    {...register('company')}
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150"
+                    placeholder="Company Name"
+                  />
                 </div>
 
                 <div>
                   <label htmlFor="service" className="block text-body-sm font-sans font-medium text-neutral-950 mb-2">
-                    Service Interest
+                    Inquiry Type
                   </label>
                   <select
                     id="service"
                     {...register('service')}
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150"
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-sm text-body-md text-neutral-950 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition-all duration-150 bg-white"
                   >
-                    <option value="">Select a service</option>
+                    <option value="">Select inquiry type</option>
                     <option value="ma-advisory">M&A Advisory</option>
                     <option value="restructuring">Restructuring</option>
-                    <option value="public-markets">Public Markets</option>
+                    <option value="public-markets">Public Markets / IPO</option>
                     <option value="accounting">Accounting & Compliance</option>
                     <option value="buy-sell">Buy/Sell Company</option>
-                    <option value="other">Other</option>
+                    <option value="general">General Inquiry</option>
                   </select>
                 </div>
 
