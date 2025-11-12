@@ -15,6 +15,7 @@ const Contact = lazy(() => import('./pages/Contact').then(module => ({ default: 
 const About = lazy(() => import('./pages/About').then(module => ({ default: module.About })))
 const Leadership = lazy(() => import('./pages/Leadership').then(module => ({ default: module.Leadership })))
 const Insights = lazy(() => import('./pages/Insights').then(module => ({ default: module.Insights })))
+const InsightArticle = lazy(() => import('./pages/insights/InsightArticle').then(module => ({ default: module.InsightArticle })))
 const Tombstones = lazy(() => import('./pages/Tombstones').then(module => ({ default: module.Tombstones })))
 const Press = lazy(() => import('./pages/Press').then(module => ({ default: module.Press })))
 const Downloads = lazy(() => import('./pages/Downloads').then(module => ({ default: module.Downloads })))
@@ -68,9 +69,12 @@ function Footer() {
           </div>
           <div>
             <h3 className="text-white font-sans font-medium text-body-md mb-4">Contact</h3>
-            <p className="text-body-sm text-neutral-400 mb-4">
+            <a 
+              href="mailto:filipberg@orvanttservices.com"
+              className="text-body-sm text-neutral-400 hover:text-gold-500 transition-colors mb-4 block"
+            >
               filipberg@orvanttservices.com
-            </p>
+            </a>
             <Link
               to="/contact"
               className="inline-block px-6 py-2.5 bg-gold-600 text-white text-body-sm font-sans font-medium rounded-sm hover:bg-gold-500 transition-all duration-220 hover:shadow-elevation"
@@ -166,7 +170,7 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/leadership" element={<Leadership />} />
                 <Route path="/insights" element={<Insights />} />
-                <Route path="/insights/:slug" element={<Insights />} />
+                <Route path="/insights/:slug" element={<InsightArticle />} />
                 <Route path="/tombstones" element={<Tombstones />} />
                 <Route path="/press" element={<Press />} />
                 <Route path="/downloads" element={<Downloads />} />

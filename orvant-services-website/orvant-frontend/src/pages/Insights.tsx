@@ -14,7 +14,7 @@ export function Insights() {
     {
       title: 'Preparing for a sale: What boards should know',
       excerpt: 'Key considerations for boards evaluating strategic alternatives, from readiness assessment to process management.',
-      date: 'Recent',
+      date: 'November 2025',
       tags: ['M&A', 'Board Advisory'],
       slug: 'preparing-for-sale',
       coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop',
@@ -23,11 +23,28 @@ export function Insights() {
         'Build clean data room and diligence materials',
         'Align board on process and decision criteria',
       ],
+      fullContent: `When boards begin evaluating strategic alternatives, the quality of preparation often determines outcome. Companies that enter a sale process unprepared face compressed timelines, unfavorable terms, and increased execution risk.
+
+**Readiness Assessment**
+
+Before engaging potential buyers, boards should conduct a thorough readiness assessment. This includes reviewing financial reporting quality, identifying potential diligence issues, and ensuring management systems can withstand scrutiny. Companies with clean financials, documented processes, and clear growth narratives command premium valuations.
+
+**Data Room Preparation**
+
+A well-organized data room signals professionalism and reduces buyer uncertainty. Essential materials include three years of audited financials, customer contracts, employee agreements, intellectual property documentation, and regulatory compliance records. Missing or incomplete documentation raises red flags and can derail transactions.
+
+**Process Management**
+
+Successful sales require disciplined process management. Boards should establish clear decision criteria, define acceptable deal structures, and maintain confidentiality throughout. Working with experienced advisors helps navigate complex negotiations and ensures competitive tension among buyers.
+
+**Stakeholder Alignment**
+
+Board alignment on objectives, timing, and acceptable outcomes is critical. Disagreements during negotiations weaken bargaining position and can cause deals to collapse. Regular board discussions throughout the process ensure unified decision-making when time-sensitive choices arise.`,
     },
     {
       title: 'Restructuring under pressure: A practical framework',
       excerpt: 'How to stabilize operations, align stakeholders, and execute a credible turnaround when liquidity is tight.',
-      date: 'Recent',
+      date: 'October 2025',
       tags: ['Restructuring', 'Turnaround'],
       slug: 'restructuring-framework',
       coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
@@ -36,11 +53,32 @@ export function Insights() {
         'Map stakeholder positions early',
         'Communicate credible plan with milestones',
       ],
+      fullContent: `Companies facing liquidity pressure require immediate action and credible planning. Successful restructurings balance short-term stabilization with long-term value preservation through disciplined execution and stakeholder management.
+
+**Cash Flow Management**
+
+The foundation of any restructuring is detailed cash flow forecasting. A 13-week cash flow model with weekly updates provides visibility into liquidity needs and identifies pressure points. Scenario planning helps anticipate challenges and prepare contingency responses before crises emerge.
+
+**Stakeholder Mapping**
+
+Early stakeholder mapping is essential. Understanding lender covenants, supplier terms, customer dependencies, and employee concerns allows proactive communication and prevents surprises. Each stakeholder group has different priorities and risk tolerances that must be addressed systematically.
+
+**Operational Stabilization**
+
+Immediate operational improvements often unlock hidden value. Cost reduction initiatives, working capital optimization, and process improvements can generate cash quickly. However, cuts must be strategic—indiscriminate cost reduction damages long-term competitiveness and stakeholder confidence.
+
+**Communication Strategy**
+
+Credible communication builds trust during uncertainty. Regular updates with clear milestones demonstrate progress and maintain stakeholder support. Transparency about challenges, combined with realistic solutions, strengthens relationships and creates space for difficult decisions.
+
+**Professional Guidance**
+
+Experienced restructuring advisors bring objectivity, technical expertise, and stakeholder credibility. They help navigate complex negotiations, identify value preservation opportunities, and maintain focus on executable solutions when internal teams face overwhelming pressure.`,
     },
     {
       title: 'IPO readiness: Beyond the financials',
       excerpt: 'Governance, controls, and investor messaging considerations that determine market readiness.',
-      date: 'Recent',
+      date: 'September 2025',
       tags: ['Public Markets', 'Governance'],
       slug: 'ipo-readiness',
       coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop',
@@ -49,6 +87,27 @@ export function Insights() {
         'Build equity story with clear narrative',
         'Prepare for underwriter and analyst scrutiny',
       ],
+      fullContent: `Public market readiness extends far beyond financial performance. Companies pursuing IPOs must demonstrate institutional-grade governance, robust internal controls, and compelling equity narratives that resonate with institutional investors.
+
+**Governance Infrastructure**
+
+Public companies require independent boards, audit committees, and formal governance processes. Building this infrastructure takes time—rushing governance improvements before IPO creates execution risk and raises regulatory concerns. Early investment in governance pays dividends throughout the IPO process.
+
+**Internal Controls**
+
+SOX compliance demands rigorous internal controls over financial reporting. Companies must document processes, implement control testing, and remediate deficiencies well before IPO. Weak controls delay offerings, increase costs, and damage investor confidence.
+
+**Equity Story Development**
+
+A compelling equity story articulates competitive advantages, growth drivers, and market opportunity in terms institutional investors understand. The narrative must be consistent across management presentations, roadshow materials, and regulatory filings. Inconsistent messaging raises credibility concerns.
+
+**Underwriter Preparation**
+
+Investment banks conduct extensive due diligence before committing to underwrite offerings. Companies should anticipate tough questions about business model sustainability, competitive positioning, and management depth. Thorough preparation prevents surprises during critical roadshow periods.
+
+**Analyst Scrutiny**
+
+Equity research analysts will dissect business models, financial projections, and competitive dynamics. Companies must be prepared to defend assumptions, explain strategic choices, and address weaknesses transparently. Credible responses build long-term analyst relationships.`,
     },
   ]
 
