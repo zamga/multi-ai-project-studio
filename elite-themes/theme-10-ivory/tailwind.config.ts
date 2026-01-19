@@ -18,6 +18,7 @@ const config: Config = {
           stone: "#6b6560",
           charcoal: "#3d3a36",
           black: "#1a1917",
+          gold: "#d4af37",
         },
       },
       fontFamily: {
