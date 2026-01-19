@@ -39,7 +39,7 @@ export default function ServiceCard({
           {title}
         </h3>
 
-        <p className="text-bergweiss-cream/60 leading-relaxed mb-6">
+        <p className="text-bergweiss-cream/80 leading-relaxed mb-6">
           {description}
         </p>
 

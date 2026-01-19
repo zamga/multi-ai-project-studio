@@ -71,7 +71,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-bergweiss-cream/60 text-sm mb-2 tracking-wide"
+                    className="block text-bergweiss-cream/70 text-sm mb-2 tracking-wide"
                   >
                     Full Name
                   </label>
@@ -89,7 +89,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-bergweiss-cream/60 text-sm mb-2 tracking-wide"
+                    className="block text-bergweiss-cream/70 text-sm mb-2 tracking-wide"
                   >
                     Email Address
                   </label>
@@ -109,7 +109,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="company"
-                  className="block text-bergweiss-cream/60 text-sm mb-2 tracking-wide"
+                  className="block text-bergweiss-cream/70 text-sm mb-2 tracking-wide"
                 >
                   Company / Entity Name
                 </label>
@@ -126,62 +126,76 @@ export default function Contact() {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div>
+                <div className="relative">
                   <label
                     htmlFor="enterpriseValue"
-                    className="block text-bergweiss-cream/60 text-sm mb-2 tracking-wide"
+                    className="block text-bergweiss-cream/70 text-sm mb-2 tracking-wide"
                   >
                     Estimated Enterprise Value
                   </label>
-                  <select
-                    id="enterpriseValue"
-                    name="enterpriseValue"
-                    value={formData.enterpriseValue}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-bergweiss-navy border border-bergweiss-cream/20 px-4 py-3 text-bergweiss-cream focus:border-bergweiss-gold focus:outline-none transition-colors duration-300 appearance-none cursor-pointer"
-                  >
-                    <option value="" disabled>
-                      Select range
-                    </option>
-                    <option value="1-5m">€1M - €5M</option>
-                    <option value="5-10m">€5M - €10M</option>
-                    <option value="10-25m">€10M - €25M</option>
-                    <option value="25-50m">€25M - €50M</option>
-                    <option value="50m+">€50M+</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="enterpriseValue"
+                      name="enterpriseValue"
+                      value={formData.enterpriseValue}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-transparent border border-bergweiss-cream/20 px-4 py-3 text-bergweiss-cream focus:border-bergweiss-gold focus:outline-none transition-colors duration-300 appearance-none cursor-pointer pr-10"
+                    >
+                      <option value="" disabled className="bg-bergweiss-navy">
+                        Select range
+                      </option>
+                      <option value="1-5m" className="bg-bergweiss-navy">€1M - €5M</option>
+                      <option value="5-10m" className="bg-bergweiss-navy">€5M - €10M</option>
+                      <option value="10-25m" className="bg-bergweiss-navy">€10M - €25M</option>
+                      <option value="25-50m" className="bg-bergweiss-navy">€25M - €50M</option>
+                      <option value="50m+" className="bg-bergweiss-navy">€50M+</option>
+                    </select>
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <svg className="w-4 h-4 text-bergweiss-cream/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-                <div>
+                <div className="relative">
                   <label
                     htmlFor="ebitda"
-                    className="block text-bergweiss-cream/60 text-sm mb-2 tracking-wide"
+                    className="block text-bergweiss-cream/70 text-sm mb-2 tracking-wide"
                   >
                     Annual EBITDA
                   </label>
-                  <select
-                    id="ebitda"
-                    name="ebitda"
-                    value={formData.ebitda}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-bergweiss-navy border border-bergweiss-cream/20 px-4 py-3 text-bergweiss-cream focus:border-bergweiss-gold focus:outline-none transition-colors duration-300 appearance-none cursor-pointer"
-                  >
-                    <option value="" disabled>
-                      Select range
-                    </option>
-                    <option value="70-100k">€70K - €100K</option>
-                    <option value="100-150k">€100K - €150K</option>
-                    <option value="150-200k">€150K - €200K</option>
-                    <option value="200-500k">€200K - €500K</option>
-                    <option value="500k+">€500K+</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="ebitda"
+                      name="ebitda"
+                      value={formData.ebitda}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-transparent border border-bergweiss-cream/20 px-4 py-3 text-bergweiss-cream focus:border-bergweiss-gold focus:outline-none transition-colors duration-300 appearance-none cursor-pointer pr-10"
+                    >
+                      <option value="" disabled className="bg-bergweiss-navy">
+                        Select range
+                      </option>
+                      <option value="70-100k" className="bg-bergweiss-navy">€70K - €100K</option>
+                      <option value="100-150k" className="bg-bergweiss-navy">€100K - €150K</option>
+                      <option value="150-200k" className="bg-bergweiss-navy">€150K - €200K</option>
+                      <option value="200-500k" className="bg-bergweiss-navy">€200K - €500K</option>
+                      <option value="500k+" className="bg-bergweiss-navy">€500K+</option>
+                    </select>
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <svg className="w-4 h-4 text-bergweiss-cream/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-bergweiss-cream/60 text-sm mb-2 tracking-wide"
+                  className="block text-bergweiss-cream/70 text-sm mb-2 tracking-wide"
                 >
                   Brief Description of Your Objectives
                 </label>
