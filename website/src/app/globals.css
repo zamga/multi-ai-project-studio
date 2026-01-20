@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --mck-white: #ffffff;
+  --mck-black: #0a1628;
+  --mck-dark: #1e3a5f;
+  --mck-light: #f5f7fa;
+  --mck-gray: #e5e7eb;
+  --mck-accent: #0066cc;
+  --mck-teal: #00a3a3;
+  --mck-blue: #0a1628;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-mck-white: var(--mck-white);
+  --color-mck-black: var(--mck-black);
+  --color-mck-dark: var(--mck-dark);
+  --color-mck-light: var(--mck-light);
+  --color-mck-gray: var(--mck-gray);
+  --color-mck-accent: var(--mck-accent);
+  --color-mck-teal: var(--mck-teal);
+  --color-mck-blue: var(--mck-blue);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--mck-white);
+  color: var(--mck-black);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
