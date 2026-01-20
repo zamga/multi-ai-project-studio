@@ -24,28 +24,55 @@ export default function PrivacyPolicy() {
             <span className="text-sm font-semibold text-[var(--mck-accent)] uppercase tracking-wider">Privacy Policy</span>
           </div>
           
-          <div className="mt-8 text-[var(--mck-dark)] space-y-6">
-            <p className="text-lg leading-relaxed">
-              This Privacy Policy explains how Bergweiss Ltd collects, uses, and protects your personal information when you use our website and services.
+          <div className="mt-8 text-[var(--mck-dark)] space-y-8">
+            <p className="text-sm text-[var(--mck-dark)]/70">
+              Effective Date: January 20, 2026
             </p>
-            
-            <div className="bg-[var(--mck-light)] p-6 rounded-lg">
-              <p className="text-sm text-[var(--mck-dark)]/70">
-                This is a placeholder page. A comprehensive Privacy Policy will be published here in accordance with UK GDPR and data protection requirements.
+
+            {/* Section 1 */}
+            <div>
+              <h2 className="text-xl font-semibold text-[var(--mck-black)] mb-4">1. Introduction</h2>
+              <p className="leading-relaxed">
+                Bergweiss Ltd (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) respects your privacy. This policy explains how we handle your personal data when you visit our website or contact us.
               </p>
             </div>
-            
-            <div className="mt-8">
-              <h2 className="text-xl font-semibold text-[var(--mck-black)] mb-4">Contact Us</h2>
-              <p>
-                If you have any questions about this Privacy Policy, please contact us at:{" "}
+
+            {/* Section 2 */}
+            <div>
+              <h2 className="text-xl font-semibold text-[var(--mck-black)] mb-4">2. Company Details</h2>
+              <p className="leading-relaxed">
+                Bergweiss Ltd is registered in England and Wales (Company No. 16949445). Registered Office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ.
+              </p>
+            </div>
+
+            {/* Section 3 */}
+            <div>
+              <h2 className="text-xl font-semibold text-[var(--mck-black)] mb-4">3. Data We Collect</h2>
+              <p className="leading-relaxed">
+                We collect personal data you voluntarily provide via our contact forms (Name, Email, Message) and technical data via cookies (IP address, browser type).
+              </p>
+            </div>
+
+            {/* Section 4 */}
+            <div>
+              <h2 className="text-xl font-semibold text-[var(--mck-black)] mb-4">4. How We Use Your Data</h2>
+              <p className="leading-relaxed">
+                We use your data solely to respond to your enquiries and for legitimate business administration. We do not sell your data to third parties.
+              </p>
+            </div>
+
+            {/* Section 5 */}
+            <div>
+              <h2 className="text-xl font-semibold text-[var(--mck-black)] mb-4">5. Your Rights</h2>
+              <p className="leading-relaxed">
+                Under the UK GDPR, you have the right to access, correct, or request deletion of your personal data. To exercise these rights, please contact us at{" "}
                 <a href="mailto:info@berg-weiss.com" className="text-[var(--mck-accent)] hover:underline">
                   info@berg-weiss.com
-                </a>
+                </a>.
               </p>
             </div>
             
-            <div className="mt-8">
+            <div className="mt-12 pt-8 border-t border-[var(--mck-gray)]">
               <Link 
                 href="/" 
                 className="inline-flex items-center gap-2 text-[var(--mck-accent)] hover:text-[var(--mck-teal)] transition-colors"
