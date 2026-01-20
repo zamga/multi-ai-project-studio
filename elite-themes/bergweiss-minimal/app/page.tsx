@@ -29,108 +29,114 @@ export default function Home() {
     setStatus("success");
   };
 
+  const services = [
+    "M&A",
+    "Valuation",
+    "Intermediary / Introductions (B2B)",
+    "Research",
+    "IPO / Capital Markets (Partner-led)",
+    "SPAC (Partner-led)",
+  ];
+
   return (
-    <div className="space-y-16">
+    <div className="space-y-20">
       {/* Header */}
-      <header>
-        <h1 className="text-4xl font-bold mb-2">
+      <header className="pt-8">
+        <h1 className="text-4xl font-bold mb-3 tracking-tight">
           <Link href="/">BERGWEISS LTD</Link>
         </h1>
-        <p className="text-lg text-gray-600">Corporate Finance Advisory for Private Companies (Europe)</p>
+        <p className="text-lg text-gray-500">Corporate Finance Advisory for Private Companies (Europe)</p>
       </header>
 
       {/* What we do */}
       <section>
-        <h2 className="text-2xl font-bold mb-6">What we do</h2>
-        <ul className="space-y-2">
-          <li className="font-bold">M&A</li>
-          <li className="font-bold">Valuation</li>
-          <li className="font-bold">Intermediary / Introductions (B2B)</li>
-          <li className="font-bold">Research</li>
-          <li className="font-bold">IPO / Capital Markets (Partner-led)</li>
-          <li className="font-bold">SPAC (Partner-led)</li>
-        </ul>
+        <h2 className="text-xl font-semibold mb-8 uppercase tracking-wide text-gray-400">What we do</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {services.map((service) => (
+            <div key={service} className="font-semibold text-lg py-2">
+              {service}
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Who we are */}
       <section>
-        <h2 className="text-2xl font-bold mb-4">Who we are</h2>
-        <p>BERGWEISS LTD is an independent advisory focused on private-company transactions across Europe.</p>
+        <h2 className="text-xl font-semibold mb-6 uppercase tracking-wide text-gray-400">Who we are</h2>
+        <p className="text-lg leading-relaxed">BERGWEISS LTD is an independent advisory focused on private-company transactions across Europe.</p>
       </section>
 
       {/* Contact */}
       <section>
-        <h2 className="text-2xl font-bold mb-4">Contact</h2>
-        <p className="mb-8">Email: info@berg-weiss.com</p>
+        <h2 className="text-xl font-semibold mb-6 uppercase tracking-wide text-gray-400">Contact</h2>
+        <p className="mb-10 text-lg">Email: info@berg-weiss.com</p>
 
         {status === "success" ? (
-          <p className="text-green-700 py-4">Thanks — we received your message.</p>
+          <p className="text-green-700 py-6 text-lg">Thanks — we received your message.</p>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm mb-1">Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:border-black"
-              />
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-600">Name *</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-black transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-600">Email *</label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-black transition-colors"
+                />
+              </div>
             </div>
             <div>
-              <label className="block text-sm mb-1">Company</label>
+              <label className="block text-sm font-medium mb-2 text-gray-600">Company</label>
               <input
                 type="text"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:border-black"
+                className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-black transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm mb-1">Email *</label>
-              <input
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:border-black"
-              />
-            </div>
-            <div>
-              <label className="block text-sm mb-1">Message *</label>
+              <label className="block text-sm font-medium mb-2 text-gray-600">Message *</label>
               <textarea
                 required
-                rows={4}
+                rows={5}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full border border-gray-300 px-3 py-2 focus:outline-none focus:border-black resize-none"
+                className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-black transition-colors resize-none"
               />
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-start gap-3 py-2">
               <input
                 type="checkbox"
                 id="consent"
                 required
                 checked={formData.consent}
                 onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                className="mt-1"
+                className="mt-1 w-4 h-4"
               />
-              <label htmlFor="consent" className="text-sm">
+              <label htmlFor="consent" className="text-sm text-gray-600">
                 I confirm I am contacting BERGWEISS in a business capacity. *
               </label>
             </div>
             <button
               type="submit"
-              className="px-6 py-2 bg-black text-white hover:bg-gray-800"
+              className="w-full md:w-auto px-10 py-4 bg-black text-white font-medium hover:bg-gray-800 transition-colors"
             >
               Send
             </button>
           </form>
         )}
-
-        <p className="text-sm text-gray-600 mt-8">
-          Where required, services are delivered via authorised partners.
-        </p>
       </section>
     </div>
   );
