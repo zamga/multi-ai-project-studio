@@ -1,25 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-import { 
-  Menu, 
-  X, 
-  TrendingUp, 
-  Scale, 
-  Users, 
-  Search, 
-  Building2, 
-  Rocket,
-  MapPin,
-  Mail,
-  Phone,
-  ChevronDown,
-  ArrowRight
-} from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -51,101 +35,84 @@ function App() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    const mailtoLink = `mailto:info@berg-weiss.com?subject=Inquiry from ${formData.name} - ${formData.company}&body=Name: ${formData.name}%0D%0ACompany: ${formData.company}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0AInterested in: ${formData.interest}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`
+    const mailtoLink = `mailto:info@berg-weiss.com?subject=Confidential Inquiry from ${formData.name} - ${formData.company}&body=Name: ${formData.name}%0D%0ACompany: ${formData.company}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0AInterested in: ${formData.interest}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`
     window.location.href = mailtoLink
   }
 
   const services = [
     {
-      icon: <TrendingUp className="w-8 h-8" />,
       title: "M&A Advisory",
-      description: "Confidential sell-side and buy-side advisory for mid-market private companies, maximizing value through competitive processes."
+      description: "Confidential sell-side and buy-side processes maximizing shareholder value."
     },
     {
-      icon: <Scale className="w-8 h-8" />,
       title: "Valuation Opinions",
-      description: "Independent, market-based valuations to inform strategic decisions and exits."
+      description: "Independent, market-driven valuations for strategic decision-making."
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: "Intermediary / Introductions (B2B)",
-      description: "Exclusive introductions to strategic buyers and investors across Europe."
+      title: "Buyer & Investor Introductions",
+      description: "Exclusive B2B connections to strategic acquirers across Europe."
     },
     {
-      icon: <Search className="w-8 h-8" />,
-      title: "Research & Market Intelligence",
-      description: "In-depth sector analysis and buyer mapping for informed options."
+      title: "Market Intelligence",
+      description: "In-depth sector research and opportunity mapping."
     },
     {
-      icon: <Building2 className="w-8 h-8" />,
-      title: "IPO / Capital Markets",
-      description: "Introductions to regulated partners for public listings and capital raises. Partner-led execution."
+      title: "Capital Markets / IPO",
+      description: "Introductions to regulated partners for public pathways. Partner-led."
     },
     {
-      icon: <Rocket className="w-8 h-8" />,
       title: "SPAC Transactions",
-      description: "Coaching and introductions to Tier-1 sponsors for de-SPAC opportunities. Unregulated advisory only, partner-led."
+      description: "Unregulated coaching and sponsor introductions. Partner-led."
     }
   ]
 
-  const caseStudies = [
+  const transactions = [
     {
-      title: "IT Services Company (Slovenia)",
-      description: "Sold to German strategic buyer at 11x EBITDA",
-      result: "€5M+ proceeds to owner"
+      title: "Slovenian IT Platform",
+      description: "Exit at 11x EBITDA to German strategic buyer."
     },
     {
-      title: "Manufacturing Platform (CEE)",
-      description: "Partial recap with PE group",
-      result: "Preserved owner control"
+      title: "CEE Manufacturing",
+      description: "Partial recapitalization preserving owner control."
     },
     {
-      title: "Digital Health Firm",
-      description: "Valuation and buyer intros",
-      result: "10x exit achieved"
+      title: "Digital Services Firm",
+      description: "Valuation and intros leading to 10x multiple."
     },
     {
       title: "Multiple Mid-Market Deals",
-      description: "Cross-border transactions",
-      result: "8-12x multiples achieved"
+      description: "Premium multiples in active sectors."
     }
   ]
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen text-white" style={{ backgroundColor: '#0a1628' }}>
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-950/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-[#0a1628]/95 backdrop-blur-sm border-b border-[#d4af37]/20' : 'bg-transparent'}`}>
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between h-24">
             <div className="flex-shrink-0">
-              <span className="text-2xl font-bold tracking-wider text-white">BERGWEISS</span>
-              <span className="text-xs text-slate-400 ml-2 tracking-widest">LTD</span>
+              <span className="font-serif text-2xl tracking-widest" style={{ color: '#d4af37' }}>BERGWEISS</span>
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {['Home', 'Services', 'About', 'Case Studies', 'Contact'].map((item) => (
+            <div className="hidden md:flex items-center space-x-12">
+              {['Home', 'Services', 'About', 'Transactions', 'Contact'].map((item) => (
                 <button
                   key={item}
-                  onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                  className="text-sm font-medium text-slate-300 hover:text-white transition-colors tracking-wide"
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className="text-sm font-light tracking-widest text-gray-400 hover:text-[#d4af37] transition-colors duration-300 uppercase"
                 >
                   {item}
                 </button>
               ))}
-              <Button 
-                onClick={() => scrollToSection('contact')}
-                className="bg-amber-600 hover:bg-amber-700 text-white px-6"
-              >
-                Get in Touch
-              </Button>
             </div>
 
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white p-2"
+                className="text-[#d4af37] p-2"
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -155,13 +122,13 @@ function App() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-slate-900/95 backdrop-blur-md">
-            <div className="px-4 py-4 space-y-3">
-              {['Home', 'Services', 'About', 'Case Studies', 'Contact'].map((item) => (
+          <div className="md:hidden bg-[#0a1628]/98 backdrop-blur-md border-t border-[#d4af37]/20">
+            <div className="px-6 py-6 space-y-4">
+              {['Home', 'Services', 'About', 'Transactions', 'Contact'].map((item) => (
                 <button
                   key={item}
-                  onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                  className="block w-full text-left text-slate-300 hover:text-white py-2 transition-colors"
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className="block w-full text-left text-gray-400 hover:text-[#d4af37] py-3 transition-colors uppercase tracking-widest text-sm"
                 >
                   {item}
                 </button>
@@ -173,407 +140,338 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
+        {/* Background with gradient overlay */}
         <div className="absolute inset-0">
           <img 
             src="/images/london-skyline.jpg" 
-            alt="London Financial District Skyline"
-            className="w-full h-full object-cover"
+            alt="London Financial District"
+            className="w-full h-full object-cover opacity-30"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
-              target.src = 'https://images.unsplash.com/photo-1627878117023-e0e3c8e6e8e2?w=1920&q=80';
+              target.style.display = 'none';
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/70 to-slate-950"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0a1628]/90 to-[#0a1628]"></div>
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-                <span className="text-white">BERGWEISS</span>
-                <span className="text-amber-500 ml-4">LTD</span>
+        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <div className="space-y-12">
+            {/* Main heading */}
+            <div className="space-y-6">
+              <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-wider" style={{ color: '#d4af37' }}>
+                BERGWEISS
               </h1>
-              <div className="w-24 h-1 bg-amber-500 mx-auto"></div>
+              <div className="w-32 h-px mx-auto" style={{ backgroundColor: '#d4af37' }}></div>
             </div>
             
-            <h2 className="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed">
-              Independent Corporate Finance Advisory for Private Companies in Europe
+            {/* Subheading */}
+            <h2 className="text-lg md:text-xl text-gray-400 font-light tracking-widest uppercase">
+              Discreet Corporate Finance Advisory
             </h2>
             
-            <p className="text-2xl md:text-3xl text-white font-semibold max-w-4xl mx-auto">
-              Unlock Premium Valuations and Strategic Exits with Exclusive Buyer Access
+            {/* Tagline */}
+            <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-white font-light leading-relaxed max-w-3xl mx-auto">
+              Unlocking Premium Valuations for European Private Companies
             </p>
 
-            <p className="text-lg text-amber-400 tracking-wide">
-              Specializing in M&A, Valuations, and International Introductions
+            {/* Sub-tagline */}
+            <p className="text-sm md:text-base text-gray-500 tracking-wide max-w-2xl mx-auto">
+              Exclusive Access to International Buyers&nbsp;&nbsp;|&nbsp;&nbsp;8–12x Multiples in Current Market
             </p>
 
-            <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button 
+            {/* CTA Button */}
+            <div className="pt-8">
+              <button 
                 onClick={() => scrollToSection('contact')}
-                size="lg"
-                className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg font-semibold tracking-wide"
+                className="group relative px-12 py-4 border-2 transition-all duration-500 hover:bg-[#d4af37] hover:border-[#d4af37]"
+                style={{ borderColor: '#d4af37' }}
               >
-                Request Confidential Valuation
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button 
-                onClick={() => scrollToSection('services')}
-                variant="outline"
-                size="lg"
-                className="border-slate-400 text-slate-300 hover:bg-slate-800 hover:text-white px-8 py-6 text-lg"
-              >
-                Explore Our Services
-              </Button>
+                <span className="text-sm tracking-widest uppercase group-hover:text-[#0a1628]" style={{ color: '#d4af37' }}>
+                  Request Confidential Consultation
+                </span>
+              </button>
             </div>
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ChevronDown className="w-8 h-8 text-slate-400" />
+          <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+            <ChevronDown className="w-6 h-6 text-gray-600 animate-bounce" />
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Services</h2>
-            <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
-            <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-              Comprehensive corporate finance solutions tailored for private company owners seeking premium outcomes
+      <section id="services" className="py-32" style={{ backgroundColor: '#0d1f35' }}>
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="font-serif text-4xl md:text-5xl mb-6" style={{ color: '#d4af37' }}>
+              Our Advisory Services
+            </h2>
+            <div className="w-24 h-px mx-auto mb-8" style={{ backgroundColor: '#d4af37' }}></div>
+            <p className="text-gray-400 text-lg font-light tracking-wide">
+              Institutional-Grade Expertise with Boutique Discretion
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {services.map((service, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-amber-500/50 transition-all duration-300 hover:transform hover:-translate-y-1">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-amber-500/10 rounded-lg flex items-center justify-center text-amber-500 mb-4">
-                    {service.icon}
-                  </div>
-                  <CardTitle className="text-xl text-white">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-slate-400 text-base leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <div 
+                key={index} 
+                className="group p-8 border border-gray-800 hover:border-[#d4af37]/50 transition-all duration-500"
+              >
+                <h3 className="font-serif text-xl text-white mb-4 group-hover:text-[#d4af37] transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-gray-500 font-light leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Button 
+          <div className="text-center mt-16">
+            <button 
               onClick={() => scrollToSection('contact')}
-              size="lg"
-              className="bg-amber-600 hover:bg-amber-700 text-white px-8"
+              className="text-sm tracking-widest uppercase hover:text-[#d4af37] transition-colors duration-300"
+              style={{ color: '#d4af37' }}
             >
-              Explore Opportunities
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+              Explore Strategic Options →
+            </button>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">About Bergweiss Ltd</h2>
-              <div className="w-24 h-1 bg-amber-500 mb-8"></div>
-              
-              <div className="space-y-6 text-slate-300 text-lg leading-relaxed">
-                <p>
-                  <span className="text-white font-semibold">BERGWEISS LTD</span> is a London-based independent advisory firm (registered in England & Wales) focused exclusively on private-company transactions across Europe.
-                </p>
-                <p>
-                  Founded by Filip Berg, with over 10 years of experience in CEE M&A, we deliver discreet, high-value outcomes without the conflicts of large banks.
-                </p>
-                <p className="text-amber-400 font-semibold text-xl">
-                  We take on only 4-6 mandates per year for personalized focus and superior results.
-                </p>
-                <div className="flex items-center text-slate-400 pt-4">
-                  <MapPin className="w-5 h-5 mr-2 text-amber-500" />
-                  <span>Headquartered in London, serving clients across Europe</span>
-                </div>
-              </div>
+      <section id="about" className="py-32" style={{ backgroundColor: '#0a1628' }}>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-4xl md:text-5xl mb-6" style={{ color: '#d4af37' }}>
+              About Bergweiss Ltd
+            </h2>
+            <div className="w-24 h-px mx-auto" style={{ backgroundColor: '#d4af37' }}></div>
+          </div>
+
+          <div className="space-y-8 text-center">
+            <p className="text-gray-300 text-lg font-light leading-relaxed">
+              <span className="font-serif" style={{ color: '#d4af37' }}>BERGWEISS LTD</span> is a London-based independent corporate finance boutique, registered in England & Wales. Headquartered in Covent Garden, we specialize in discreet, high-value transactions for private company owners across Europe.
+            </p>
+            
+            <p className="text-gray-400 text-lg font-light leading-relaxed">
+              Drawing on a global network of senior advisors, industry specialists, and regulated partners, we deliver superior outcomes with absolute confidentiality and precision.
+            </p>
+            
+            <div className="py-8">
+              <p className="font-serif text-2xl text-white italic">
+                "We selectively engage only 4–6 mandates annually to ensure dedicated senior attention and exceptional results."
+              </p>
             </div>
 
-            <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden">
-                <img 
-                  src="/images/business-handshake.jpg" 
-                  alt="Professional business partnership"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80';
-                  }}
-                />
+            {/* Europe Map Placeholder - Abstract representation */}
+            <div className="pt-8">
+              <div className="relative w-full max-w-md mx-auto h-48 border border-gray-800 rounded-lg overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-3 h-3 rounded-full mx-auto mb-2" style={{ backgroundColor: '#d4af37' }}></div>
+                    <span className="text-xs text-gray-500 tracking-widest uppercase">London</span>
+                  </div>
+                </div>
+                <div className="absolute inset-0 opacity-20">
+                  <svg viewBox="0 0 400 200" className="w-full h-full">
+                    <path d="M150,80 Q200,60 250,80 T350,100" stroke="#d4af37" strokeWidth="0.5" fill="none" opacity="0.3"/>
+                    <path d="M100,100 Q150,90 200,100 T300,110" stroke="#d4af37" strokeWidth="0.5" fill="none" opacity="0.3"/>
+                    <path d="M120,120 Q180,100 240,120 T340,130" stroke="#d4af37" strokeWidth="0.5" fill="none" opacity="0.3"/>
+                  </svg>
+                </div>
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-amber-600 text-white p-6 rounded-xl">
-                <div className="text-4xl font-bold">10+</div>
-                <div className="text-sm">Years Experience</div>
-              </div>
+              <p className="text-gray-600 text-sm mt-4 tracking-wide">Serving clients across Europe</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <section id="case-studies" className="py-24 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Transactions Section */}
+      <section id="transactions" className="py-32" style={{ backgroundColor: '#0d1f35' }}>
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Selected Transactions</h2>
-            <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
-            <p className="text-xl text-slate-400">Anonymous case studies demonstrating our track record</p>
+            <h2 className="font-serif text-4xl md:text-5xl mb-6" style={{ color: '#d4af37' }}>
+              Selected Transactions
+            </h2>
+            <div className="w-24 h-px mx-auto mb-8" style={{ backgroundColor: '#d4af37' }}></div>
+            <p className="text-gray-500 text-sm tracking-wide">
+              Anonymous examples of achieved outcomes
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {caseStudies.map((study, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-amber-500/50 transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-xl text-white">{study.title}</CardTitle>
-                    <div className="w-12 h-12 bg-amber-500/10 rounded-full flex items-center justify-center">
-                      <TrendingUp className="w-6 h-6 text-amber-500" />
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-400 mb-4">{study.description}</p>
-                  <div className="bg-slate-700/50 rounded-lg p-4">
-                    <span className="text-amber-400 font-semibold">{study.result}</span>
-                  </div>
-                </CardContent>
-              </Card>
+            {transactions.map((transaction, index) => (
+              <div 
+                key={index} 
+                className="p-8 border-l-2 hover:border-l-[#d4af37] transition-all duration-500"
+                style={{ borderColor: '#1a3050' }}
+              >
+                <h3 className="font-serif text-lg text-white mb-3">
+                  {transaction.title}
+                </h3>
+                <p className="text-gray-500 font-light">
+                  {transaction.description}
+                </p>
+              </div>
             ))}
           </div>
 
-          <div className="mt-12 p-6 bg-slate-800/30 rounded-xl border border-slate-700">
-            <p className="text-slate-400 text-sm text-center italic">
-              Past performance is not indicative of future results. Transaction details are anonymized for client confidentiality.
+          <div className="mt-16 p-6 border border-gray-800 text-center">
+            <p className="text-gray-600 text-xs tracking-wide italic">
+              Past performance is not indicative of future results. All transaction details are anonymized for client confidentiality.
             </p>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h2>
-              <div className="w-24 h-1 bg-amber-500 mb-8"></div>
-              
-              <p className="text-xl text-slate-300 mb-8">
-                Request a confidential discussion or free initial valuation opinion.
-              </p>
+      <section id="contact" className="py-32" style={{ backgroundColor: '#0a1628' }}>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-4xl md:text-5xl mb-6" style={{ color: '#d4af37' }}>
+              Confidential Consultation
+            </h2>
+            <div className="w-24 h-px mx-auto mb-8" style={{ backgroundColor: '#d4af37' }}></div>
+            <p className="text-gray-400 text-lg font-light">
+              Discuss your strategic options in complete discretion.
+            </p>
+          </div>
 
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <Mail className="w-6 h-6 text-amber-500 mr-4 mt-1" />
-                  <div>
-                    <div className="text-white font-semibold">Email</div>
-                    <a href="mailto:info@berg-weiss.com" className="text-slate-400 hover:text-amber-400 transition-colors">
-                      info@berg-weiss.com
-                    </a>
-                  </div>
+          <div className="max-w-xl mx-auto">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-gray-400 text-sm tracking-wide uppercase">Name *</Label>
+                  <Input
+                    id="name"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="bg-transparent border-gray-700 text-white placeholder:text-gray-600 focus:border-[#d4af37] rounded-none h-12"
+                    placeholder="Your name"
+                  />
                 </div>
-
-                <div className="flex items-start">
-                  <MapPin className="w-6 h-6 text-amber-500 mr-4 mt-1" />
-                  <div>
-                    <div className="text-white font-semibold">London Office</div>
-                    <div className="text-slate-400">
-                      71-75 Shelton Street<br />
-                      Covent Garden<br />
-                      London WC2H 9JQ<br />
-                      United Kingdom
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <Phone className="w-6 h-6 text-amber-500 mr-4 mt-1" />
-                  <div>
-                    <div className="text-white font-semibold">Phone</div>
-                    <div className="text-slate-400">By appointment only</div>
-                  </div>
+                <div className="space-y-2">
+                  <Label htmlFor="company" className="text-gray-400 text-sm tracking-wide uppercase">Company *</Label>
+                  <Input
+                    id="company"
+                    required
+                    value={formData.company}
+                    onChange={(e) => setFormData({...formData, company: e.target.value})}
+                    className="bg-transparent border-gray-700 text-white placeholder:text-gray-600 focus:border-[#d4af37] rounded-none h-12"
+                    placeholder="Company name"
+                  />
                 </div>
               </div>
-            </div>
 
-            <div>
-              <Card className="bg-slate-800/50 border-slate-700">
-                <CardHeader>
-                  <CardTitle className="text-white">Send us a message</CardTitle>
-                  <CardDescription className="text-slate-400">
-                    All inquiries are treated with strict confidentiality
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name" className="text-slate-300">Name *</Label>
-                        <Input
-                          id="name"
-                          required
-                          value={formData.name}
-                          onChange={(e) => setFormData({...formData, name: e.target.value})}
-                          className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-500"
-                          placeholder="Your name"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="company" className="text-slate-300">Company *</Label>
-                        <Input
-                          id="company"
-                          required
-                          value={formData.company}
-                          onChange={(e) => setFormData({...formData, company: e.target.value})}
-                          className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-500"
-                          placeholder="Company name"
-                        />
-                      </div>
-                    </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-gray-400 text-sm tracking-wide uppercase">Email *</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    className="bg-transparent border-gray-700 text-white placeholder:text-gray-600 focus:border-[#d4af37] rounded-none h-12"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone" className="text-gray-400 text-sm tracking-wide uppercase">Phone</Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    className="bg-transparent border-gray-700 text-white placeholder:text-gray-600 focus:border-[#d4af37] rounded-none h-12"
+                    placeholder="+44..."
+                  />
+                </div>
+              </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="email" className="text-slate-300">Email *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={(e) => setFormData({...formData, email: e.target.value})}
-                          className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-500"
-                          placeholder="your@email.com"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="phone" className="text-slate-300">Phone</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                          className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-500"
-                          placeholder="+44..."
-                        />
-                      </div>
-                    </div>
+              <div className="space-y-2">
+                <Label htmlFor="interest" className="text-gray-400 text-sm tracking-wide uppercase">Interested in</Label>
+                <select
+                  id="interest"
+                  value={formData.interest}
+                  onChange={(e) => setFormData({...formData, interest: e.target.value})}
+                  className="w-full h-12 px-3 bg-transparent border border-gray-700 text-white focus:border-[#d4af37] outline-none"
+                >
+                  <option value="" className="bg-[#0a1628]">Select an option</option>
+                  <option value="Valuation" className="bg-[#0a1628]">Valuation</option>
+                  <option value="M&A" className="bg-[#0a1628]">M&A</option>
+                  <option value="Other" className="bg-[#0a1628]">Other</option>
+                </select>
+              </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="interest" className="text-slate-300">Interested in</Label>
-                      <select
-                        id="interest"
-                        value={formData.interest}
-                        onChange={(e) => setFormData({...formData, interest: e.target.value})}
-                        className="w-full h-10 px-3 rounded-md bg-slate-700/50 border border-slate-600 text-white"
-                      >
-                        <option value="">Select an option</option>
-                        <option value="Valuation">Valuation Opinion</option>
-                        <option value="M&A Advisory">M&A Advisory</option>
-                        <option value="Buyer Introductions">Buyer Introductions</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
+              <div className="space-y-2">
+                <Label htmlFor="message" className="text-gray-400 text-sm tracking-wide uppercase">Message</Label>
+                <Textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  className="bg-transparent border-gray-700 text-white placeholder:text-gray-600 focus:border-[#d4af37] rounded-none min-h-32"
+                  placeholder="Tell us about your situation..."
+                />
+              </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="message" className="text-slate-300">Message</Label>
-                      <Textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({...formData, message: e.target.value})}
-                        className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-500 min-h-32"
-                        placeholder="Tell us about your situation..."
-                      />
-                    </div>
+              <button 
+                type="submit"
+                className="w-full py-4 border-2 transition-all duration-500 hover:bg-[#d4af37] hover:border-[#d4af37] group"
+                style={{ borderColor: '#d4af37' }}
+              >
+                <span className="text-sm tracking-widest uppercase group-hover:text-[#0a1628]" style={{ color: '#d4af37' }}>
+                  Submit Inquiry
+                </span>
+              </button>
+            </form>
 
-                    <Button 
-                      type="submit"
-                      size="lg"
-                      className="w-full bg-amber-600 hover:bg-amber-700 text-white"
-                    >
-                      Send Message
-                      <ArrowRight className="ml-2 w-5 h-5" />
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
+            <div className="mt-12 text-center">
+              <p className="text-gray-500 text-sm">
+                London Office: 71-75 Shelton Street, Covent Garden, London WC2H 9JQ
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <div className="mb-4">
-                <span className="text-2xl font-bold tracking-wider text-white">BERGWEISS</span>
-                <span className="text-xs text-slate-400 ml-2 tracking-widest">LTD</span>
-              </div>
-              <p className="text-slate-400 text-sm">
-                Independent Corporate Finance Advisory
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-              <div className="space-y-2">
-                {['Home', 'Services', 'About', 'Case Studies', 'Contact'].map((item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                    className="block text-slate-400 hover:text-amber-400 text-sm transition-colors"
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-white font-semibold mb-4">Legal</h4>
-              <div className="space-y-2">
-                <a href="#" className="block text-slate-400 hover:text-amber-400 text-sm transition-colors">
-                  Privacy Policy
-                </a>
-                <a href="#" className="block text-slate-400 hover:text-amber-400 text-sm transition-colors">
-                  Terms of Service
-                </a>
-              </div>
-            </div>
+      <footer className="py-16 border-t" style={{ backgroundColor: '#0a1628', borderColor: '#1a3050' }}>
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="font-serif text-xl tracking-widest" style={{ color: '#d4af37' }}>BERGWEISS</span>
           </div>
 
-          <div className="border-t border-slate-800 pt-8">
-            <div className="text-center mb-6">
-              <p className="text-slate-500 text-sm">
-                BERGWEISS LTD | Company No. 12345678 | Registered in England & Wales
-              </p>
-            </div>
+          <div className="flex justify-center space-x-8 mb-12">
+            <a href="#" className="text-gray-600 hover:text-gray-400 text-sm tracking-wide transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-gray-600 hover:text-gray-400 text-sm tracking-wide transition-colors">
+              Terms
+            </a>
+          </div>
 
-            {/* Disclaimer */}
-            <div className="bg-slate-800/50 rounded-lg p-6 text-xs text-slate-500 leading-relaxed">
-              <p className="font-semibold text-slate-400 mb-2">Important Disclaimer</p>
-              <p>
-                BERGWEISS LTD provides independent advisory services only and is not a regulated investment bank or broker-dealer. We do not solicit, offer, or sell securities. IPO, capital markets, and SPAC services are provided via introductions to regulated partners. All information is confidential and non-binding. No guarantees of outcomes or valuations. Past examples are anonymous and not indicative of future results. This website does not constitute an offer or solicitation in any jurisdiction where such activities would be unlawful.
-              </p>
-            </div>
+          <div className="text-center mb-8">
+            <p className="text-gray-600 text-sm">
+              BERGWEISS LTD | Registered in England & Wales | Company No. 12345678
+            </p>
+          </div>
 
-            <div className="text-center mt-8">
-              <p className="text-slate-600 text-xs">
-                &copy; {new Date().getFullYear()} Bergweiss Ltd. All rights reserved.
-              </p>
-            </div>
+          {/* Disclaimer */}
+          <div className="max-w-3xl mx-auto p-6 border border-gray-800">
+            <p className="text-gray-600 text-xs leading-relaxed text-center">
+              Bergweiss Ltd provides independent advisory services and is not a regulated entity. We do not offer or sell securities. Regulated services (e.g., capital markets, SPAC) are facilitated via introductions to licensed partners. No guarantees of outcomes. All discussions are confidential and non-binding.
+            </p>
+          </div>
+
+          <div className="text-center mt-8">
+            <p className="text-gray-700 text-xs">
+              © {new Date().getFullYear()} Bergweiss Ltd. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
